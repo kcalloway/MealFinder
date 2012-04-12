@@ -1,0 +1,806 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1205CA2D1522536F00CF77C7 /* RestaurantDisambiguator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205CA2C1522536F00CF77C7 /* RestaurantDisambiguator.m */; };
+		1205CA2E1522536F00CF77C7 /* RestaurantDisambiguator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205CA2C1522536F00CF77C7 /* RestaurantDisambiguator.m */; };
+		1272F22D1521402D00B79652 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F22C1521402D00B79652 /* UIKit.framework */; };
+		1272F22F1521402D00B79652 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F22E1521402D00B79652 /* Foundation.framework */; };
+		1272F2311521402D00B79652 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F2301521402D00B79652 /* CoreGraphics.framework */; };
+		1272F2371521402D00B79652 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1272F2351521402D00B79652 /* InfoPlist.strings */; };
+		1272F2391521402D00B79652 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F2381521402D00B79652 /* main.m */; };
+		1272F23D1521402D00B79652 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F23C1521402D00B79652 /* AppDelegate.m */; };
+		1272F2401521402D00B79652 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F23F1521402D00B79652 /* MainViewController.m */; };
+		1272F2431521402D00B79652 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F2421521402D00B79652 /* FlipsideViewController.m */; };
+		1272F2461521402D00B79652 /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1272F2441521402D00B79652 /* MainViewController_iPhone.xib */; };
+		1272F2491521402D00B79652 /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1272F2471521402D00B79652 /* MainViewController_iPad.xib */; };
+		1272F24C1521402D00B79652 /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1272F24A1521402D00B79652 /* FlipsideViewController.xib */; };
+		1272F2541521402D00B79652 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F2531521402D00B79652 /* SenTestingKit.framework */; };
+		1272F2551521402D00B79652 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F22C1521402D00B79652 /* UIKit.framework */; };
+		1272F2561521402D00B79652 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F22E1521402D00B79652 /* Foundation.framework */; };
+		1272F25E1521402D00B79652 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1272F25C1521402D00B79652 /* InfoPlist.strings */; };
+		1272F2611521402D00B79652 /* MealFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F2601521402D00B79652 /* MealFinderTests.m */; };
+		1272F2711521409100B79652 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F26E1521408900B79652 /* MapKit.framework */; };
+		1272F27615214F9500B79652 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F26E1521408900B79652 /* MapKit.framework */; };
+		1272F27815214FA700B79652 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F27715214FA700B79652 /* CoreLocation.framework */; };
+		1272F27915214FB100B79652 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F27715214FA700B79652 /* CoreLocation.framework */; };
+		1272F27C15217CED00B79652 /* StoreAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F27B15217CED00B79652 /* StoreAnnotation.m */; };
+		1272F27D15217CED00B79652 /* StoreAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F27B15217CED00B79652 /* StoreAnnotation.m */; };
+		1272F2821521923100B79652 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F2811521923000B79652 /* MapViewManager.m */; };
+		1272F2831521923100B79652 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F2811521923000B79652 /* MapViewManager.m */; };
+		1272F3501521C52200B79652 /* MealRestaurantLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F34F1521C52200B79652 /* MealRestaurantLayer.m */; };
+		1272F3511521C52200B79652 /* MealRestaurantLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F34F1521C52200B79652 /* MealRestaurantLayer.m */; };
+		1272F3631521C58500B79652 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3541521C58500B79652 /* DataModel.xcdatamodeld */; };
+		1272F3641521C58500B79652 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3541521C58500B79652 /* DataModel.xcdatamodeld */; };
+		1272F3651521C58500B79652 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3571521C58500B79652 /* DataStore.m */; };
+		1272F3661521C58500B79652 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3571521C58500B79652 /* DataStore.m */; };
+		1272F3671521C58500B79652 /* DietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F35A1521C58500B79652 /* DietaryConstraint.m */; };
+		1272F3681521C58500B79652 /* DietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F35A1521C58500B79652 /* DietaryConstraint.m */; };
+		1272F3691521C58500B79652 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F35C1521C58500B79652 /* MenuItem.m */; };
+		1272F36A1521C58500B79652 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F35C1521C58500B79652 /* MenuItem.m */; };
+		1272F36B1521C58500B79652 /* MealGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F35F1521C58500B79652 /* MealGenerator.m */; };
+		1272F36C1521C58500B79652 /* MealGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F35F1521C58500B79652 /* MealGenerator.m */; };
+		1272F36D1521C58500B79652 /* MealLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3621521C58500B79652 /* MealLibrary.m */; };
+		1272F36E1521C58500B79652 /* MealLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3621521C58500B79652 /* MealLibrary.m */; };
+		1272F37A1521C59300B79652 /* JSONConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3721521C59300B79652 /* JSONConnection.m */; };
+		1272F37B1521C59300B79652 /* JSONConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3721521C59300B79652 /* JSONConnection.m */; };
+		1272F37C1521C59300B79652 /* JSONObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3741521C59300B79652 /* JSONObjectConverter.m */; };
+		1272F37D1521C59300B79652 /* JSONObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3741521C59300B79652 /* JSONObjectConverter.m */; };
+		1272F37E1521C59300B79652 /* RestaurantRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3761521C59300B79652 /* RestaurantRequest.m */; };
+		1272F37F1521C59300B79652 /* RestaurantRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3761521C59300B79652 /* RestaurantRequest.m */; };
+		1272F3801521C59300B79652 /* RestaurantFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3791521C59300B79652 /* RestaurantFinder.m */; };
+		1272F3811521C59300B79652 /* RestaurantFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3791521C59300B79652 /* RestaurantFinder.m */; };
+		1272F38B1521C59C00B79652 /* BatchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3841521C59C00B79652 /* BatchTask.m */; };
+		1272F38C1521C59C00B79652 /* BatchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3841521C59C00B79652 /* BatchTask.m */; };
+		1272F38D1521C59C00B79652 /* BatchTaskScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3861521C59C00B79652 /* BatchTaskScheduler.m */; };
+		1272F38E1521C59C00B79652 /* BatchTaskScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3861521C59C00B79652 /* BatchTaskScheduler.m */; };
+		1272F38F1521C59C00B79652 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3881521C59C00B79652 /* Meal.m */; };
+		1272F3901521C59C00B79652 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3881521C59C00B79652 /* Meal.m */; };
+		1272F3911521C59C00B79652 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F38A1521C59C00B79652 /* Restaurant.m */; };
+		1272F3921521C59C00B79652 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F38A1521C59C00B79652 /* Restaurant.m */; };
+		1272F3941521C5B600B79652 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F3931521C5B600B79652 /* CoreData.framework */; };
+		1272F3951521C5C500B79652 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F3931521C5B600B79652 /* CoreData.framework */; };
+		1272F3991521C70F00B79652 /* chain_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1272F3971521C70F00B79652 /* chain_nutrition.csv */; };
+		1272F39A1521C70F00B79652 /* chain_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1272F3971521C70F00B79652 /* chain_nutrition.csv */; };
+		1272F39B1521C70F00B79652 /* MealLibrary.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1272F3981521C70F00B79652 /* MealLibrary.sqlite */; };
+		1272F39C1521C70F00B79652 /* MealLibrary.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1272F3981521C70F00B79652 /* MealLibrary.sqlite */; };
+		1285102315252A9200DD339E /* RestaurantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285102215252A9200DD339E /* RestaurantTableViewController.m */; };
+		1285102415252A9200DD339E /* RestaurantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285102215252A9200DD339E /* RestaurantTableViewController.m */; };
+		12A690581532B0AC00A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690571532B0AC00A60767 /* QualitativeDietaryConstraint.m */; };
+		12A690591532B0AC00A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690571532B0AC00A60767 /* QualitativeDietaryConstraint.m */; };
+		12ABD0D21532187E00D05493 /* DraggableControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ABD0D11532187E00D05493 /* DraggableControllerDelegate.m */; };
+		12ABD0D31532187E00D05493 /* DraggableControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ABD0D11532187E00D05493 /* DraggableControllerDelegate.m */; };
+		12ABD0E21532265300D05493 /* AdvancedConfigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12ABD0D61532265300D05493 /* AdvancedConfigView.xib */; };
+		12ABD0E31532265300D05493 /* AdvancedConfigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12ABD0D61532265300D05493 /* AdvancedConfigView.xib */; };
+		12ABD0E41532265300D05493 /* ConfigurationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ABD0D91532265300D05493 /* ConfigurationController.m */; };
+		12ABD0E51532265300D05493 /* ConfigurationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ABD0D91532265300D05493 /* ConfigurationController.m */; };
+		12B01F76152ADE0700ACCA8A /* MealCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B01F75152ADE0700ACCA8A /* MealCellInfo.m */; };
+		12B01F77152ADE0700ACCA8A /* MealCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B01F75152ADE0700ACCA8A /* MealCellInfo.m */; };
+		12CBEA101530FB1A00AD3254 /* config_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CBEA0F1530FB1900AD3254 /* config_background.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1272F2571521402D00B79652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1272F21F1521402D00B79652 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1272F2271521402D00B79652;
+			remoteInfo = MealFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1205CA2B1522536F00CF77C7 /* RestaurantDisambiguator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDisambiguator.h; sourceTree = "<group>"; };
+		1205CA2C1522536F00CF77C7 /* RestaurantDisambiguator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDisambiguator.m; sourceTree = "<group>"; };
+		1272F2281521402D00B79652 /* MealFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1272F22C1521402D00B79652 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1272F22E1521402D00B79652 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1272F2301521402D00B79652 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1272F2341521402D00B79652 /* MealFinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MealFinder-Info.plist"; sourceTree = "<group>"; };
+		1272F2361521402D00B79652 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1272F2381521402D00B79652 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1272F23A1521402D00B79652 /* MealFinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MealFinder-Prefix.pch"; sourceTree = "<group>"; };
+		1272F23B1521402D00B79652 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1272F23C1521402D00B79652 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1272F23E1521402D00B79652 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		1272F23F1521402D00B79652 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		1272F2411521402D00B79652 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		1272F2421521402D00B79652 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		1272F2451521402D00B79652 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPhone.xib; sourceTree = "<group>"; };
+		1272F2481521402D00B79652 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPad.xib; sourceTree = "<group>"; };
+		1272F24B1521402D00B79652 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FlipsideViewController.xib; sourceTree = "<group>"; };
+		1272F2521521402D00B79652 /* MealFinderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealFinderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1272F2531521402D00B79652 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1272F25B1521402D00B79652 /* MealFinderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MealFinderTests-Info.plist"; sourceTree = "<group>"; };
+		1272F25D1521402D00B79652 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1272F25F1521402D00B79652 /* MealFinderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MealFinderTests.h; sourceTree = "<group>"; };
+		1272F2601521402D00B79652 /* MealFinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MealFinderTests.m; sourceTree = "<group>"; };
+		1272F26E1521408900B79652 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1272F27715214FA700B79652 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1272F27A15217CEC00B79652 /* StoreAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreAnnotation.h; path = implementation/StoreAnnotation.h; sourceTree = "<group>"; };
+		1272F27B15217CED00B79652 /* StoreAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreAnnotation.m; path = implementation/StoreAnnotation.m; sourceTree = "<group>"; };
+		1272F27E1521805200B79652 /* AnnotationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationInfo.h; path = implementation/AnnotationInfo.h; sourceTree = "<group>"; };
+		1272F2801521923000B79652 /* MapViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewManager.h; path = implementation/MapViewManager.h; sourceTree = "<group>"; };
+		1272F2811521923000B79652 /* MapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewManager.m; path = implementation/MapViewManager.m; sourceTree = "<group>"; };
+		1272F34D1521C52200B79652 /* MealRestaurantLayer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MealRestaurantLayer-Prefix.pch"; sourceTree = "<group>"; };
+		1272F34E1521C52200B79652 /* MealRestaurantLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealRestaurantLayer.h; sourceTree = "<group>"; };
+		1272F34F1521C52200B79652 /* MealRestaurantLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealRestaurantLayer.m; sourceTree = "<group>"; };
+		1272F3551521C58500B79652 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		1272F3561521C58500B79652 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		1272F3571521C58500B79652 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
+		1272F3581521C58500B79652 /* DataStoreSeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStoreSeed.h; sourceTree = "<group>"; };
+		1272F3591521C58500B79652 /* DietaryConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DietaryConstraint.h; sourceTree = "<group>"; };
+		1272F35A1521C58500B79652 /* DietaryConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DietaryConstraint.m; sourceTree = "<group>"; };
+		1272F35B1521C58500B79652 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		1272F35C1521C58500B79652 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		1272F35E1521C58500B79652 /* MealGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealGenerator.h; sourceTree = "<group>"; };
+		1272F35F1521C58500B79652 /* MealGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealGenerator.m; sourceTree = "<group>"; };
+		1272F3601521C58500B79652 /* MealLibrary-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MealLibrary-Prefix.pch"; sourceTree = "<group>"; };
+		1272F3611521C58500B79652 /* MealLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealLibrary.h; sourceTree = "<group>"; };
+		1272F3621521C58500B79652 /* MealLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealLibrary.m; sourceTree = "<group>"; };
+		1272F3711521C59300B79652 /* JSONConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONConnection.h; sourceTree = "<group>"; };
+		1272F3721521C59300B79652 /* JSONConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConnection.m; sourceTree = "<group>"; };
+		1272F3731521C59300B79652 /* JSONObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONObjectConverter.h; sourceTree = "<group>"; };
+		1272F3741521C59300B79652 /* JSONObjectConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONObjectConverter.m; sourceTree = "<group>"; };
+		1272F3751521C59300B79652 /* RestaurantRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantRequest.h; sourceTree = "<group>"; };
+		1272F3761521C59300B79652 /* RestaurantRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantRequest.m; sourceTree = "<group>"; };
+		1272F3771521C59300B79652 /* RestaurantFinder-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RestaurantFinder-Prefix.pch"; sourceTree = "<group>"; };
+		1272F3781521C59300B79652 /* RestaurantFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantFinder.h; sourceTree = "<group>"; };
+		1272F3791521C59300B79652 /* RestaurantFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantFinder.m; sourceTree = "<group>"; };
+		1272F3831521C59C00B79652 /* BatchTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchTask.h; sourceTree = "<group>"; };
+		1272F3841521C59C00B79652 /* BatchTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchTask.m; sourceTree = "<group>"; };
+		1272F3851521C59C00B79652 /* BatchTaskScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchTaskScheduler.h; sourceTree = "<group>"; };
+		1272F3861521C59C00B79652 /* BatchTaskScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchTaskScheduler.m; sourceTree = "<group>"; };
+		1272F3871521C59C00B79652 /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
+		1272F3881521C59C00B79652 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
+		1272F3891521C59C00B79652 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		1272F38A1521C59C00B79652 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		1272F3931521C5B600B79652 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1272F3971521C70F00B79652 /* chain_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chain_nutrition.csv; sourceTree = "<group>"; };
+		1272F3981521C70F00B79652 /* MealLibrary.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MealLibrary.sqlite; sourceTree = "<group>"; };
+		1285102115252A9200DD339E /* RestaurantTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTableViewController.h; sourceTree = "<group>"; };
+		1285102215252A9200DD339E /* RestaurantTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTableViewController.m; sourceTree = "<group>"; };
+		12A690561532B0AC00A60767 /* QualitativeDietaryConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QualitativeDietaryConstraint.h; sourceTree = "<group>"; };
+		12A690571532B0AC00A60767 /* QualitativeDietaryConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QualitativeDietaryConstraint.m; sourceTree = "<group>"; };
+		12ABD0D01532187E00D05493 /* DraggableControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DraggableControllerDelegate.h; path = implementation/DraggableControllerDelegate.h; sourceTree = "<group>"; };
+		12ABD0D11532187E00D05493 /* DraggableControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DraggableControllerDelegate.m; path = implementation/DraggableControllerDelegate.m; sourceTree = "<group>"; };
+		12ABD0D61532265300D05493 /* AdvancedConfigView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvancedConfigView.xib; path = implementation/AdvancedConfigView.xib; sourceTree = "<group>"; };
+		12ABD0D81532265300D05493 /* ConfigurationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurationController.h; path = implementation/ConfigurationController.h; sourceTree = "<group>"; };
+		12ABD0D91532265300D05493 /* ConfigurationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurationController.m; path = implementation/ConfigurationController.m; sourceTree = "<group>"; };
+		12B01F74152ADE0600ACCA8A /* MealCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MealCellInfo.h; path = implementation/MealCellInfo.h; sourceTree = "<group>"; };
+		12B01F75152ADE0700ACCA8A /* MealCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MealCellInfo.m; path = implementation/MealCellInfo.m; sourceTree = "<group>"; };
+		12CBEA0F1530FB1900AD3254 /* config_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_background.png; path = ../../../../../resources/img/Art/config_background.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1272F2251521402D00B79652 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1272F3951521C5C500B79652 /* CoreData.framework in Frameworks */,
+				1272F27815214FA700B79652 /* CoreLocation.framework in Frameworks */,
+				1272F27615214F9500B79652 /* MapKit.framework in Frameworks */,
+				1272F22D1521402D00B79652 /* UIKit.framework in Frameworks */,
+				1272F22F1521402D00B79652 /* Foundation.framework in Frameworks */,
+				1272F2311521402D00B79652 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1272F24E1521402D00B79652 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1272F3941521C5B600B79652 /* CoreData.framework in Frameworks */,
+				1272F27915214FB100B79652 /* CoreLocation.framework in Frameworks */,
+				1272F2711521409100B79652 /* MapKit.framework in Frameworks */,
+				1272F2541521402D00B79652 /* SenTestingKit.framework in Frameworks */,
+				1272F2551521402D00B79652 /* UIKit.framework in Frameworks */,
+				1272F2561521402D00B79652 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1272F21D1521402D00B79652 = {
+			isa = PBXGroup;
+			children = (
+				1272F2321521402D00B79652 /* MealFinder */,
+				1272F2591521402D00B79652 /* MealFinderTests */,
+				1272F22B1521402D00B79652 /* Frameworks */,
+				1272F2291521402D00B79652 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1272F2291521402D00B79652 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1272F2281521402D00B79652 /* MealFinder.app */,
+				1272F2521521402D00B79652 /* MealFinderTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1272F22B1521402D00B79652 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1272F3931521C5B600B79652 /* CoreData.framework */,
+				1272F27715214FA700B79652 /* CoreLocation.framework */,
+				1272F26E1521408900B79652 /* MapKit.framework */,
+				1272F22C1521402D00B79652 /* UIKit.framework */,
+				1272F22E1521402D00B79652 /* Foundation.framework */,
+				1272F2301521402D00B79652 /* CoreGraphics.framework */,
+				1272F2531521402D00B79652 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1272F2321521402D00B79652 /* MealFinder */ = {
+			isa = PBXGroup;
+			children = (
+				1272F3961521C70F00B79652 /* data */,
+				1272F3821521C59C00B79652 /* shared */,
+				1272F36F1521C59200B79652 /* RestaurantFinder */,
+				1272F3521521C58500B79652 /* MealLibrary */,
+				1272F34C1521C52200B79652 /* MealRestaurantLayer */,
+				1272F34B1521C4BD00B79652 /* gui */,
+				1272F23B1521402D00B79652 /* AppDelegate.h */,
+				1272F23C1521402D00B79652 /* AppDelegate.m */,
+				1272F2331521402D00B79652 /* Supporting Files */,
+			);
+			path = MealFinder;
+			sourceTree = "<group>";
+		};
+		1272F2331521402D00B79652 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1272F2341521402D00B79652 /* MealFinder-Info.plist */,
+				1272F2351521402D00B79652 /* InfoPlist.strings */,
+				1272F2381521402D00B79652 /* main.m */,
+				1272F23A1521402D00B79652 /* MealFinder-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1272F2591521402D00B79652 /* MealFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				1272F25F1521402D00B79652 /* MealFinderTests.h */,
+				1272F2601521402D00B79652 /* MealFinderTests.m */,
+				1272F25A1521402D00B79652 /* Supporting Files */,
+			);
+			path = MealFinderTests;
+			sourceTree = "<group>";
+		};
+		1272F25A1521402D00B79652 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1272F25B1521402D00B79652 /* MealFinderTests-Info.plist */,
+				1272F25C1521402D00B79652 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1272F27F1521809D00B79652 /* implementation */ = {
+			isa = PBXGroup;
+			children = (
+				12ABD0D61532265300D05493 /* AdvancedConfigView.xib */,
+				1272F27E1521805200B79652 /* AnnotationInfo.h */,
+				12ABD0D81532265300D05493 /* ConfigurationController.h */,
+				12ABD0D91532265300D05493 /* ConfigurationController.m */,
+				1272F27A15217CEC00B79652 /* StoreAnnotation.h */,
+				1272F27B15217CED00B79652 /* StoreAnnotation.m */,
+				1272F2801521923000B79652 /* MapViewManager.h */,
+				1272F2811521923000B79652 /* MapViewManager.m */,
+				1285102115252A9200DD339E /* RestaurantTableViewController.h */,
+				1285102215252A9200DD339E /* RestaurantTableViewController.m */,
+				12B01F74152ADE0600ACCA8A /* MealCellInfo.h */,
+				12B01F75152ADE0700ACCA8A /* MealCellInfo.m */,
+				12ABD0D01532187E00D05493 /* DraggableControllerDelegate.h */,
+				12ABD0D11532187E00D05493 /* DraggableControllerDelegate.m */,
+			);
+			name = implementation;
+			sourceTree = "<group>";
+		};
+		1272F34B1521C4BD00B79652 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				12CBEA0F1530FB1900AD3254 /* config_background.png */,
+				1272F27F1521809D00B79652 /* implementation */,
+				1272F23E1521402D00B79652 /* MainViewController.h */,
+				1272F23F1521402D00B79652 /* MainViewController.m */,
+				1272F2411521402D00B79652 /* FlipsideViewController.h */,
+				1272F2421521402D00B79652 /* FlipsideViewController.m */,
+				1272F2441521402D00B79652 /* MainViewController_iPhone.xib */,
+				1272F2471521402D00B79652 /* MainViewController_iPad.xib */,
+				1272F24A1521402D00B79652 /* FlipsideViewController.xib */,
+			);
+			name = gui;
+			sourceTree = "<group>";
+		};
+		1272F34C1521C52200B79652 /* MealRestaurantLayer */ = {
+			isa = PBXGroup;
+			children = (
+				1272F34D1521C52200B79652 /* MealRestaurantLayer-Prefix.pch */,
+				1272F34E1521C52200B79652 /* MealRestaurantLayer.h */,
+				1272F34F1521C52200B79652 /* MealRestaurantLayer.m */,
+			);
+			name = MealRestaurantLayer;
+			path = ../../../MealRestaurantLayer/MealRestaurantLayer;
+			sourceTree = "<group>";
+		};
+		1272F3521521C58500B79652 /* MealLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				1272F3531521C58500B79652 /* DataStore */,
+				1272F35D1521C58500B79652 /* MealGenerator */,
+				1272F3601521C58500B79652 /* MealLibrary-Prefix.pch */,
+				1272F3611521C58500B79652 /* MealLibrary.h */,
+				1272F3621521C58500B79652 /* MealLibrary.m */,
+			);
+			name = MealLibrary;
+			path = ../../../MealLibrary/MealLibrary;
+			sourceTree = "<group>";
+		};
+		1272F3531521C58500B79652 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				1272F3541521C58500B79652 /* DataModel.xcdatamodeld */,
+				1272F3561521C58500B79652 /* DataStore.h */,
+				1272F3571521C58500B79652 /* DataStore.m */,
+				1272F3581521C58500B79652 /* DataStoreSeed.h */,
+				1272F3591521C58500B79652 /* DietaryConstraint.h */,
+				1272F35A1521C58500B79652 /* DietaryConstraint.m */,
+				1272F35B1521C58500B79652 /* MenuItem.h */,
+				1272F35C1521C58500B79652 /* MenuItem.m */,
+				12A690561532B0AC00A60767 /* QualitativeDietaryConstraint.h */,
+				12A690571532B0AC00A60767 /* QualitativeDietaryConstraint.m */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		1272F35D1521C58500B79652 /* MealGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				1272F35E1521C58500B79652 /* MealGenerator.h */,
+				1272F35F1521C58500B79652 /* MealGenerator.m */,
+			);
+			path = MealGenerator;
+			sourceTree = "<group>";
+		};
+		1272F36F1521C59200B79652 /* RestaurantFinder */ = {
+			isa = PBXGroup;
+			children = (
+				1272F3701521C59200B79652 /* implementation */,
+				1272F3771521C59300B79652 /* RestaurantFinder-Prefix.pch */,
+				1272F3781521C59300B79652 /* RestaurantFinder.h */,
+				1272F3791521C59300B79652 /* RestaurantFinder.m */,
+			);
+			name = RestaurantFinder;
+			path = ../../../RestaurantFinder/RestaurantFinder;
+			sourceTree = "<group>";
+		};
+		1272F3701521C59200B79652 /* implementation */ = {
+			isa = PBXGroup;
+			children = (
+				1272F3711521C59300B79652 /* JSONConnection.h */,
+				1272F3721521C59300B79652 /* JSONConnection.m */,
+				1272F3731521C59300B79652 /* JSONObjectConverter.h */,
+				1272F3741521C59300B79652 /* JSONObjectConverter.m */,
+				1272F3751521C59300B79652 /* RestaurantRequest.h */,
+				1272F3761521C59300B79652 /* RestaurantRequest.m */,
+			);
+			path = implementation;
+			sourceTree = "<group>";
+		};
+		1272F3821521C59C00B79652 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				1205CA2B1522536F00CF77C7 /* RestaurantDisambiguator.h */,
+				1205CA2C1522536F00CF77C7 /* RestaurantDisambiguator.m */,
+				1272F3831521C59C00B79652 /* BatchTask.h */,
+				1272F3841521C59C00B79652 /* BatchTask.m */,
+				1272F3851521C59C00B79652 /* BatchTaskScheduler.h */,
+				1272F3861521C59C00B79652 /* BatchTaskScheduler.m */,
+				1272F3871521C59C00B79652 /* Meal.h */,
+				1272F3881521C59C00B79652 /* Meal.m */,
+				1272F3891521C59C00B79652 /* Restaurant.h */,
+				1272F38A1521C59C00B79652 /* Restaurant.m */,
+			);
+			name = shared;
+			path = ../../../shared;
+			sourceTree = "<group>";
+		};
+		1272F3961521C70F00B79652 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				1272F3971521C70F00B79652 /* chain_nutrition.csv */,
+				1272F3981521C70F00B79652 /* MealLibrary.sqlite */,
+			);
+			name = data;
+			path = ../../../../../resources/data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1272F2271521402D00B79652 /* MealFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1272F2641521402D00B79652 /* Build configuration list for PBXNativeTarget "MealFinder" */;
+			buildPhases = (
+				1272F2241521402D00B79652 /* Sources */,
+				1272F2251521402D00B79652 /* Frameworks */,
+				1272F2261521402D00B79652 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MealFinder;
+			productName = MealFinder;
+			productReference = 1272F2281521402D00B79652 /* MealFinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1272F2511521402D00B79652 /* MealFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1272F2671521402D00B79652 /* Build configuration list for PBXNativeTarget "MealFinderTests" */;
+			buildPhases = (
+				1272F24D1521402D00B79652 /* Sources */,
+				1272F24E1521402D00B79652 /* Frameworks */,
+				1272F24F1521402D00B79652 /* Resources */,
+				1272F2501521402D00B79652 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1272F2581521402D00B79652 /* PBXTargetDependency */,
+			);
+			name = MealFinderTests;
+			productName = MealFinderTests;
+			productReference = 1272F2521521402D00B79652 /* MealFinderTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1272F21F1521402D00B79652 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 1272F2221521402D00B79652 /* Build configuration list for PBXProject "MealFinder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1272F21D1521402D00B79652;
+			productRefGroup = 1272F2291521402D00B79652 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1272F2271521402D00B79652 /* MealFinder */,
+				1272F2511521402D00B79652 /* MealFinderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1272F2261521402D00B79652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1272F2371521402D00B79652 /* InfoPlist.strings in Resources */,
+				1272F2461521402D00B79652 /* MainViewController_iPhone.xib in Resources */,
+				1272F2491521402D00B79652 /* MainViewController_iPad.xib in Resources */,
+				1272F24C1521402D00B79652 /* FlipsideViewController.xib in Resources */,
+				1272F3991521C70F00B79652 /* chain_nutrition.csv in Resources */,
+				1272F39B1521C70F00B79652 /* MealLibrary.sqlite in Resources */,
+				12CBEA101530FB1A00AD3254 /* config_background.png in Resources */,
+				12ABD0E21532265300D05493 /* AdvancedConfigView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1272F24F1521402D00B79652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1272F25E1521402D00B79652 /* InfoPlist.strings in Resources */,
+				1272F39A1521C70F00B79652 /* chain_nutrition.csv in Resources */,
+				1272F39C1521C70F00B79652 /* MealLibrary.sqlite in Resources */,
+				12ABD0E31532265300D05493 /* AdvancedConfigView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1272F2501521402D00B79652 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1272F2241521402D00B79652 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1272F2391521402D00B79652 /* main.m in Sources */,
+				1272F23D1521402D00B79652 /* AppDelegate.m in Sources */,
+				1272F2401521402D00B79652 /* MainViewController.m in Sources */,
+				1272F2431521402D00B79652 /* FlipsideViewController.m in Sources */,
+				1272F27C15217CED00B79652 /* StoreAnnotation.m in Sources */,
+				1272F2821521923100B79652 /* MapViewManager.m in Sources */,
+				1272F3501521C52200B79652 /* MealRestaurantLayer.m in Sources */,
+				1272F3631521C58500B79652 /* DataModel.xcdatamodeld in Sources */,
+				1272F3651521C58500B79652 /* DataStore.m in Sources */,
+				1272F3671521C58500B79652 /* DietaryConstraint.m in Sources */,
+				1272F3691521C58500B79652 /* MenuItem.m in Sources */,
+				1272F36B1521C58500B79652 /* MealGenerator.m in Sources */,
+				1272F36D1521C58500B79652 /* MealLibrary.m in Sources */,
+				1272F37A1521C59300B79652 /* JSONConnection.m in Sources */,
+				1272F37C1521C59300B79652 /* JSONObjectConverter.m in Sources */,
+				1272F37E1521C59300B79652 /* RestaurantRequest.m in Sources */,
+				1272F3801521C59300B79652 /* RestaurantFinder.m in Sources */,
+				1272F38B1521C59C00B79652 /* BatchTask.m in Sources */,
+				1272F38D1521C59C00B79652 /* BatchTaskScheduler.m in Sources */,
+				1272F38F1521C59C00B79652 /* Meal.m in Sources */,
+				1272F3911521C59C00B79652 /* Restaurant.m in Sources */,
+				1205CA2D1522536F00CF77C7 /* RestaurantDisambiguator.m in Sources */,
+				1285102315252A9200DD339E /* RestaurantTableViewController.m in Sources */,
+				12B01F76152ADE0700ACCA8A /* MealCellInfo.m in Sources */,
+				12ABD0D21532187E00D05493 /* DraggableControllerDelegate.m in Sources */,
+				12ABD0E41532265300D05493 /* ConfigurationController.m in Sources */,
+				12A690581532B0AC00A60767 /* QualitativeDietaryConstraint.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1272F24D1521402D00B79652 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1272F2611521402D00B79652 /* MealFinderTests.m in Sources */,
+				1272F27D15217CED00B79652 /* StoreAnnotation.m in Sources */,
+				1272F2831521923100B79652 /* MapViewManager.m in Sources */,
+				1272F3511521C52200B79652 /* MealRestaurantLayer.m in Sources */,
+				1272F3641521C58500B79652 /* DataModel.xcdatamodeld in Sources */,
+				1272F3661521C58500B79652 /* DataStore.m in Sources */,
+				1272F3681521C58500B79652 /* DietaryConstraint.m in Sources */,
+				1272F36A1521C58500B79652 /* MenuItem.m in Sources */,
+				1272F36C1521C58500B79652 /* MealGenerator.m in Sources */,
+				1272F36E1521C58500B79652 /* MealLibrary.m in Sources */,
+				1272F37B1521C59300B79652 /* JSONConnection.m in Sources */,
+				1272F37D1521C59300B79652 /* JSONObjectConverter.m in Sources */,
+				1272F37F1521C59300B79652 /* RestaurantRequest.m in Sources */,
+				1272F3811521C59300B79652 /* RestaurantFinder.m in Sources */,
+				1272F38C1521C59C00B79652 /* BatchTask.m in Sources */,
+				1272F38E1521C59C00B79652 /* BatchTaskScheduler.m in Sources */,
+				1272F3901521C59C00B79652 /* Meal.m in Sources */,
+				1272F3921521C59C00B79652 /* Restaurant.m in Sources */,
+				1205CA2E1522536F00CF77C7 /* RestaurantDisambiguator.m in Sources */,
+				1285102415252A9200DD339E /* RestaurantTableViewController.m in Sources */,
+				12B01F77152ADE0700ACCA8A /* MealCellInfo.m in Sources */,
+				12ABD0D31532187E00D05493 /* DraggableControllerDelegate.m in Sources */,
+				12ABD0E51532265300D05493 /* ConfigurationController.m in Sources */,
+				12A690591532B0AC00A60767 /* QualitativeDietaryConstraint.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1272F2581521402D00B79652 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1272F2271521402D00B79652 /* MealFinder */;
+			targetProxy = 1272F2571521402D00B79652 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1272F2351521402D00B79652 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1272F2361521402D00B79652 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1272F2441521402D00B79652 /* MainViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1272F2451521402D00B79652 /* en */,
+			);
+			name = MainViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		1272F2471521402D00B79652 /* MainViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1272F2481521402D00B79652 /* en */,
+			);
+			name = MainViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		1272F24A1521402D00B79652 /* FlipsideViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1272F24B1521402D00B79652 /* en */,
+			);
+			name = FlipsideViewController.xib;
+			sourceTree = "<group>";
+		};
+		1272F25C1521402D00B79652 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1272F25D1521402D00B79652 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1272F2621521402D00B79652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1272F2631521402D00B79652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1272F2651521402D00B79652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MealFinder/MealFinder-Prefix.pch";
+				INFOPLIST_FILE = "MealFinder/MealFinder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1272F2661521402D00B79652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MealFinder/MealFinder-Prefix.pch";
+				INFOPLIST_FILE = "MealFinder/MealFinder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1272F2681521402D00B79652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MealFinder.app/MealFinder";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MealFinder/MealFinder-Prefix.pch";
+				INFOPLIST_FILE = "MealFinderTests/MealFinderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		1272F2691521402D00B79652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MealFinder.app/MealFinder";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MealFinder/MealFinder-Prefix.pch";
+				INFOPLIST_FILE = "MealFinderTests/MealFinderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1272F2221521402D00B79652 /* Build configuration list for PBXProject "MealFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1272F2621521402D00B79652 /* Debug */,
+				1272F2631521402D00B79652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1272F2641521402D00B79652 /* Build configuration list for PBXNativeTarget "MealFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1272F2651521402D00B79652 /* Debug */,
+				1272F2661521402D00B79652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1272F2671521402D00B79652 /* Build configuration list for PBXNativeTarget "MealFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1272F2681521402D00B79652 /* Debug */,
+				1272F2691521402D00B79652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1272F3541521C58500B79652 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1272F3551521C58500B79652 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 1272F3551521C58500B79652 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1272F21F1521402D00B79652 /* Project object */;
+}
