@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="MenuItem" representedClassName="MenuItem">
+        <attribute name="carbs" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cholesterol" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isMeal" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isVegan" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isVegetarian" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="kcal" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="restaurantId" optional="YES" attributeType="String"/>
+        <attribute name="sodium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="MenuItem" positionX="160" positionY="192" width="128" height="180"/>
+    </elements>
+</model>
