@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'MealRestaurantLayer' target in the 'MealRestaurantLayer' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

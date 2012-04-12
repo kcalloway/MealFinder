@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		122C9DB6151D3DD700E8673E /* JSONConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122C9DB5151D3DD700E8673E /* JSONConnectionTests.m */; };
+		1236BCA4151FB44900B9DF06 /* BatchTaskScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 1236BCA2151FB44900B9DF06 /* BatchTaskScheduler.h */; };
+		1236BCA5151FB44900B9DF06 /* BatchTaskScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1236BCA3151FB44900B9DF06 /* BatchTaskScheduler.m */; };
+		1236BCA6151FB44900B9DF06 /* BatchTaskScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1236BCA3151FB44900B9DF06 /* BatchTaskScheduler.m */; };
+		123B34BB151BFE6B008B3FA6 /* JSONConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 123B34B7151BFE6B008B3FA6 /* JSONConnection.h */; };
+		123B34BC151BFE6B008B3FA6 /* JSONConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B34B8151BFE6B008B3FA6 /* JSONConnection.m */; };
+		123B34BD151BFE6B008B3FA6 /* JSONConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B34B8151BFE6B008B3FA6 /* JSONConnection.m */; };
+		123B34BE151BFE6B008B3FA6 /* RestaurantRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 123B34B9151BFE6B008B3FA6 /* RestaurantRequest.h */; };
+		123B34BF151BFE6B008B3FA6 /* RestaurantRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B34BA151BFE6B008B3FA6 /* RestaurantRequest.m */; };
+		123B34C0151BFE6B008B3FA6 /* RestaurantRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B34BA151BFE6B008B3FA6 /* RestaurantRequest.m */; };
+		123B34E9151C31C9008B3FA6 /* JSONObjectConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 123B34E7151C31C9008B3FA6 /* JSONObjectConverter.h */; };
+		123B34EA151C31C9008B3FA6 /* JSONObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B34E8151C31C9008B3FA6 /* JSONObjectConverter.m */; };
+		123B34EB151C31C9008B3FA6 /* JSONObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B34E8151C31C9008B3FA6 /* JSONObjectConverter.m */; };
+		123B34EE151C3213008B3FA6 /* JSONObjectConverterTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 123B34EC151C3213008B3FA6 /* JSONObjectConverterTests.h */; };
+		123B34F0151C3213008B3FA6 /* JSONObjectConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B34ED151C3213008B3FA6 /* JSONObjectConverterTests.m */; };
+		12486F60151821F200451214 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12486F5F151821F200451214 /* Foundation.framework */; };
+		12486F66151821F200451214 /* RestaurantFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 12486F65151821F200451214 /* RestaurantFinder.m */; };
+		12486F6E151821F200451214 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12486F6D151821F200451214 /* SenTestingKit.framework */; };
+		12486F70151821F200451214 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12486F6F151821F200451214 /* UIKit.framework */; };
+		12486F71151821F200451214 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12486F5F151821F200451214 /* Foundation.framework */; };
+		12486F73151821F200451214 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12486F72151821F200451214 /* CoreGraphics.framework */; };
+		12486F76151821F200451214 /* libRestaurantFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12486F5C151821F200451214 /* libRestaurantFinder.a */; };
+		12486F7C151821F200451214 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12486F7A151821F200451214 /* InfoPlist.strings */; };
+		12486F7E151821F200451214 /* RestaurantFinderTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 12486F7D151821F200451214 /* RestaurantFinderTests.h */; };
+		12486F80151821F200451214 /* RestaurantFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12486F7F151821F200451214 /* RestaurantFinderTests.m */; };
+		129FCD33151971740069320F /* RestaurantRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 129FCD32151971740069320F /* RestaurantRequestTests.m */; };
+		12B0C2C0151C450200256D38 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B0C2BF151C450200256D38 /* CoreLocation.framework */; };
+		12B0C2C3151C452C00256D38 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B0C2C2151C452C00256D38 /* CoreLocation.framework */; };
+		12B0C2CA151C4DE500256D38 /* Restaurant.h in Headers */ = {isa = PBXBuildFile; fileRef = 12B0C2C8151C4DE500256D38 /* Restaurant.h */; };
+		12B0C2CB151C4DE500256D38 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B0C2C9151C4DE500256D38 /* Restaurant.m */; };
+		12B0C2CC151C4DE500256D38 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B0C2C9151C4DE500256D38 /* Restaurant.m */; };
+		12FEF416151E5C0D005CD474 /* BatchTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 12FEF414151E5C0D005CD474 /* BatchTask.h */; };
+		12FEF417151E5C0D005CD474 /* BatchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FEF415151E5C0D005CD474 /* BatchTask.m */; };
+		12FEF418151E5C0D005CD474 /* BatchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FEF415151E5C0D005CD474 /* BatchTask.m */; };
+		12FEF41C151E62A1005CD474 /* BatchProcessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FEF41B151E62A1005CD474 /* BatchProcessTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		12486F74151821F200451214 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12486F53151821F100451214 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12486F5B151821F200451214;
+			remoteInfo = RestaurantFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		122C9DB4151D3DD700E8673E /* JSONConnectionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONConnectionTests.h; sourceTree = "<group>"; };
+		122C9DB5151D3DD700E8673E /* JSONConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConnectionTests.m; sourceTree = "<group>"; };
+		1236BCA2151FB44900B9DF06 /* BatchTaskScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchTaskScheduler.h; sourceTree = "<group>"; };
+		1236BCA3151FB44900B9DF06 /* BatchTaskScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchTaskScheduler.m; sourceTree = "<group>"; };
+		123B34B7151BFE6B008B3FA6 /* JSONConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONConnection.h; sourceTree = "<group>"; };
+		123B34B8151BFE6B008B3FA6 /* JSONConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConnection.m; sourceTree = "<group>"; };
+		123B34B9151BFE6B008B3FA6 /* RestaurantRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantRequest.h; sourceTree = "<group>"; };
+		123B34BA151BFE6B008B3FA6 /* RestaurantRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantRequest.m; sourceTree = "<group>"; };
+		123B34E7151C31C9008B3FA6 /* JSONObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONObjectConverter.h; sourceTree = "<group>"; };
+		123B34E8151C31C9008B3FA6 /* JSONObjectConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONObjectConverter.m; sourceTree = "<group>"; };
+		123B34EC151C3213008B3FA6 /* JSONObjectConverterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONObjectConverterTests.h; sourceTree = "<group>"; };
+		123B34ED151C3213008B3FA6 /* JSONObjectConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONObjectConverterTests.m; sourceTree = "<group>"; };
+		12486F5C151821F200451214 /* libRestaurantFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRestaurantFinder.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		12486F5F151821F200451214 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		12486F63151821F200451214 /* RestaurantFinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RestaurantFinder-Prefix.pch"; sourceTree = "<group>"; };
+		12486F64151821F200451214 /* RestaurantFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantFinder.h; sourceTree = "<group>"; };
+		12486F65151821F200451214 /* RestaurantFinder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantFinder.m; sourceTree = "<group>"; };
+		12486F6C151821F200451214 /* RestaurantFinderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantFinderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12486F6D151821F200451214 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		12486F6F151821F200451214 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		12486F72151821F200451214 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		12486F79151821F200451214 /* RestaurantFinderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RestaurantFinderTests-Info.plist"; sourceTree = "<group>"; };
+		12486F7B151821F200451214 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		12486F7D151821F200451214 /* RestaurantFinderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantFinderTests.h; sourceTree = "<group>"; };
+		12486F7F151821F200451214 /* RestaurantFinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantFinderTests.m; sourceTree = "<group>"; };
+		129FCD31151971740069320F /* RestaurantRequestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantRequestTests.h; sourceTree = "<group>"; };
+		129FCD32151971740069320F /* RestaurantRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantRequestTests.m; sourceTree = "<group>"; };
+		12B0C2BF151C450200256D38 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		12B0C2C2151C452C00256D38 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		12B0C2C8151C4DE500256D38 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		12B0C2C9151C4DE500256D38 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		12FEF414151E5C0D005CD474 /* BatchTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchTask.h; sourceTree = "<group>"; };
+		12FEF415151E5C0D005CD474 /* BatchTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchTask.m; sourceTree = "<group>"; };
+		12FEF41A151E62A1005CD474 /* BatchProcessTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchProcessTests.h; sourceTree = "<group>"; };
+		12FEF41B151E62A1005CD474 /* BatchProcessTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchProcessTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12486F59151821F200451214 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12B0C2C0151C450200256D38 /* CoreLocation.framework in Frameworks */,
+				12486F60151821F200451214 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12486F68151821F200451214 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12B0C2C3151C452C00256D38 /* CoreLocation.framework in Frameworks */,
+				12486F6E151821F200451214 /* SenTestingKit.framework in Frameworks */,
+				12486F70151821F200451214 /* UIKit.framework in Frameworks */,
+				12486F71151821F200451214 /* Foundation.framework in Frameworks */,
+				12486F73151821F200451214 /* CoreGraphics.framework in Frameworks */,
+				12486F76151821F200451214 /* libRestaurantFinder.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		123B34B6151BFE6B008B3FA6 /* implementation */ = {
+			isa = PBXGroup;
+			children = (
+				123B34B7151BFE6B008B3FA6 /* JSONConnection.h */,
+				123B34B8151BFE6B008B3FA6 /* JSONConnection.m */,
+				123B34B9151BFE6B008B3FA6 /* RestaurantRequest.h */,
+				123B34BA151BFE6B008B3FA6 /* RestaurantRequest.m */,
+				123B34E7151C31C9008B3FA6 /* JSONObjectConverter.h */,
+				123B34E8151C31C9008B3FA6 /* JSONObjectConverter.m */,
+			);
+			path = implementation;
+			sourceTree = "<group>";
+		};
+		12486F51151821F100451214 = {
+			isa = PBXGroup;
+			children = (
+				12B0C2C7151C4DE500256D38 /* shared */,
+				12486F61151821F200451214 /* RestaurantFinder */,
+				12486F77151821F200451214 /* RestaurantFinderTests */,
+				12486F5E151821F200451214 /* Frameworks */,
+				12486F5D151821F200451214 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		12486F5D151821F200451214 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12486F5C151821F200451214 /* libRestaurantFinder.a */,
+				12486F6C151821F200451214 /* RestaurantFinderTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12486F5E151821F200451214 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12B0C2C2151C452C00256D38 /* CoreLocation.framework */,
+				12B0C2BF151C450200256D38 /* CoreLocation.framework */,
+				12486F5F151821F200451214 /* Foundation.framework */,
+				12486F6D151821F200451214 /* SenTestingKit.framework */,
+				12486F6F151821F200451214 /* UIKit.framework */,
+				12486F72151821F200451214 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		12486F61151821F200451214 /* RestaurantFinder */ = {
+			isa = PBXGroup;
+			children = (
+				123B34B6151BFE6B008B3FA6 /* implementation */,
+				12486F64151821F200451214 /* RestaurantFinder.h */,
+				12486F65151821F200451214 /* RestaurantFinder.m */,
+				12486F62151821F200451214 /* Supporting Files */,
+			);
+			path = RestaurantFinder;
+			sourceTree = "<group>";
+		};
+		12486F62151821F200451214 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				12486F63151821F200451214 /* RestaurantFinder-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		12486F77151821F200451214 /* RestaurantFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				12486F7D151821F200451214 /* RestaurantFinderTests.h */,
+				12486F7F151821F200451214 /* RestaurantFinderTests.m */,
+				12486F78151821F200451214 /* Supporting Files */,
+				129FCD31151971740069320F /* RestaurantRequestTests.h */,
+				129FCD32151971740069320F /* RestaurantRequestTests.m */,
+				123B34EC151C3213008B3FA6 /* JSONObjectConverterTests.h */,
+				123B34ED151C3213008B3FA6 /* JSONObjectConverterTests.m */,
+				122C9DB4151D3DD700E8673E /* JSONConnectionTests.h */,
+				122C9DB5151D3DD700E8673E /* JSONConnectionTests.m */,
+				12FEF41A151E62A1005CD474 /* BatchProcessTests.h */,
+				12FEF41B151E62A1005CD474 /* BatchProcessTests.m */,
+			);
+			path = RestaurantFinderTests;
+			sourceTree = "<group>";
+		};
+		12486F78151821F200451214 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				12486F79151821F200451214 /* RestaurantFinderTests-Info.plist */,
+				12486F7A151821F200451214 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		12B0C2C7151C4DE500256D38 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				12B0C2C8151C4DE500256D38 /* Restaurant.h */,
+				12B0C2C9151C4DE500256D38 /* Restaurant.m */,
+				12FEF414151E5C0D005CD474 /* BatchTask.h */,
+				12FEF415151E5C0D005CD474 /* BatchTask.m */,
+				1236BCA2151FB44900B9DF06 /* BatchTaskScheduler.h */,
+				1236BCA3151FB44900B9DF06 /* BatchTaskScheduler.m */,
+			);
+			name = shared;
+			path = ../shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		12486F5A151821F200451214 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				123B34BB151BFE6B008B3FA6 /* JSONConnection.h in Headers */,
+				123B34BE151BFE6B008B3FA6 /* RestaurantRequest.h in Headers */,
+				123B34E9151C31C9008B3FA6 /* JSONObjectConverter.h in Headers */,
+				123B34EE151C3213008B3FA6 /* JSONObjectConverterTests.h in Headers */,
+				12B0C2CA151C4DE500256D38 /* Restaurant.h in Headers */,
+				12FEF416151E5C0D005CD474 /* BatchTask.h in Headers */,
+				1236BCA4151FB44900B9DF06 /* BatchTaskScheduler.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		12486F5B151821F200451214 /* RestaurantFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12486F83151821F200451214 /* Build configuration list for PBXNativeTarget "RestaurantFinder" */;
+			buildPhases = (
+				12486F58151821F200451214 /* Sources */,
+				12486F59151821F200451214 /* Frameworks */,
+				12486F5A151821F200451214 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RestaurantFinder;
+			productName = RestaurantFinder;
+			productReference = 12486F5C151821F200451214 /* libRestaurantFinder.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		12486F6B151821F200451214 /* RestaurantFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12486F86151821F200451214 /* Build configuration list for PBXNativeTarget "RestaurantFinderTests" */;
+			buildPhases = (
+				12486F67151821F200451214 /* Sources */,
+				12486F68151821F200451214 /* Frameworks */,
+				12486F69151821F200451214 /* Resources */,
+				12486F6A151821F200451214 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12486F75151821F200451214 /* PBXTargetDependency */,
+			);
+			name = RestaurantFinderTests;
+			productName = RestaurantFinderTests;
+			productReference = 12486F6C151821F200451214 /* RestaurantFinderTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		12486F53151821F100451214 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 12486F56151821F100451214 /* Build configuration list for PBXProject "RestaurantFinder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 12486F51151821F100451214;
+			productRefGroup = 12486F5D151821F200451214 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12486F5B151821F200451214 /* RestaurantFinder */,
+				12486F6B151821F200451214 /* RestaurantFinderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12486F69151821F200451214 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12486F7C151821F200451214 /* InfoPlist.strings in Resources */,
+				12486F7E151821F200451214 /* RestaurantFinderTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12486F6A151821F200451214 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12486F58151821F200451214 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12486F66151821F200451214 /* RestaurantFinder.m in Sources */,
+				123B34BC151BFE6B008B3FA6 /* JSONConnection.m in Sources */,
+				123B34BF151BFE6B008B3FA6 /* RestaurantRequest.m in Sources */,
+				123B34EA151C31C9008B3FA6 /* JSONObjectConverter.m in Sources */,
+				12B0C2CB151C4DE500256D38 /* Restaurant.m in Sources */,
+				12FEF417151E5C0D005CD474 /* BatchTask.m in Sources */,
+				1236BCA5151FB44900B9DF06 /* BatchTaskScheduler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12486F67151821F200451214 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12486F80151821F200451214 /* RestaurantFinderTests.m in Sources */,
+				129FCD33151971740069320F /* RestaurantRequestTests.m in Sources */,
+				123B34BD151BFE6B008B3FA6 /* JSONConnection.m in Sources */,
+				123B34C0151BFE6B008B3FA6 /* RestaurantRequest.m in Sources */,
+				123B34EB151C31C9008B3FA6 /* JSONObjectConverter.m in Sources */,
+				123B34F0151C3213008B3FA6 /* JSONObjectConverterTests.m in Sources */,
+				12B0C2CC151C4DE500256D38 /* Restaurant.m in Sources */,
+				122C9DB6151D3DD700E8673E /* JSONConnectionTests.m in Sources */,
+				12FEF418151E5C0D005CD474 /* BatchTask.m in Sources */,
+				12FEF41C151E62A1005CD474 /* BatchProcessTests.m in Sources */,
+				1236BCA6151FB44900B9DF06 /* BatchTaskScheduler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12486F75151821F200451214 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12486F5B151821F200451214 /* RestaurantFinder */;
+			targetProxy = 12486F74151821F200451214 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		12486F7A151821F200451214 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12486F7B151821F200451214 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		12486F81151821F200451214 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		12486F82151821F200451214 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		12486F84151821F200451214 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/RestaurantFinder.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestaurantFinder/RestaurantFinder-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		12486F85151821F200451214 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/RestaurantFinder.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestaurantFinder/RestaurantFinder-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		12486F87151821F200451214 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestaurantFinder/RestaurantFinder-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "RestaurantFinderTests/RestaurantFinderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		12486F88151821F200451214 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestaurantFinder/RestaurantFinder-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "RestaurantFinderTests/RestaurantFinderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12486F56151821F100451214 /* Build configuration list for PBXProject "RestaurantFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12486F81151821F200451214 /* Debug */,
+				12486F82151821F200451214 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12486F83151821F200451214 /* Build configuration list for PBXNativeTarget "RestaurantFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12486F84151821F200451214 /* Debug */,
+				12486F85151821F200451214 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12486F86151821F200451214 /* Build configuration list for PBXNativeTarget "RestaurantFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12486F87151821F200451214 /* Debug */,
+				12486F88151821F200451214 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 12486F53151821F100451214 /* Project object */;
+}
