@@ -12,16 +12,22 @@
 #import "AnnotationInfo.h"
 #import "Meal.h"
 
+typedef void (^AnimationCompleteBlock)(BOOL);
+
 @protocol StoreAnnotation <NSObject, MKAnnotation, AnnotationInfo>
 -(NSString *)getUniqueId;
+-(void)removeWithAnimationCompleteBlock:(AnimationCompleteBlock)completionBlock;
+@property (assign) UIView *viewDelegate;
 @end
 
 @interface StoreAnnotation : NSObject <StoreAnnotation> {
     id<AnnotationInfo> notationInfo;
     id<Meal> _meal;
-    CLLocation * _location;
-}
 
+    CLLocation * _location;
+    UIView     *viewDelegate;
+}
+@property (assign) UIView *viewDelegate;
 +(id<MKAnnotation, AnnotationInfo>)createWithLocation:(CLLocation *)location;
 +(id<StoreAnnotation>)createWithMeal:(id<Meal>)inputMeal
                        andCoordinate:(CLLocation *)location;

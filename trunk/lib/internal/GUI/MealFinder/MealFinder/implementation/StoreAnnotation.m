@@ -5,6 +5,7 @@
 //  Created by sebbecai on 3/26/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+#define ANIMATION_DUR .25
 
 #import "StoreAnnotation.h"
 
@@ -15,12 +16,23 @@
 @dynamic latitude;
 @dynamic longitude;
 
+@synthesize viewDelegate;
+
 -(NSString *)getUniqueId
 {
     return [_meal restaurantId];
 }
 
 #pragma mark AnnotationInfo
+-(void)removeWithAnimationCompleteBlock:(AnimationCompleteBlock)completionBlock
+{
+    [UIView animateWithDuration:ANIMATION_DUR
+                          delay:0.0f
+                        options:UIViewAnimationCurveEaseInOut
+                     animations:^{[viewDelegate setAlpha:0.0f];}
+                     completion:completionBlock];
+}
+
 -(NSString *)getTitle
 {
     if (!_meal) {

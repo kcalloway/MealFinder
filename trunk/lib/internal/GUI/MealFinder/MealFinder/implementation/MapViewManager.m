@@ -75,12 +75,15 @@
         pinView.pinColor       = MKPinAnnotationColorRed;
         pinView.animatesDrop   = YES;
         pinView.canShowCallout = YES;
-        
+
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         pinView.rightCalloutAccessoryView = rightButton;
     } else {
         pinView.annotation = annotation;
     }
+    annotation.viewDelegate = pinView;
+    [pinView setAlpha:1.0];
+
     return pinView;
 }
 
@@ -107,7 +110,14 @@
     NSArray *locationIdArr = [[caughtNotification userInfo] objectForKey:[MealRestaurantLayer userInfoDataKey]];
     
     for (NSString *locationId in locationIdArr) {
-        [_mapView removeAnnotations:[_annotations objectForKey:locationId]];
+        for (StoreAnnotation *ann in [_annotations objectForKey:locationId]) {            
+            AnimationCompleteBlock removalBlock = ^(BOOL finished) {
+                if (finished) {
+                    [_mapView removeAnnotation:ann];
+                }
+            };
+            [ann removeWithAnimationCompleteBlock:removalBlock];
+        }
         [_annotations removeObjectForKey:locationId];
     }
 }
