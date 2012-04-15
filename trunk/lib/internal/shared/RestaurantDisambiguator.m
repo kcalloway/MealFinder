@@ -17,7 +17,6 @@
     [aliases setObject:@"KFC" forKey:@"Kentucky Fried Chicken"];
     [aliases setObject:@"KFC" forKey:@"KFC"];
 
-    [aliases setObject:@"Taco Bell"  forKey:@"Taco Bell"];
     [aliases setObject:@"Denny's"    forKey:@"Denny's"];
     [aliases setObject:@"Pizza Hut"  forKey:@"Pizza Hut"];
     [aliases setObject:@"Subway"     forKey:@"Subway"];
@@ -29,7 +28,6 @@
 +(NSSet *)allUniqueIds
 {
     NSMutableSet *uniqueIds = [NSMutableSet setWithObject:@"KFC"];
-    [uniqueIds addObject:@"Taco Bell"];
     [uniqueIds addObject:@"Denny's"];
     [uniqueIds addObject:@"Pizza Hut"];
     [uniqueIds addObject:@"Subway"];
@@ -43,7 +41,6 @@
 {
     NSMutableArray *supportedRestaurants = [NSMutableArray array];
     [supportedRestaurants addObject:[Restaurant createWithId:@"KFC"]];
-    [supportedRestaurants addObject:[Restaurant createWithId:@"Taco Bell"]];
     [supportedRestaurants addObject:[Restaurant createWithId:@"Denny's"]];
     [supportedRestaurants addObject:[Restaurant createWithId:@"Pizza Hut"]];
     [supportedRestaurants addObject:[Restaurant createWithId:@"Subway"]];
@@ -127,39 +124,6 @@
     
     return results;
 }
-
-//-(NSMutableArray *)disambiguateForRestaurants:(NSArray *)toDisambiguate
-//{
-//    NSMutableArray *results    = [NSMutableArray array];
-//    NSMutableDictionary *seenRestaurants = [NSMutableDictionary dictionary];
-//    NSString *curUniqueId;
-//
-//    for (id<Restaurant> shop in toDisambiguate) {
-//        curUniqueId = [self uniqueIdForName:shop.name];
-//        
-//        if (curUniqueId) {
-//            // If this restaurant is supported
-//            if (![curUniqueId isEqualToString:shop.uniqueId]) {
-//                shop = [Restaurant createWithId:curUniqueId andName:shop.name andFranchises:shop.franchises];
-//            }
-//            
-//            // If this is a new Restaurant
-//            if (![seenRestaurants objectForKey:curUniqueId]) {
-//                [results addObject:shop];
-//                [seenRestaurants setObject:shop forKey:curUniqueId];
-//            }
-//            else {
-//                NSSet *franchises = [NSSet setWithArray:shop.franchises];
-//                id<Restaurant> originalShop = [seenRestaurants objectForKey:curUniqueId];
-//                [franchises setByAddingObjectsFromArray:originalShop.franchises];
-//                [originalShop.franchises removeAllObjects];
-//                [originalShop.franchises addObjectsFromArray:[franchises allObjects]];
-//            }
-//        }
-//    }
-//
-//    return results;
-//}
 
 #pragma mark Create/Destroy
 -(id)initWithUniqueIds:(NSSet *)uniqueIds andAliases:(NSDictionary *)aliases

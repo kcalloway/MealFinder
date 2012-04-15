@@ -35,11 +35,27 @@
     NSMutableDictionary *_restaurants;
     NSMutableDictionary *_meals;
     NSMutableArray *_diet;
+    
+    BOOL            _runningDietOnlySearch;
 
     id<MealDisplayDelegate> displayDelegate;
 }
 @property (assign) id<MealDisplayDelegate> displayDelegate;
+
+#pragma mark NotificationStuff
++(NSString *)LocationAddedNotification;
 +(NSString *)LocationChangedNotification;
 +(NSString *)LocationRemovedNotification;
++(NSString *)userInfoDataKey;
++(NSString *)userInfoAnnotationKey;
+
+#pragma mark Create/Destroy
 +(id<MealRestaurantLayer>)create;
+
+-(id)initWithRestaurantFinder:(id<RestaurantFinder>)restaurantFinder
+             andMealGenerator:(id<MealGenerator>)mealGenerator
+          andFoundRestaurants:(NSMutableDictionary *)restaurants
+                     andMeals:(NSMutableDictionary *)meals
+         andDietaryConstaints:(NSMutableArray *)diet 
+   andRestaurantDisambiguator:(id<RestaurantDisambiguator>) disambiguator;
 @end

@@ -17,7 +17,8 @@
 
 @interface MapViewManager : NSObject <CLLocationManagerDelegate, MKMapViewDelegate, MealDisplayDelegate> {
     MKMapView      *_mapView;
-    NSMutableArray *_annotations;
+    NSMutableDictionary *_annotations;
+
     CLLocation     *_curAnnotationCenter;
     
     CLLocationManager       *locationManager;

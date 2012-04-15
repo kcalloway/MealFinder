@@ -12,9 +12,9 @@
 
 @implementation DietaryConstraintTests
 
--(void)processResultMeals:(NSArray *) data
+-(void)processResultMeals:(NSArray*) meals forLocationId:(NSString *)locationId
 {
-    [resultMeals addObjectsFromArray:data];
+    [resultMeals addObjectsFromArray:meals];
 }
 
 - (void)setUp
@@ -42,7 +42,24 @@
     
     [super tearDown];
 }
+
 #pragma mark Tests
+-(void)test_findMealsCompoundDietConfigurationControllerInput
+{
+    restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"Denny's"]];
+
+    NSMutableDictionary *dietaryConstraints = [DietaryConstraint namesToConstraints];
+    id<QuantitativeDietaryConstraint> quantConstraint = [dietaryConstraints objectForKey:@"Sodium"];
+    quantConstraint.maxValue = 10000;
+
+    // Run Test
+    [testGenerator findMealsForRestaurants:restaurants andDiet:[dietaryConstraints allValues]];
+    
+    // Check Expectations
+    STAssertNotNil(resultMeals, @"getMeals should always return an array");
+    STAssertTrue([resultMeals count] == 26, @"We expected 26 meals, but got %d!", [resultMeals count]);
+}
+
 -(void)test_findMealsCompoundDietQualitativeEnabledDisabled
 {
     restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"Denny's"]];

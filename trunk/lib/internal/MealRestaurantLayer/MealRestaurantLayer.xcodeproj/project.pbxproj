@@ -71,6 +71,8 @@
 		1272F3B515224E1C00B79652 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F3B415224E1C00B79652 /* CoreData.framework */; };
 		1272F3B615224E2600B79652 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F3B215224E1000B79652 /* CoreLocation.framework */; };
 		1272F3B715224E2E00B79652 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1272F3B415224E1C00B79652 /* CoreData.framework */; };
+		129B565C1538087500CF2F0D /* chain_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 129B565A1538087500CF2F0D /* chain_nutrition.csv */; };
+		129B565D1538087500CF2F0D /* MealLibrary.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 129B565B1538087500CF2F0D /* MealLibrary.sqlite */; };
 		12A690631532B14900A60767 /* QualitativeDietaryConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 12A690611532B14900A60767 /* QualitativeDietaryConstraint.h */; };
 		12A690641532B14900A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690621532B14900A60767 /* QualitativeDietaryConstraint.m */; };
 		12A690651532B14900A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690621532B14900A60767 /* QualitativeDietaryConstraint.m */; };
@@ -138,6 +140,8 @@
 		1272F3B01522407F00B79652 /* RestaurantDisambiguatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDisambiguatorTests.m; sourceTree = "<group>"; };
 		1272F3B215224E1000B79652 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1272F3B415224E1C00B79652 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		129B565A1538087500CF2F0D /* chain_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chain_nutrition.csv; sourceTree = "<group>"; };
+		129B565B1538087500CF2F0D /* MealLibrary.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MealLibrary.sqlite; sourceTree = "<group>"; };
 		12A690611532B14900A60767 /* QualitativeDietaryConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QualitativeDietaryConstraint.h; sourceTree = "<group>"; };
 		12A690621532B14900A60767 /* QualitativeDietaryConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QualitativeDietaryConstraint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +217,7 @@
 		1272F2941521A16700B79652 /* MealRestaurantLayer */ = {
 			isa = PBXGroup;
 			children = (
+				129B56591538087500CF2F0D /* data */,
 				123061D61527A2F200CBAC72 /* gui */,
 				1272F2D11521A26800B79652 /* shared */,
 				1272F2B91521A23600B79652 /* RestaurantFinder */,
@@ -335,6 +340,16 @@
 			path = MealGenerator;
 			sourceTree = "<group>";
 		};
+		129B56591538087500CF2F0D /* data */ = {
+			isa = PBXGroup;
+			children = (
+				129B565A1538087500CF2F0D /* chain_nutrition.csv */,
+				129B565B1538087500CF2F0D /* MealLibrary.sqlite */,
+			);
+			name = data;
+			path = ../../../../resources/data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -436,6 +451,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1272F2AD1521A16700B79652 /* InfoPlist.strings in Resources */,
+				129B565C1538087500CF2F0D /* chain_nutrition.csv in Resources */,
+				129B565D1538087500CF2F0D /* MealLibrary.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

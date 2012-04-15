@@ -64,7 +64,7 @@
 {
     // Set up the Test
     [inputRestaurants addObject:[Restaurant createWithId:@"KFC"]];
-    [inputRestaurants addObject:[Restaurant createWithId:@"Taco Bell"]];
+    [inputRestaurants addObject:[Restaurant createWithId:@"McDonalds"]];
 
     // Run the Test
     [testDisambiguator uniqueifyOriginalRestaurants:originalRestaurants withInput:inputRestaurants];

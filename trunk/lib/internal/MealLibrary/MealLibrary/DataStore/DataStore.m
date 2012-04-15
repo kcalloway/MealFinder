@@ -108,14 +108,14 @@
     for (id<DietaryConstraint> constraint in diet) {
         if ([constraint conformsToProtocol:@protocol(QuantitativeDietaryConstraint)]) {
             id<QuantitativeDietaryConstraint> quantConstraint = (id<QuantitativeDietaryConstraint>) constraint;
-            NSExpression *lhs, *lessThanRhs;
+            NSExpression *lhs, *rhs;
             lhs = [NSExpression expressionForKeyPath:quantConstraint.selectorName];
-            // We add 1 so that the comparison is <= and not just <
-            lessThanRhs = [NSExpression expressionForConstantValue:[NSNumber numberWithInt:quantConstraint.maxValue + 1]];
-            curPredicate = [NSComparisonPredicate predicateWithLeftExpression:lhs rightExpression:lessThanRhs modifier:NSDirectPredicateModifier type:NSLessThanPredicateOperatorType options:0];
+            rhs = [NSExpression expressionForConstantValue:[NSNumber numberWithInt:quantConstraint.maxValue]];
+            curPredicate = [NSComparisonPredicate predicateWithLeftExpression:lhs rightExpression:rhs modifier:NSDirectPredicateModifier type:NSLessThanOrEqualToPredicateOperatorType options:0];
             [subPredicates addObject:curPredicate];
         }
-        else if ([constraint conformsToProtocol:@protocol(QualitativeDietaryConstraint)]) {
+        else 
+        if ([constraint conformsToProtocol:@protocol(QualitativeDietaryConstraint)]) {
             id<QualitativeDietaryConstraint> qualConstraint = (id<QualitativeDietaryConstraint>) constraint;
             if (qualConstraint.enabled) {
                 curPredicate = [NSPredicate predicateWithFormat:@"%K == %@",
@@ -170,9 +170,6 @@
         }
         NSLog(@"%@\n", csvRow);
         if ([csvRow count] == numColumns) {
-
-//                NSManagedObjectContext *context = self.managedObjectContext;
-//                NSLog(@"After managedObjectContext: %@",  self.managedObjectContext);
             newObject = [NSEntityDescription
                         insertNewObjectForEntityForName:typeName 
                         inManagedObjectContext:self.managedObjectContext];
@@ -233,20 +230,6 @@
  Returns the managed object model for the application.
  If the model doesn't already exist, it is created from the application's model.
  */
-//- (NSManagedObjectModel *)managedObjectModel
-//{
-//    if (__managedObjectModel != nil)
-//    {
-//        return __managedObjectModel;
-//    }
-//    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TestingExample" withExtension:@"momd"];
-//    __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
-////    NSManagedObjectModel *test = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
-////    NSLog(@"modelURL = %@\n", modelURL);
-//
-//    return __managedObjectModel;
-//}
-
 - (NSManagedObjectModel *)managedObjectModel {
     if (__managedObjectModel != nil) {
         return __managedObjectModel;

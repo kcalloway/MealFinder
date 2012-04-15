@@ -21,10 +21,15 @@
 #pragma mark AnnotationStuff
 -(void)addAnnotationsForArray:(NSArray *)annotations
 {
-    for (id<MKAnnotation, AnnotationInfo> marker in annotations) {
-        [_annotations addObject:marker];
+    NSString *locationId = @"";
+    for (id<MKAnnotation, StoreAnnotation> marker in annotations) {
+        if (![locationId isEqualToString:[marker getUniqueId]]) {
+            locationId = [marker getUniqueId];
+            [_annotations setObject:annotations forKey:locationId];
+        }
         [_mapView addAnnotation:marker];
     }
+
 }
 
 -(void)makeFakeAnnotations
@@ -82,19 +87,29 @@
 #pragma mark MealStuff
 -(void)addNewRestaurantMeals:(NSArray *)meals
 {
-    [self addAnnotationsForArray:meals];
+//    [self addAnnotationsForArray:meals];
 }
 
--(void)locationChanged:(NSSet *)changed
+-(void)locationAdded:(NSNotification *)caughtNotification
+{
+    NSArray *annotations = [[caughtNotification userInfo] objectForKey:[MealRestaurantLayer userInfoAnnotationKey]];
+    NSLog(@"added = %@\n", annotations);
+
+    [self addAnnotationsForArray:annotations];
+}
+
+-(void)locationChanged:(NSDictionary *)changed
 {
 }
--(void)locationAdded
+
+-(void)locationRemoved:(NSNotification *)caughtNotification
 {
+    NSArray *locationIdArr = [[caughtNotification userInfo] objectForKey:[MealRestaurantLayer userInfoDataKey]];
     
-}
--(void)locationRemoved:(NSSet *)removed
-{
-    [self clearAnnotations];
+    for (NSString *locationId in locationIdArr) {
+        [_mapView removeAnnotations:[_annotations objectForKey:locationId]];
+        [_annotations removeObjectForKey:locationId];
+    }
 }
 
 #pragma mark CLLocationManagerDelegate
@@ -105,8 +120,6 @@
         [self setUserRegion];
         shouldUpdateToCurLocation = NO;
     }
-    //    CLLocation *oLocation = [[CLLocation alloc] initWithLatitude:[_mapView centerCoordinate].latitude longitude:[_mapView centerCoordinate].longitude];
-    //        [self updateAnnotationCenter:oLocation];
 }
 
 #pragma mark MKMapViewDelegateMapStuff
@@ -173,20 +186,6 @@
     _mapView.showsUserLocation = YES;
 }
 
-//-(MKMapView *) loadMapOnView:(UIView *)view
-//{
-//    MKMapView *resultMap = [[MKMapView alloc] initWithFrame:view.bounds];
-//    [resultMap autorelease];
-//    
-//    CLLocationManager *lManager = [[CLLocationManager alloc] init];
-//    lManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-//    lManager.delegate = self;
-//    [lManager startUpdatingLocation];
-//    shouldUpdateToCurLocation = YES;
-//    
-//    return resultMap;
-//}
-
 -(MKMapView *) loadMapOnView:(UIView *)view
 {
     MKMapView *resultMap = [[MKMapView alloc] initWithFrame:view.bounds];
@@ -205,7 +204,7 @@
 -(id)initWithMapView:(MKMapView *)mapView 
   andLocationManager:(CLLocationManager *)lManager 
 andMealDelegate:(id<MealRestaurantLayer>)delegate 
-      andAnnotations:(NSMutableArray *)annotations
+      andAnnotations:(NSMutableDictionary *)annotations
 {
     self = [super init];
     if (self) {
@@ -242,6 +241,14 @@ andMealDelegate:(id<MealRestaurantLayer>)delegate
 {
     NSNotificationCenter *myNotCenter = [NSNotificationCenter defaultCenter];
     [myNotCenter addObserver:self 
+                    selector:@selector(locationAdded:)
+                        name:[MealRestaurantLayer LocationAddedNotification] 
+                      object:nil];
+    [myNotCenter addObserver:self 
+                    selector:@selector(locationChanged:)
+                        name:[MealRestaurantLayer LocationChangedNotification] 
+                      object:nil];
+    [myNotCenter addObserver:self 
                     selector:@selector(locationRemoved:)
                         name:[MealRestaurantLayer LocationRemovedNotification] 
                       object:nil];
@@ -258,7 +265,7 @@ andMealDelegate:(id<MealRestaurantLayer>)delegate
     lManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
 
     [lManager startUpdatingLocation];
-    NSMutableArray *annotations = [NSMutableArray array];
+    NSMutableDictionary *annotations = [NSMutableDictionary dictionary];
     
     MapViewManager *manager = [[MapViewManager alloc] initWithMapView:mapView 
                                                    andLocationManager:lManager

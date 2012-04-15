@@ -13,9 +13,9 @@
 
 @implementation MealGeneratorTests
 
--(void)processResultMeals:(NSArray *) data
+-(void)processResultMeals:(NSArray*) meals forLocationId:(NSString *)locationId
 {
-    [resultMeals addObjectsFromArray:data];
+    [resultMeals addObjectsFromArray:meals];
 }
 
 - (void)setUp

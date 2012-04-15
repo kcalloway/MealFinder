@@ -12,7 +12,7 @@
 
 #pragma mark Protocol
 @protocol MealGeneratorDelegate <NSObject>
--(void)processResultMeals:(NSArray*) meals;
+-(void)processResultMeals:(NSArray*) meals forLocationId:(NSString *)locationId;
 @end
 
 @protocol MealGenerator <NSObject>

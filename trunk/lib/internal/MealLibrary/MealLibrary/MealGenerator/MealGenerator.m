@@ -38,7 +38,7 @@
             }
         }
 
-        [self.taskDelegate processResultMeals:meals];
+        [self.taskDelegate processResultMeals:meals forLocationId:store.uniqueId];
     }
 }
 

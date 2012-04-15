@@ -29,7 +29,6 @@
     for (id<Restaurant> shop in downloadedRestaurants) {
         if (![restaurauntDiff objectForKey:shop.uniqueId] && ![_restaurants objectForKey:shop.uniqueId]) {
             [restaurauntDiff setObject:shop forKey:shop.uniqueId];
-            [_meals setObject:[NSMutableArray array] forKey:shop.uniqueId];
         }
     }
 
@@ -57,51 +56,54 @@
     return annotations;
 }
 
--(NSMutableDictionary *)cacheMealsForNewMeals:(NSArray *)meals
+-(NSMutableDictionary *)cacheMealsForNewMeals:(NSArray *)meals andLocationId:(NSString *)locationId
 {
-//    NSMutableDictionary *mealsByRestaurant = [NSMutableDictionary dictionary];
-    NSMutableArray *shopMeals = [NSMutableArray array];
-    NSString *prevUniqueId = @"";
-    for (id<Meal> meal in meals) {
-        if (![prevUniqueId isEqualToString:meal.restaurantId]) {
-//            shopMeals = [_meals objectForKey:meal.restaurantId];
-            shopMeals = [NSMutableArray array];
-//            [_meals objectForKey:meal.restaurantId];
-            
-            if ([_meals objectForKey:meal.restaurantId]) {
-                [self postLocationAdded];
-            }
-            [_meals setObject:shopMeals forKey:meal.restaurantId];
-
+    NSMutableSet *added, *changed, *removed;
+    added   = [NSMutableSet set];
+    changed = [NSMutableSet set];
+    removed = [NSMutableSet set];
+    
+    NSMutableSet *previousLocations = [NSMutableSet setWithArray:[_meals allKeys]];
+    
+    NSMutableArray *locationMeals = [_meals objectForKey:locationId];
+    
+    if (locationMeals) {
+        [changed addObject:locationId];
+    }
+    
+    if ([meals count]) {
+        if (!locationMeals) {
+            locationMeals = [NSMutableArray array];
+            [added addObject:locationId];
         }
-        [shopMeals addObject:meal];
-//        prevUniqueId = meal.restaurantId;
+        [_meals setObject:meals forKey:locationId];
+    }
+
+    if ([added count] > 0) {
+        NSArray *uniqueRestaurantAnnotations = [self storeAnnotationsForMeals:meals];
+
+        [self postLocationAdded:added andAnnotations:uniqueRestaurantAnnotations];
+    }
+    if ([changed count] > 0) {
+        [self postLocationChanged:changed];
+    }
+    if ([meals count] == 0 && [previousLocations containsObject:locationId]) {
+        [removed addObject:locationId];
+        [_meals removeObjectForKey:locationId];
+        [self postLocationRemoved:removed];
     }
     return nil;
-//    return mealsByRestaurant;
 }
 
--(void)processResultMeals:(NSArray *) mealsArr
+-(void)processResultMeals:(NSArray*) mealsArr forLocationId:(NSString *)locationId
 {
     NSLog(@"processResultMeals.data = %@", mealsArr);
-    
-    [self cacheMealsForNewMeals:mealsArr];
-    NSArray *uniqueRestaurantAnnotations = [self storeAnnotationsForMeals:mealsArr];
-    if ([uniqueRestaurantAnnotations count] ){
-        NSString *uniqueId = [((id<Meal>)[mealsArr objectAtIndex:0]).origin uniqueId];
-        [_meals setObject:mealsArr forKey:uniqueId];
-        [displayDelegate addNewRestaurantMeals:[self storeAnnotationsForMeals:mealsArr]];
-    }
-//    if ([mealsArr count] ){
-//        NSString *uniqueId = [((id<Meal>)[mealsArr objectAtIndex:0]).origin uniqueId];
-//        [_meals setObject:mealsArr forKey:uniqueId];
-//        [displayDelegate addNewRestaurantMeals:[self storeAnnotationsForMeals:mealsArr]];
+
+    [self cacheMealsForNewMeals:mealsArr andLocationId:locationId];
+//    NSArray *uniqueRestaurantAnnotations = [self storeAnnotationsForMeals:mealsArr];
+//    if ([uniqueRestaurantAnnotations count] ){
+//        [displayDelegate addNewRestaurantMeals:uniqueRestaurantAnnotations];
 //    }
-
-
-//    [_meals addObjectsFromArray:mealsArr];
-//    
-//    [displayDelegate addNewRestaurantMeals:[self storeAnnotationsForMeals:_meals]];
 }
 
 +(NSString *)LocationChangedNotification
@@ -109,25 +111,32 @@
     return @"LocationChangedNotification";
 }
 
--(void)postLocationChanged
+-(void)postLocationChanged:(NSSet *)restaurantIds
 {
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:restaurantIds forKey:@"LocationIds"];
     NSNotification *myNotification = [NSNotification notificationWithName:[MealRestaurantLayer LocationChangedNotification]
                                                                    object:self 
-                                                                 userInfo:nil];
+                                                                 userInfo:userInfo];
     [[NSNotificationCenter defaultCenter] postNotification:myNotification];
 }
-
 
 +(NSString *)LocationAddedNotification
 {
     return @"LocationAddedNotification";
 }
 
--(void)postLocationAdded
++(NSString *)userInfoAnnotationKey
 {
+    return @"LocationAddedNotification";
+}
+
+-(void)postLocationAdded:(NSSet *)restaurantIds andAnnotations:(NSArray *)annotations
+{
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:restaurantIds forKey:@"LocationIds"];
+    [userInfo setObject:annotations forKey:[MealRestaurantLayer userInfoAnnotationKey]];
     NSNotification *myNotification = [NSNotification notificationWithName:[MealRestaurantLayer LocationAddedNotification]
                                                                    object:self 
-                                                                 userInfo:nil];
+                                                                 userInfo:userInfo];
     [[NSNotificationCenter defaultCenter] postNotification:myNotification];
 }
 
@@ -136,17 +145,23 @@
     return @"LocationRemovedNotification";
 }
 
--(void)postLocationRemoved
++(NSString *)userInfoDataKey
 {
+    return @"LocationIds";
+}
+
+-(void)postLocationRemoved:(NSSet *)restaurantIds
+{
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:restaurantIds forKey:@"LocationIds"];
     NSNotification *myNotification = [NSNotification notificationWithName:[MealRestaurantLayer LocationRemovedNotification]
                                                                    object:self 
-                                                                 userInfo:nil];
+                                                                 userInfo:userInfo];
     [[NSNotificationCenter defaultCenter] postNotification:myNotification];
 }
 
 -(void)cancelDietSearch
 {
-    [self postLocationRemoved];
+    [self postLocationRemoved:[NSSet setWithArray:[_meals allKeys]]];
     [_meals removeAllObjects];
     [_mealGenerator cancelAllActiveTasks];    
 }
@@ -170,6 +185,7 @@
 
 -(void)findMealsForDiet:(NSArray *)diet
 {
+    _runningDietOnlySearch = YES;
     [self findMealsForRestaurants:[_restaurants allValues] andDiet:diet];
 }
 
@@ -200,6 +216,7 @@
     }
     return self;
 }
+
 -(void)dealloc
 {
     [_restaurantFinder        release];

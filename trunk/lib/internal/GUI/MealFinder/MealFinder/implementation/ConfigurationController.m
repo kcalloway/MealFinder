@@ -25,8 +25,7 @@
 
 -(void)beginSearchForDiet
 {
-    [_mealDelegate cancelDietSearch];
-    [_mealDelegate findMealsForDiet:[_dietaryConstraints allValues]];
+    [_mealDelegate findMealsForDiet:[_dietaryConstraints allValues]]; 
 }
 
 -(void)updateSliderToValue:(int)sliderValue

@@ -7,7 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "MealRestaurantLayer.h"
 
-@interface MealRestaurantLayerTests : SenTestCase
-
+@interface MealRestaurantLayerTests : SenTestCase{
+    MealRestaurantLayer *testRestLayer;
+}
+    
 @end
