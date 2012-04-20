@@ -21,10 +21,13 @@
 {
     [super setUp];
     
-    id<FoodDataStore> dataStore = [DataStore createForTest];
+    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"meals_only_nutrition"];
     testGenerator = [MealGenerator alloc];
     [testGenerator initWithDataStore:dataStore];
     testGenerator.taskDelegate = self;
+    [dataStore clearWorkingData];
+    [dataStore seedDataStore];
+
     [testGenerator retain];
     
     resultMeals = [NSMutableArray array];
@@ -203,7 +206,7 @@
     id<MenuItem> food = [meal.menuItems objectAtIndex:0];
 
     STAssertNotNil(resultMeals, @"getMeals should always return an array");
-    STAssertTrue([resultMeals count] == 4, @"We expected 1 meals, but got %d!", [resultMeals count]);
+    STAssertTrue([resultMeals count] == 4, @"We expected 4 meals, but got %d!", [resultMeals count]);
     STAssertTrue([food.name isEqualToString:expectedName], @"We expected the food to be %@, but got %@", expectedName, food.name);
 }
 

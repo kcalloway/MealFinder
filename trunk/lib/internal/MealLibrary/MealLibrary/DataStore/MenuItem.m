@@ -28,6 +28,10 @@
         [self setIsMeal:[NSNumber numberWithBool:YES]];
     }
 
+//    if ([roles rangeOfString:@"meal"].location != NSNotFound) {
+//        [self setIsMeal:[NSNumber numberWithBool:YES]];
+//    }
+    
     [self setKcal:[NSNumber numberWithInt:[[stringArr objectAtIndex:3] intValue]]];
     [self setCholesterol:[NSNumber numberWithInt:[[stringArr objectAtIndex:4] intValue]]];
     [self setSodium:[NSNumber numberWithInt:[[stringArr objectAtIndex:5] intValue]]];

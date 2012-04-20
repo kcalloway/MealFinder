@@ -24,7 +24,8 @@
     testRestLayer = [MealRestaurantLayer alloc];
 
     // Create the Dependencies
-    id<FoodDataStore> dataStore = [DataStore createForTest];
+    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"meals_only_nutrition"];
+    
     MealGenerator *mealGenerator = [MealGenerator alloc];
     [mealGenerator initWithDataStore:dataStore];
     

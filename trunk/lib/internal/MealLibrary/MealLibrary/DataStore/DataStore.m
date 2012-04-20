@@ -9,12 +9,11 @@
 #import "DataStore.h"
 #import "DataStoreSeed.h"
 #import "DietaryConstraint.h"
+#import "StaticDataStore.h"
 
 #define NUM_COLUMNS 9
 
-@interface NSString (ParsingExtensions)
--(NSArray *)csvRows;
-@end
+
 @implementation NSString (ParsingExtensions)
 
 -(NSArray *)csvRows {
@@ -149,61 +148,6 @@
     
 }
 
-#pragma mark DataStoreSeeding
-- (BOOL)readFromURL:(NSURL *)absoluteURL ofType:(NSString *)typeName expectedColumns:(int) numColumns
-              error:(NSError **)outError 
-{    
-    NSString *fileString = [NSString stringWithContentsOfURL:absoluteURL 
-                                                    encoding:NSUTF8StringEncoding error:outError];
-    if ( nil == fileString ) return NO;
-
-    NSArray *csvData = [fileString csvRows];
-
-    id<DataStoreSeed> newObject;
-    NSMutableArray   *allObjects = [NSMutableArray arrayWithCapacity:[csvData count]];
-    BOOL              seenHeader = FALSE;
-    for (NSArray *csvRow in csvData)
-    {
-        if (!seenHeader) {
-            seenHeader = TRUE;
-            continue;
-        }
-        NSLog(@"%@\n", csvRow);
-        if ([csvRow count] == numColumns) {
-            newObject = [NSEntityDescription
-                        insertNewObjectForEntityForName:typeName 
-                        inManagedObjectContext:self.managedObjectContext];
-
-            [newObject setValuesForArr:csvRow];
-            [allObjects addObject:newObject];
-        }
-        NSError *error = nil;
-        if (![self.managedObjectContext save:&error]) {
-#warning Gotta address possible errors here
-            // Handle the error.
-        }
-        
-    }
-    return YES;
-}
-
--(void) seedDataStore
-{
-    // If there is a datastore that the previous location, detroy it!
-    NSFileManager *fmanager = [NSFileManager defaultManager];
-    if ([fmanager fileExistsAtPath:[[self storeURL] path]])
-	{
-        NSError *error = nil;
-        if (![fmanager removeItemAtURL:[self storeURL] error:&error])	//Delete it
-		{
-#warning handle this delete error
-			NSLog(@"Delete file error: %@", error);
-		}
-    }
-    
-    [self readFromURL:_chainNutrition ofType:@"MenuItem" expectedColumns:NUM_COLUMNS error:nil];
-}
-
 #pragma mark - Core Data stack
 
 /**
@@ -239,75 +183,6 @@
     return __managedObjectModel;
 }
 
--(NSURL *)storeURL
-{
-    return [[self applicationDocumentsDirectory] URLByAppendingPathComponent:_datastoreName];
-}
-
--(BOOL) hasWorkingData
-{
-    NSFileManager *fmanager = [NSFileManager defaultManager];
-    return [fmanager fileExistsAtPath:[self.storeURL path]];
-}
-
--(void) clearWorkingData
-{
-    NSFileManager *fmanager = [NSFileManager defaultManager];
-    NSString *workingPath = [[self applicationDocumentsDirectory] path];
-
-
-    if ([fmanager fileExistsAtPath:workingPath]) 
-    {
-    }
-    
-    // If the file exists
-    NSError *error = nil;
-    if ([self hasWorkingData]) {
-        [fmanager removeItemAtURL:self.storeURL error:&error];
-        if (error) {
-            NSLog(@"Error destroying file at %@ (%@)", [self.storeURL path], error);
-        }
-    }
-    
-}
-
--(void) replaceStaticApplicationData
-{
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSURL *bundleStoreURL = [bundle URLForResource:@"MealLibrary" withExtension:@"sqlite"];
-
-    NSString *workingPath = [[self applicationDocumentsDirectory] path];
-    NSString *storePath = [[self storeURL] path];
-
-    NSError *error = nil;
-    NSFileManager *fmanager = [NSFileManager defaultManager];
-    if ([fmanager fileExistsAtPath:[bundleStoreURL path]])
-    {
-        // If the path does not exist
-        if (![fmanager fileExistsAtPath:workingPath]) 
-        {
-            [fmanager createDirectoryAtPath:workingPath withIntermediateDirectories:NO attributes:nil error:&error];
-            
-            if (error) {
-                NSLog(@"Error creating directory at %@ (%@)", storePath, error);
-            }
-        }
-        
-        if ([fmanager fileExistsAtPath:storePath]) {
-            [fmanager removeItemAtURL:self.storeURL error:&error];
-            if (error) {
-                NSLog(@"Error destroying file at %@ (%@)", storePath, error);
-            }
-        }
-        
-        if (![fmanager fileExistsAtPath:storePath]) {
-            [fmanager copyItemAtURL:bundleStoreURL toURL:[self storeURL] error:&error];
-            if (error) {
-                NSLog(@"Error copying default DB to %@ (%@)", storePath, error);
-            }
-        }
-    }
-}
 /**
  Returns the persistent store coordinator for the application.
  If the coordinator doesn't already exist, it is created and the application's store added to it.
@@ -318,12 +193,12 @@
     {
         return __persistentStoreCoordinator;
     }
-
-//    [self replaceStaticApplicationData];
+    
+    //    [self replaceStaticApplicationData];
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:nil error:&error])
+    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[_staticDataStore storeURL] options:nil error:&error])
     {
 #warning We need to address this error
         /*
@@ -356,8 +231,8 @@
     return __persistentStoreCoordinator;
 }
 
-#pragma mark - Application's Documents directory
 
+#pragma mark - Application's Documents directory
 /**
  Returns the URL to the application's Documents directory.
  */
@@ -371,14 +246,20 @@
     return _applicationDocumentsDirectory;
 }
 
+#pragma mark StaticDataStore
+-(void) seedDataStore
+{
+    [_staticDataStore seedDataStore];
+}
+-(void) clearWorkingData
+{
+    [_staticDataStore clearWorkingData];
+}
+-(void) replaceStaticApplicationData
+{
+    [_staticDataStore replaceStaticApplicationData];
+}
 #pragma mark Create/Destroy
-
-// The following are dependencies that we don't 
-// yet pass to the NutritionStore:
-// managedObjectContext
-// managedObjectModel
-// persistentStoreCoordinator
-
 -(void) checkCreatePreconditions
 {
     NSFileManager *fmanager = [NSFileManager defaultManager];
@@ -406,11 +287,31 @@
     return self;
 }
 
+- (id)initWithDocsDirectory:(NSURL *) docs andChainURL:(NSURL *) chainURL andDatastoreName:datastoreName andStaticDataStore:(id<StaticDataStore>)staticDataStore
+{
+    self = [super init];
+    if (self) {
+        _applicationDocumentsDirectory = docs;
+        _chainNutrition  = chainURL;
+        _datastoreName   = datastoreName;
+        _staticDataStore = staticDataStore;
+
+
+        [_applicationDocumentsDirectory retain];
+        [_chainNutrition                retain];
+        [_datastoreName                 retain];
+        [_staticDataStore               retain];
+    }
+    
+    return self;
+}
+
 -(void)dealloc
 {
     [_applicationDocumentsDirectory release];
     [_chainNutrition                release];
     [_datastoreName                 release];
+    [_staticDataStore               release];
 
     [super dealloc];
 }
@@ -419,41 +320,32 @@
 {
     NSURL *chainURL = [[NSBundle mainBundle] URLForResource:@"chain_nutrition" withExtension:@"csv"];
     NSString *datastoreName = @"MealLibrary.sqlite";
+    id<StaticDataStore> staticDataStore = [StaticDataStore createWithDocsDirectory:[DataStore applicationDocumentsDirectory] andCSVURL:chainURL andDatastoreName:datastoreName];
     DataStore *result = [[DataStore alloc]
                               initWithDocsDirectory:[DataStore applicationDocumentsDirectory] 
                               andChainURL:chainURL
-                              andDatastoreName:datastoreName];
+                              andDatastoreName:datastoreName andStaticDataStore:staticDataStore];
+    staticDataStore.dataStoreDelegate = result;
     [result checkCreatePreconditions];
-    NSFileManager *fmanager = [NSFileManager defaultManager];
-    if (![fmanager fileExistsAtPath:[result storeURL].path])
-    {
-        [result replaceStaticApplicationData];
-    }
     [result autorelease];
     return result;
 }
 
-+(id<DataStore>) createForTest
++(id<DataStore>) createForTestWithCSV:(NSString *)csvName
 {
-    NSURL *chainURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"chain_nutrition" withExtension:@"csv"];
-
+    NSURL *chainURL = [[NSBundle bundleForClass:[self class]] URLForResource:csvName withExtension:@"csv"];
+    
     NSString *datastoreName = @"MealLibrary.sqlite";
+    id<StaticDataStore> staticDataStore = [StaticDataStore createWithDocsDirectory:[DataStore applicationDocumentsDirectory] andCSVURL:chainURL andDatastoreName:datastoreName];
+    
     DataStore *result = [[DataStore alloc]
                          initWithDocsDirectory:[DataStore applicationDocumentsDirectory] 
                          andChainURL:chainURL
-                         andDatastoreName:datastoreName];
+                         andDatastoreName:datastoreName andStaticDataStore:staticDataStore];
+    staticDataStore.dataStoreDelegate = result;
     [result checkCreatePreconditions];
-
+    
     [result autorelease];
     return result;
 }
-
-//myBundle
-//bundleUrl
-//bundleStoreURL
-//workingStoreURL
-//DatastoreName
-//InputName
-//importedObjName
-//Num_columnsforobj
 @end

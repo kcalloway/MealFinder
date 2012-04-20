@@ -10,14 +10,29 @@
 #import <CoreData/CoreData.h>
 #import "Restaurant.h"
 
-@protocol DataStore <NSObject>
--(void) seedDataStore;
--(void) clearWorkingData;
--(void) replaceStaticApplicationData;
+@interface NSString (ParsingExtensions)
+-(NSArray *)csvRows;
 @end
 
 @protocol FoodDataStore <NSObject>
 -(NSArray *) getAllMenuItemsForRestaurant:(id<Restaurant>)store andDiet:(NSArray *)diet;
+@end
+
+@protocol DataStore <NSObject, FoodDataStore>
+-(void) seedDataStore;
+-(void) clearWorkingData;
+-(void) replaceStaticApplicationData;
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@end
+
+@protocol StaticDataStore <NSObject>
+-(void) seedDataStore;
+-(void) clearWorkingData;
+-(void) replaceStaticApplicationData;
+-(NSURL *)storeURL;
+@property (assign) id<DataStore> dataStoreDelegate;
 @end
 
 @interface DataStore : NSObject <DataStore, FoodDataStore>
@@ -25,6 +40,7 @@
     NSURL    *_applicationDocumentsDirectory;
     NSURL    *_chainNutrition;
     NSString *_datastoreName;
+    id<StaticDataStore> _staticDataStore;
 }
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -32,10 +48,7 @@
 
 #pragma mark Create/Destroy
 +(id<DataStore, FoodDataStore>) create;
-+(id<DataStore, FoodDataStore>) createForTest;
-
-#pragma mark Storage Info
--(NSURL *)storeURL;
++(id<DataStore>) createForTestWithCSV:(NSString *)csvName;
 @end
 
 

@@ -26,7 +26,7 @@
 {
     [super setUp];
     
-    testDataStore = [DataStore createForTest];
+    testDataStore = [DataStore createForTestWithCSV:@"chain_nutrition"];
     [testDataStore retain];
 }
 

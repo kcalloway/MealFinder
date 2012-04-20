@@ -71,6 +71,8 @@
 		1272F39C1521C70F00B79652 /* MealLibrary.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1272F3981521C70F00B79652 /* MealLibrary.sqlite */; };
 		1285102315252A9200DD339E /* RestaurantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285102215252A9200DD339E /* RestaurantTableViewController.m */; };
 		1285102415252A9200DD339E /* RestaurantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285102215252A9200DD339E /* RestaurantTableViewController.m */; };
+		12994E1B154108BE000011F8 /* StaticDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 12994E1A154108BE000011F8 /* StaticDataStore.m */; };
+		12994E1C154108BE000011F8 /* StaticDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 12994E1A154108BE000011F8 /* StaticDataStore.m */; };
 		12A690581532B0AC00A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690571532B0AC00A60767 /* QualitativeDietaryConstraint.m */; };
 		12A690591532B0AC00A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690571532B0AC00A60767 /* QualitativeDietaryConstraint.m */; };
 		12ABD0D21532187E00D05493 /* DraggableControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ABD0D11532187E00D05493 /* DraggableControllerDelegate.m */; };
@@ -165,6 +167,8 @@
 		1272F3981521C70F00B79652 /* MealLibrary.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MealLibrary.sqlite; sourceTree = "<group>"; };
 		1285102115252A9200DD339E /* RestaurantTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTableViewController.h; sourceTree = "<group>"; };
 		1285102215252A9200DD339E /* RestaurantTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTableViewController.m; sourceTree = "<group>"; };
+		12994E19154108BE000011F8 /* StaticDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataStore.h; sourceTree = "<group>"; };
+		12994E1A154108BE000011F8 /* StaticDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataStore.m; sourceTree = "<group>"; };
 		12A690561532B0AC00A60767 /* QualitativeDietaryConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QualitativeDietaryConstraint.h; sourceTree = "<group>"; };
 		12A690571532B0AC00A60767 /* QualitativeDietaryConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QualitativeDietaryConstraint.m; sourceTree = "<group>"; };
 		12ABD0D01532187E00D05493 /* DraggableControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DraggableControllerDelegate.h; path = implementation/DraggableControllerDelegate.h; sourceTree = "<group>"; };
@@ -353,6 +357,8 @@
 				1272F3541521C58500B79652 /* DataModel.xcdatamodeld */,
 				1272F3561521C58500B79652 /* DataStore.h */,
 				1272F3571521C58500B79652 /* DataStore.m */,
+				12994E19154108BE000011F8 /* StaticDataStore.h */,
+				12994E1A154108BE000011F8 /* StaticDataStore.m */,
 				1272F3581521C58500B79652 /* DataStoreSeed.h */,
 				1272F3591521C58500B79652 /* DietaryConstraint.h */,
 				1272F35A1521C58500B79652 /* DietaryConstraint.m */,
@@ -568,6 +574,7 @@
 				12ABD0D21532187E00D05493 /* DraggableControllerDelegate.m in Sources */,
 				12ABD0E41532265300D05493 /* ConfigurationController.m in Sources */,
 				12A690581532B0AC00A60767 /* QualitativeDietaryConstraint.m in Sources */,
+				12994E1B154108BE000011F8 /* StaticDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +606,7 @@
 				12ABD0D31532187E00D05493 /* DraggableControllerDelegate.m in Sources */,
 				12ABD0E51532265300D05493 /* ConfigurationController.m in Sources */,
 				12A690591532B0AC00A60767 /* QualitativeDietaryConstraint.m in Sources */,
+				12994E1C154108BE000011F8 /* StaticDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

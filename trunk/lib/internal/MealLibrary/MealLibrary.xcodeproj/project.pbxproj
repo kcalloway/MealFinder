@@ -37,6 +37,7 @@
 		1272F3341521B92B00B79652 /* Meal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1272F3321521B92B00B79652 /* Meal.h */; };
 		1272F3351521B92B00B79652 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3331521B92B00B79652 /* Meal.m */; };
 		1272F3361521B92B00B79652 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3331521B92B00B79652 /* Meal.m */; };
+		12838DCB153E823700D267B6 /* meals_only_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 12838DCA153E823700D267B6 /* meals_only_nutrition.csv */; };
 		12997C82151542D8003FA55B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12997C81151542D8003FA55B /* Foundation.framework */; };
 		12997C88151542D8003FA55B /* MealLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 12997C87151542D8003FA55B /* MealLibrary.m */; };
 		12997C90151542D9003FA55B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12997C8F151542D9003FA55B /* SenTestingKit.framework */; };
@@ -47,6 +48,9 @@
 		12997C9E151542D9003FA55B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12997C9C151542D9003FA55B /* InfoPlist.strings */; };
 		12997CA0151542D9003FA55B /* MealLibraryTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 12997C9F151542D9003FA55B /* MealLibraryTests.h */; };
 		12997CA2151542D9003FA55B /* MealLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12997CA1151542D9003FA55B /* MealLibraryTests.m */; };
+		12A4159E153BC018008AFB1E /* StaticDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 12A4159C153BC018008AFB1E /* StaticDataStore.h */; };
+		12A4159F153BC018008AFB1E /* StaticDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A4159D153BC018008AFB1E /* StaticDataStore.m */; };
+		12A415A0153BC018008AFB1E /* StaticDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A4159D153BC018008AFB1E /* StaticDataStore.m */; };
 		12A6904C153285AC00A60767 /* DietaryConstraintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6904B153285AC00A60767 /* DietaryConstraintTests.m */; };
 		12A6904F1532985C00A60767 /* QualitativeDietaryConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 12A6904D1532985C00A60767 /* QualitativeDietaryConstraint.h */; };
 		12A690501532985C00A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6904E1532985C00A60767 /* QualitativeDietaryConstraint.m */; };
@@ -88,6 +92,7 @@
 		1272F1BD15210A7600B79652 /* DietaryConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DietaryConstraint.m; sourceTree = "<group>"; };
 		1272F3321521B92B00B79652 /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
 		1272F3331521B92B00B79652 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
+		12838DCA153E823700D267B6 /* meals_only_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = meals_only_nutrition.csv; path = MealLibraryTests/MealGenerator/meals_only_nutrition.csv; sourceTree = SOURCE_ROOT; };
 		12997C7E151542D8003FA55B /* libMealLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMealLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		12997C81151542D8003FA55B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		12997C85151542D8003FA55B /* MealLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MealLibrary-Prefix.pch"; sourceTree = "<group>"; };
@@ -101,6 +106,8 @@
 		12997C9D151542D9003FA55B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		12997C9F151542D9003FA55B /* MealLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MealLibraryTests.h; sourceTree = "<group>"; };
 		12997CA1151542D9003FA55B /* MealLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MealLibraryTests.m; sourceTree = "<group>"; };
+		12A4159C153BC018008AFB1E /* StaticDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataStore.h; sourceTree = "<group>"; };
+		12A4159D153BC018008AFB1E /* StaticDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataStore.m; sourceTree = "<group>"; };
 		12A6904A153285AC00A60767 /* DietaryConstraintTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DietaryConstraintTests.h; sourceTree = "<group>"; };
 		12A6904B153285AC00A60767 /* DietaryConstraintTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DietaryConstraintTests.m; sourceTree = "<group>"; };
 		12A6904D1532985C00A60767 /* QualitativeDietaryConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QualitativeDietaryConstraint.h; sourceTree = "<group>"; };
@@ -180,6 +187,7 @@
 		12486F2D1517F7AF00451214 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
+				12838DCA153E823700D267B6 /* meals_only_nutrition.csv */,
 				12486F2E1517F7AF00451214 /* DataStoreTests.h */,
 				12486F2F1517F7AF00451214 /* DataStoreTests.m */,
 			);
@@ -192,6 +200,8 @@
 				12486F321517F7EB00451214 /* DataModel.xcdatamodeld */,
 				12486F341517F7EB00451214 /* DataStore.h */,
 				12486F351517F7EB00451214 /* DataStore.m */,
+				12A4159C153BC018008AFB1E /* StaticDataStore.h */,
+				12A4159D153BC018008AFB1E /* StaticDataStore.m */,
 				12486F361517F7EB00451214 /* DataStoreSeed.h */,
 				12486F371517F7EB00451214 /* MenuItem.h */,
 				12486F381517F7EB00451214 /* MenuItem.m */,
@@ -294,6 +304,7 @@
 				1272F1BE15210A7600B79652 /* DietaryConstraint.h in Headers */,
 				1272F3341521B92B00B79652 /* Meal.h in Headers */,
 				12A6904F1532985C00A60767 /* QualitativeDietaryConstraint.h in Headers */,
+				12A4159E153BC018008AFB1E /* StaticDataStore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +382,7 @@
 				12997CA0151542D9003FA55B /* MealLibraryTests.h in Resources */,
 				120012CE1516A970006433E4 /* chain_nutrition.csv in Resources */,
 				12486F43151807A700451214 /* MealLibrary.sqlite in Resources */,
+				12838DCB153E823700D267B6 /* meals_only_nutrition.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +419,7 @@
 				1272F1BF15210A7600B79652 /* DietaryConstraint.m in Sources */,
 				1272F3351521B92B00B79652 /* Meal.m in Sources */,
 				12A690501532985C00A60767 /* QualitativeDietaryConstraint.m in Sources */,
+				12A4159F153BC018008AFB1E /* StaticDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +440,7 @@
 				1272F3361521B92B00B79652 /* Meal.m in Sources */,
 				12A6904C153285AC00A60767 /* DietaryConstraintTests.m in Sources */,
 				12A690511532985C00A60767 /* QualitativeDietaryConstraint.m in Sources */,
+				12A415A0153BC018008AFB1E /* StaticDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
