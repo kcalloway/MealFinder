@@ -80,6 +80,18 @@
 		12A690631532B14900A60767 /* QualitativeDietaryConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 12A690611532B14900A60767 /* QualitativeDietaryConstraint.h */; };
 		12A690641532B14900A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690621532B14900A60767 /* QualitativeDietaryConstraint.m */; };
 		12A690651532B14900A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690621532B14900A60767 /* QualitativeDietaryConstraint.m */; };
+		12D3B23315475B6B00BE7760 /* GraphSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = 12D3B22F15475B6B00BE7760 /* GraphSearch.h */; };
+		12D3B23415475B6B00BE7760 /* GraphSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B23015475B6B00BE7760 /* GraphSearch.m */; };
+		12D3B23515475B6B00BE7760 /* GraphSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B23015475B6B00BE7760 /* GraphSearch.m */; };
+		12D3B23615475B6B00BE7760 /* MealNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 12D3B23115475B6B00BE7760 /* MealNode.h */; };
+		12D3B23715475B6B00BE7760 /* MealNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B23215475B6B00BE7760 /* MealNode.m */; };
+		12D3B23815475B6B00BE7760 /* MealNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B23215475B6B00BE7760 /* MealNode.m */; };
+		12D3B23C15475CCD00BE7760 /* Diet.h in Headers */ = {isa = PBXBuildFile; fileRef = 12D3B23A15475CCD00BE7760 /* Diet.h */; };
+		12D3B23D15475CCD00BE7760 /* Diet.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B23B15475CCD00BE7760 /* Diet.m */; };
+		12D3B23E15475CCD00BE7760 /* Diet.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B23B15475CCD00BE7760 /* Diet.m */; };
+		12D3B24215475D3F00BE7760 /* SortedSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 12D3B24015475D3F00BE7760 /* SortedSet.h */; };
+		12D3B24315475D3F00BE7760 /* SortedSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B24115475D3F00BE7760 /* SortedSet.m */; };
+		12D3B24415475D3F00BE7760 /* SortedSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B24115475D3F00BE7760 /* SortedSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +163,14 @@
 		129B565B1538087500CF2F0D /* MealLibrary.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MealLibrary.sqlite; sourceTree = "<group>"; };
 		12A690611532B14900A60767 /* QualitativeDietaryConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QualitativeDietaryConstraint.h; sourceTree = "<group>"; };
 		12A690621532B14900A60767 /* QualitativeDietaryConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QualitativeDietaryConstraint.m; sourceTree = "<group>"; };
+		12D3B22F15475B6B00BE7760 /* GraphSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphSearch.h; sourceTree = "<group>"; };
+		12D3B23015475B6B00BE7760 /* GraphSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphSearch.m; sourceTree = "<group>"; };
+		12D3B23115475B6B00BE7760 /* MealNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealNode.h; sourceTree = "<group>"; };
+		12D3B23215475B6B00BE7760 /* MealNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealNode.m; sourceTree = "<group>"; };
+		12D3B23A15475CCD00BE7760 /* Diet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Diet.h; sourceTree = "<group>"; };
+		12D3B23B15475CCD00BE7760 /* Diet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Diet.m; sourceTree = "<group>"; };
+		12D3B24015475D3F00BE7760 /* SortedSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortedSet.h; sourceTree = "<group>"; };
+		12D3B24115475D3F00BE7760 /* SortedSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortedSet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +244,7 @@
 		1272F2941521A16700B79652 /* MealRestaurantLayer */ = {
 			isa = PBXGroup;
 			children = (
+				12D3B23F15475D3F00BE7760 /* SortedSet */,
 				129B56591538087500CF2F0D /* data */,
 				123061D61527A2F200CBAC72 /* gui */,
 				1272F2D11521A26800B79652 /* shared */,
@@ -333,6 +354,8 @@
 				1272F30B1521AA5A00B79652 /* DataStoreSeed.h */,
 				1272F30C1521AA5A00B79652 /* DietaryConstraint.h */,
 				1272F30D1521AA5A00B79652 /* DietaryConstraint.m */,
+				12D3B23A15475CCD00BE7760 /* Diet.h */,
+				12D3B23B15475CCD00BE7760 /* Diet.m */,
 				1272F30E1521AA5A00B79652 /* MenuItem.h */,
 				1272F30F1521AA5A00B79652 /* MenuItem.m */,
 				12A690611532B14900A60767 /* QualitativeDietaryConstraint.h */,
@@ -346,6 +369,10 @@
 			children = (
 				1272F3111521AA5A00B79652 /* MealGenerator.h */,
 				1272F3121521AA5A00B79652 /* MealGenerator.m */,
+				12D3B22F15475B6B00BE7760 /* GraphSearch.h */,
+				12D3B23015475B6B00BE7760 /* GraphSearch.m */,
+				12D3B23115475B6B00BE7760 /* MealNode.h */,
+				12D3B23215475B6B00BE7760 /* MealNode.m */,
 			);
 			path = MealGenerator;
 			sourceTree = "<group>";
@@ -358,6 +385,16 @@
 			);
 			name = data;
 			path = ../../../../resources/data;
+			sourceTree = "<group>";
+		};
+		12D3B23F15475D3F00BE7760 /* SortedSet */ = {
+			isa = PBXGroup;
+			children = (
+				12D3B24015475D3F00BE7760 /* SortedSet.h */,
+				12D3B24115475D3F00BE7760 /* SortedSet.m */,
+			);
+			name = SortedSet;
+			path = ../../../external/SortedSet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +425,10 @@
 				123061DC1527A30A00CBAC72 /* StoreAnnotation.h in Headers */,
 				12A690631532B14900A60767 /* QualitativeDietaryConstraint.h in Headers */,
 				12994E0915410459000011F8 /* StaticDataStore.h in Headers */,
+				12D3B23315475B6B00BE7760 /* GraphSearch.h in Headers */,
+				12D3B23615475B6B00BE7760 /* MealNode.h in Headers */,
+				12D3B23C15475CCD00BE7760 /* Diet.h in Headers */,
+				12D3B24215475D3F00BE7760 /* SortedSet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +551,10 @@
 				123061DD1527A30A00CBAC72 /* StoreAnnotation.m in Sources */,
 				12A690641532B14900A60767 /* QualitativeDietaryConstraint.m in Sources */,
 				12994E0A15410459000011F8 /* StaticDataStore.m in Sources */,
+				12D3B23415475B6B00BE7760 /* GraphSearch.m in Sources */,
+				12D3B23715475B6B00BE7760 /* MealNode.m in Sources */,
+				12D3B23D15475CCD00BE7760 /* Diet.m in Sources */,
+				12D3B24315475D3F00BE7760 /* SortedSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +582,10 @@
 				123061DE1527A30A00CBAC72 /* StoreAnnotation.m in Sources */,
 				12A690651532B14900A60767 /* QualitativeDietaryConstraint.m in Sources */,
 				12994E0B15410459000011F8 /* StaticDataStore.m in Sources */,
+				12D3B23515475B6B00BE7760 /* GraphSearch.m in Sources */,
+				12D3B23815475B6B00BE7760 /* MealNode.m in Sources */,
+				12D3B23E15475CCD00BE7760 /* Diet.m in Sources */,
+				12D3B24415475D3F00BE7760 /* SortedSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
