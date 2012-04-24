@@ -43,7 +43,7 @@
     [testDataStore clearWorkingData];
 
     // Set expectations
-    int expectedEntries = 23;
+    int expectedEntries = 93;
     
     // Run Test
     [testDataStore replaceStaticApplicationData];
@@ -58,7 +58,7 @@
     [testDataStore seedDataStore];
 
     // Set expectations
-    int expectedEntries = 23;
+    int expectedEntries = 93;
 
     // Run Test
     NSArray *menuItems = [testDataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[NSArray array]];

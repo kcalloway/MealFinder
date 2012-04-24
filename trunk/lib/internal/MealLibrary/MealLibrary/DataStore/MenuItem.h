@@ -10,11 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "DataStoreSeed.h"
 
-@protocol MenuItem <NSObject>
-@property (nonatomic, retain) NSString * name;
+@protocol NutritionData <NSObject>
 @property (nonatomic, retain) NSNumber * kcal;
-@property (nonatomic, retain) NSString * restaurantId;
-@property (nonatomic, retain) NSNumber * isMeal;
 @property (nonatomic, retain) NSNumber * isVegetarian;
 @property (nonatomic, retain) NSNumber * isVegan;
 @property (nonatomic, retain) NSNumber * cholesterol;
@@ -22,16 +19,17 @@
 @property (nonatomic, retain) NSNumber * carbs;
 @end
 
+@protocol MenuItem <NSObject, NutritionData>
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * restaurantId;
+@property (nonatomic, retain) NSNumber * isMeal;
+@property (nonatomic, retain) NSNumber * isEntree;
+@property (nonatomic, retain) NSNumber * isSide;
+
+@property (readonly) NSString * uniqueId;
+@end
+
 @interface MenuItem : NSManagedObject <MenuItem, DataStoreSeed> {
 @private
 }
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * kcal;
-@property (nonatomic, retain) NSString * restaurantId;
-@property (nonatomic, retain) NSNumber * isMeal;
-@property (nonatomic, retain) NSNumber * isVegetarian;
-@property (nonatomic, retain) NSNumber * isVegan;
-@property (nonatomic, retain) NSNumber * cholesterol;
-@property (nonatomic, retain) NSNumber * sodium;
-@property (nonatomic, retain) NSNumber * carbs;
 @end

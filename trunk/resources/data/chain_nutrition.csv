@@ -1,134 +1,204 @@
-"uniqueid","name","role","kcal","cholesterol [mg]","sodium [mg]","carbs [g]","TAG: VEGETARIAN","TAG: VEGAN"
-"KFC","KFC Snackerﾨ with Crispy Strip","meal",310,35,600,30,0,0
-"KFC","KFC Snackerﾨ with Crispy Strip without Sauce","meal",260,30,550,29,0,0
-"KFC","KFC Snackerﾨ with Crispy Strip, Buffalo","meal",270,30,720,31,0,0
-"KFC","KFC Snackerﾨ with Crispy Strip, Ultimate Cheese","meal",280,30,700,31,0,0
-"KFC","KFC Snackerﾨ, Honey BBQ","meal",210,35,470,32,0,0
-"KFC","Crispy Twisterﾨ","meal",610,75,1380,52,0,0
-"KFC","Crispy Twisterﾨ without Sauce","meal",490,60,1260,51,0,0
-"KFC","Honey BBQ Sandwich","meal",320,70,770,47,0,0
-"KFC","Double Down with OR Filet ","meal",610,150,1880,18,0,0
-"KFC","Doublicious with OR Filet","meal",520,85,1180,40,0,0
-"KFC","Chicken Pot Pie","meal",790,75,1970,66,0,0
-"KFC","KFC Famous Bowlsﾨ-Mashed Potato with Gravy","meal",680,45,2130,74,0,0
-"KFC","Snack-Size Bowl","meal",260,25,760,26,0,0
-"KFC","Popcorn Chicken Value Box","meal",680,45,1850,53,0,0
-"KFC","Hot Wingsﾨ Value Box","meal",490,55,1220,45,0,0
-"KFC","Fiery Buffalo Hot Wingsﾨ Value Box","meal",510,55,1610,51,0,0
-"KFC","HBBQ Hot Wingsﾨ Value Box","meal",540,55,1530,58,0,0
-"KFC","Grilled Drumstick Value Box","meal",380,60,1090,34,0,0
-"KFC","OR Drumstick Value Box","meal",400,45,1110,37,0,0
-"KFC","EC Drumstick Value Box","meal",440,55,1160,39,0,0
-"KFC","Grilled Thigh Value Box","meal",460,90,1330,34,0,0
-"KFC","OR Thigh Value Box","meal",540,80,1540,42,0,0
-"KFC","EC Thigh Value Box","meal",630,80,1580,45,0,0
-"Denny's","Bacon Avocado Burrito w/ hash browns","meal",1010,275,2210,91,0,0
-"Denny's","Banana Pecan Pancake Breakfast","meal",780,55,1610,130,1,0
-"Denny's","Country-Fried Steak & Eggs (add choices)","meal",660,490,1620,29,0,0
-"Denny's","Harvest Oatmeal Breakfast","meal",530,45,600,93,1,1
-"Denny's","Moons Over My Hammyﾨ (add choices)","meal",760,530,2320,51,0,0
-"Denny's","Southwestern Steak Burrito w/ hash browns","meal",1120,285,2565,101,0,0
-"Denny's","T-Bone Steak & Eggs (add choices)","meal",790,555,2070,4,0,0
-"Denny's","Fit Fareﾨ Omelette","meal",390,65,870,25,1,0
-"Denny's","Meat Lover's Omelette w/ hash browns (add bread)","meal",1060,830,2710,39,0,0
-"Denny's","Moons Over My Hammy Omeletteﾪ w/ hash browns (add choices)","meal",770,790,2590,31,0,0
-"Denny's","Ultimate Omeletteﾨ (add choices)","meal",620,740,1170,8,0,0
-"Denny's","Veggie-Cheese Omelette (add choices)","meal",460,740,680,9,1,0
-"Denny's","Western Omelette w/ hash browns (add choices)","meal",700,770,2180,32,0,0
-"Denny's","Banana Caramel French Toast Skillet (add meat)","meal",840,250,1010,164,0,0
-"Denny's","Fit Fareﾨ Veggie Skillet","meal",330,0,1450,44,1,0
-"Denny's","Prime Rib Skillet","meal",585,535,1460,15,0,0
-"Denny's","Santa Fe Skillet","meal",710,485,1490,30,0,0
-"Denny's","Ultimate Skillet","meal",740,475,1470,34,0,0
-"Denny's","Bacon Cheddar Burger (add choices)","meal",880,160,1810,45,0,0
-"Denny's","Bacon Slamburgerﾪ (add choices)","meal",1010,350,1730,56,0,0
-"Denny's","Classic Cheeseburger (add choices)","meal",820,130,1450,47,0,0
-"Denny's","Double Cheeseburger (add choices)","meal",1400,260,2680,49,0,0
-"Denny's","Mushroom Swiss Burger (add choices)","meal",860,130,1750,51,0,0
-"Denny's","Patty Melt (add choices)","meal",1040,160,2180,41,0,0
-"Denny's","Veggie Burger w/ balsamic vinaigrette & Fit Fareﾨ fresh veggies","meal",540,20,1340,76,1,1
-"Denny's","Western Burger (add choices)","meal",1010,130,1450,69,0,0
-"Denny's","Bacon Lover's BLT (add choices)","meal",810,70,1690,66,0,0
-"Denny's","Chicken Avocado Sandwich w/ Fit Fareﾨ fresh veggies","meal",520,100,2040,48,0,0
-"Denny's","Club Sandwich (add choices)","meal",630,50,1530,55,0,0
-"Denny's","Hickory Grilled Chicken Sandwich (add choices)","meal",900,115,1370,67,0,0
-"Denny's","Prime Rib Philly Melt (add choices)","meal",670,75,1770,52,0,0
-"Denny's","Spicy Buffalo Chicken Melt (add choices)","meal",860,70,3760,76,0,0
-"Denny's","The Super Birdﾨ (add choices)","meal",610,55,2320,54,0,0
-"McDonalds","Angus Chipotle BBQ Bacon","meal",800,145,2020,66,0,0
-"McDonalds","Angus Bacon & Cheese","meal",790,145,2070,63,0,0
-"McDonalds","Angus Deluxe","meal",750,135,1700,61,0,0
-"McDonalds","Angus Mushroom & Swiss","meal",770,135,1170,59,0,0
-"McDonalds","Big Macﾨ","meal",540,75,1040,45,0,0
-"McDonalds","Quarter Pounderﾨ with Cheese","meal",510,90,1190,40,0,0
-"McDonalds","Double Quarter Pounderﾨ with Cheese ","meal",740,155,1380,40,0,0
-"McDonalds","Hamburger","meal",250,25,520,31,0,0
-"McDonalds","Cheeseburger","meal",300,40,750,33,0,0
-"McDonalds","Double Cheeseburger","meal",440,80,1150,34,0,0
-"McDonalds","McDouble","meal",390,65,920,33,0,0
-"McDonalds","Filet-O-Fishﾨ","meal",380,40,640,38,0,0
-"McDonalds","Southern Style Crispy Chicken Sandwich","meal",420,45,930,43,0,0
-"McDonalds","Big N' Tastyﾨ","meal",460,70,720,37,0,0
-"McDonalds","Big N' Tastyﾨ with Cheese","meal",510,85,960,38,0,0
-"McDonalds","Premium Crispy Chicken Classic Sandwich ","meal",510,45,990,56,0,0
-"McDonalds","Premium Grilled Chicken Classic Sandwich ","meal",350,65,820,42,0,0
-"McDonalds","Premium Crispy Chicken Club Sandwich ","meal",620,70,1200,57,0,0
-"McDonalds","Premium Grilled Chicken Club ","meal",460,90,1030,43,0,0
-"McDonalds","Premium Bacon Ranch Salad (without chicken) ","meal",140,25,300,10,0,0
-"McDonalds","Premium Bacon Ranch Salad with Crispy Chicken ","meal",390,70,870,24,0,0
-"McDonalds","Premium Bacon Ranch Salad with Grilled Chicken ","meal",230,85,700,10,0,0
-"McDonalds","Premium Caesar Salad (without chicken) ","meal",90,10,180,9,1,0
-"McDonalds","Premium Caesar Salad with Crispy Chicken ","meal",350,55,740,24,0,0
-"McDonalds","Premium Caesar Salad with Grilled Chicken ","meal",190,70,580,10,0,0
-"McDonalds","Premium Southwest Salad (without chicken) ","meal",140,10,150,20,1,0
-"McDonalds","Premium Southwest Salad with Crispy Chicken ","meal",450,50,820,42,0,0
-"McDonalds","Premium Southwest Salad ","meal",290,70,650,28,0,0
-"Pizza Hut","Cheese Only 6"" Personal Pan Pizza","meal",590,55,1290,69,1,0
-"Pizza Hut","Pepperoni  6"" Personal Pan Pizza","meal",610,55,1410,67,0,0
-"Pizza Hut","Supreme 6"" Personal Pan Pizza","meal",720,80,1680,69,0,0
-"Pizza Hut","Pepperoni & Mushroom 6"" Personal Pan Pizza","meal",570,45,1250,68,0,0
-"Pizza Hut","Italian Sausage & Red Onion 6"" Personal Pan Pizza","meal",690,65,1440,71,0,0
-"Pizza Hut","Ham & Pineapple 6"" Personal Pan Pizza","meal",550,45,1260,71,0,0
-"Pizza Hut","Veggie Lover'sﾨ 6"" Personal Pan Pizza","meal",550,35,1190,70,1,0
-"Pizza Hut","Meat Lover'sﾨ 6"" Personal Pan Pizza","meal",830,100,2110,68,0,0
-"Pizza Hut","Pepperoni Lover'sﾨ 6"" Personal Pan Pizza","meal",720,85,1760,69,0,0
-"Pizza Hut","Hawaiian Luau 6"" Personal Pan Pizza","meal",620,55,1440,71,0,0
-"Pizza Hut","Dan's Original 6"" Personal Pan Pizza","meal",720,75,1600,69,0,0
-"Pizza Hut","Triple Meat Italiano 6"" Personal Pan Pizza","meal",730,80,1770,68,0,0
-"Pizza Hut","Spicy Sicilian 6"" Personal Pan Pizza","meal",680,70,1730,69,0,0
-"Pizza Hut","Ultimate Cheese Lover's 6"" Personal Pan Pizza","meal",660,65,1400,68,1,0
-"Pizza Hut","Chicken, Red Onion & Green Pepper 12"" Fit 'n Deliciousﾨ Pizza (1 slice)","meal",180,20,510,23,0,0
-"Pizza Hut","Chicken, Mushroom & Jalapeﾖo 12"" Fit 'n Deliciousﾨ Pizza (1 slice)","meal",170,20,720,22,0,0
-"Pizza Hut","Ham, Red Onion & Mushroom 12"" Fit 'n Deliciousﾨ Pizza (1 slice)","meal",160,15,550,23,0,0
-"Pizza Hut","Ham, Pineapple & Diced Red Tomato 12"" Fit 'n Deliciousﾨ Pizza (1 slice)","meal",160,15,550,24,0,0
-"Pizza Hut","Green Pepper, Red Onion & Diced Red Tomato 12"" Fit 'n Deliciousﾨ Pizza (1 slice)","meal",150,10,400,24,1,0
-"Pizza Hut","Diced Red Tomato, Mushroom & Jalapeﾖo 12"" Fit 'n Deliciousﾨ Pizza (1 slice)","meal",150,10,610,23,1,0
-"Subway","6"" Black Forest Ham on 9-grain Wheat","meal",290,25,830,46,0,0
-"Subway","6"" Oven Roasted Chicken on 9-grain Wheat","meal",320,25,640,47,0,0
-"Subway","6"" Roast Beef on 9-grain Wheat","meal",320,45,700,45,0,0
-"Subway","6"" Subway Clubﾨ on 9-grain Wheat","meal",310,40,880,46,0,0
-"Subway","6"" Sweet Onion Chicken Teriyaki on 9-grain Wheat","meal",380,50,900,59,0,0
-"Subway","6"" Turkey Breast on 9-grain Wheat","meal",280,20,810,46,0,0
-"Subway","6"" Turkey Breast & Black Forest Ham on 9-grain Wheat","meal",280,20,820,46,0,0
-"Subway","6"" Veggie Deliteﾨ on 9-grain Wheat","meal",230,0,310,44,1,0
-"Subway","6"" Big Philly Cheesesteak on 9-grain Wheat","meal",500,85,1310,51,0,0
-"Subway","6"" B.L.T. on 9-grain Wheat","meal",320,20,680,43,0,0
-"Subway","6"" Buffalo Chicken (with regular Ranch dressing) on 9-grain Wheat","meal",420,55,1130,46,0,0
-"Subway","6"" Chicken & Bacon Ranch Melt on 9-grain Wheat","meal",570,95,1080,47,0,0
-"Subway","6"" Cold Cut Combo on 9-grain Wheat","meal",370,50,1140,46,0,0
-"Subway","6"" Italian B.M.T.ﾨ on 9-grain Wheat","meal",410,45,1300,46,0,0
-"Subway","6"" Meatball Marinara on 9-grain Wheat","meal",480,30,950,59,0,0
-"Subway","6"" Spicy Italian on 9-grain Wheat","meal",480,50,1520,46,0,0
-"Subway","6"" Steak & Cheese on 9-grain Wheat","meal",380,50,1060,48,0,0
-"Subway","6"" Subway Meltﾨ on 9-grain Wheat","meal",370,45,1210,47,0,0
-"Subway","6"" Tuna on 9-grain Wheat","meal",470,35,620,44,0,0
-"Subway","6"" Barbecue Rib Patty on 9-grain Wheat","meal",430,50,620,47,0,0
-"Subway","6"" Barbecue Chicken on 9-grain Wheat","meal",310,35,900,52,0,0
-"Subway","6"" Chicken Parmesan on 9-grain Wheat","meal",510,40,1080,62,0,0
-"Subway","6"" Chicken Pizziola Melt on 9-grain Wheat","meal",450,75,1250,50,0,0
-"Subway","6"" Jalapeno Tuna Melt on 9-grain Wheat","meal",470,35,750,44,0,0
-"Subway","6"" Meatball Pepperoni Melt on 9-grain Wheat","meal",610,60,1700,58,0,0
-"Subway","6"" Pastram Melt, Big Hot on 9-grain Wheat","meal",580,65,1700,49,0,0
-"Subway","6"" Subway Seafood Sensation on 9-grain Wheat","meal",410,17,740,50,0,0
-"Subway","6"" Turkey & Bacon Avocado on 9-grain Wheat","meal",400,30,1000,49,0,0
-"Subway","6"" Veggie Patty on 9-grain Wheat","meal",390,10,830,56,1,0
+uniqueid,name,role,kcal,cholesterol [mg],sodium [mg],carbs [g],TAG: VEGETARIAN,TAG: VEGAN
+KFC,OR Chicken- Whole Wing,entree/sauceable,120,50,380,3,0,0
+KFC,OR Chicken- Breast,entree/sauceable,360,110,1080,11,0,0
+KFC,OR Chicken-Breast without skin or breading,entree/sauceable,160,85,580,2,0,0
+KFC,OR Chicken- Drumstick,entree/sauceable,120,45,310,3,0,0
+KFC,OR Chicken- Thigh,entree/sauceable,250,80,730,7,0,0
+KFC,EC Chicken- Whole Wing,entree/sauceable,190,55,410,6,0,0
+KFC,EC Chicken- Breast,entree/sauceable,510,110,1010,16,0,0
+KFC,EC Chicken- Drumstick,entree/sauceable,150,55,360,5,0,0
+KFC,EC Chicken- Thigh,entree/sauceable,340,80,780,10,0,0
+KFC,Spicy Crispy- Whole Wing,entree/sauceable,170,45,470,6,0,0
+KFC,Spicy Crispy- Breast,entree/sauceable,420,110,1250,12,0,0
+KFC,Spicy Crispy- Drumstick,entree/sauceable,160,50,440,5,0,0
+KFC,Spicy Crispy- Thigh,entree/sauceable,360,85,1010,13,0,0
+KFC,Grilled Chicken- Whole Wing,entree/sauceable,80,50,250,1,0,0
+KFC,Grilled Chicken- Breast,entree/sauceable,220,135,730,0,0,0
+KFC,Grilled Chicken- Drumstick,entree/sauceable,90,60,290,0,0,0
+KFC,Grilled Chicken- Thigh,entree/sauceable,170,90,530,0,0,0
+KFC,Crispy Strips (3),meal/sauceable,390,85,1130,17,0,0
+KFC,Crispy Strips (2),meal/sauceable,260,60,750,11,0,0
+KFC,KFC® OR Filet,entree,200,55,670,8,0,0
+KFC,Popcorn Chicken-Kids,meal,260,30,690,12,0,0
+KFC,Popcorn Chicken-Individual,meal,400,45,1040,18,0,0
+KFC,Popcorn Chicken-Large,meal,560,65,1480,26,0,0
+KFC,Hot Wings® (1),tapa,70,20,140,4,0,0
+KFC,HBBQ Hot Wings® (1),tapa,80,20,240,8,0,0
+KFC,Fiery Buffalo Hot Wings® (1),tapa,70,20,270,5,0,0
+KFC,KFC Snacker® with Crispy Strip,meal,310,35,600,30,0,0
+KFC,KFC Snacker® with Crispy Strip without Sauce,meal,260,30,550,29,0,0
+KFC,KFC Snacker® with Buffalo Crispy Strip,meal,270,30,720,31,0,0
+KFC,KFC Snacker® with Ultimate Cheese Crispy Strip,meal,280,30,700,31,0,0
+KFC,KFC Honey BBQ  Snacker®,meal,210,35,470,32,0,0
+KFC,Crispy Twister®,meal,610,75,1380,52,0,0
+KFC,Crispy Twister® without Sauce,meal,490,60,1260,51,0,0
+KFC,Honey BBQ Sandwich,meal,320,70,770,47,0,0
+KFC,Double Down with OR Filet,meal,610,150,1880,18,0,0
+KFC,Doublicious with OR Filet,meal,520,85,1180,40,0,0
+KFC,Chicken Pot Pie,meal,790,75,1970,66,0,0
+KFC,KFC Famous Bowls®-Mashed Potato with Gravy,meal,680,45,2130,74,0,0
+KFC,Snack-Size Bowl,meal,260,25,760,26,0,0
+KFC,Popcorn Chicken Value Box,meal,680,45,1850,53,0,0
+KFC,Hot Wings® Value Box,meal,490,55,1220,45,0,0
+KFC,Fiery Buffalo Hot Wings® Value Box,meal,510,55,1610,51,0,0
+KFC,HBBQ Hot Wings® Value Box,meal,540,55,1530,58,0,0
+KFC,Grilled Drumstick Value Box,meal,380,60,1090,34,0,0
+KFC,OR Drumstick Value Box,meal,400,45,1110,37,0,0
+KFC,EC Drumstick Value Box,meal,440,55,1160,39,0,0
+KFC,Grilled Thigh Value Box,meal,460,90,1330,34,0,0
+KFC,OR Thigh Value Box,meal,540,80,1540,42,0,0
+KFC,EC Thigh Value Box,meal,630,80,1580,45,0,0
+KFC,Crispy Chicken Caesar Salad without Dressing & Croutons,salad,340,70,930,16,0,0
+KFC,Caesar Side Salad without Dressing & Croutons,salad,40,5,90,2,1,0
+KFC,Crispy Chicken BLT Salad without Dressing,salad,360,75,1120,18,0,0
+KFC,House Side Salad without Dressing,salad,15,0,10,3,1,1
+KFC,Heinz Buttermilk Ranch Dressing (1),dressing,160,10,220,1,1,0
+KFC,Hidden Valley® The Original Ranch® Fat Free Dressing (1),dressing,35,0,410,8,1,0
+KFC,Marzetti Light Italian Dressing (1),dressing,15,0,510,2,1,1
+KFC,KFC® Creamy Parmesan Caesar Dressing (1),dressing,260,15,540,4,1,0
+KFC,Parmesan Garlic Croutons Pouch (1),crouton,70,0,160,8,1,0
+KFC,Green Beans,side,25,0,260,4,1,1
+KFC,Mashed Potatoes with Gravy,entree/side,120,0,530,19,0,0
+KFC,Mashed Potatoes without Gravy,side,90,0,320,15,1,0
+KFC,Macaroni and Cheese,entree/side,160,5,720,19,1,0
+KFC,Potato Wedges,side,290,0,810,35,1,1
+KFC,"Corn on the Cob (3"")",side/butterable,70,0,0,16,1,1
+KFC,"Corn on the Cob (5.5"")",side/butterable,140,0,5,33,1,1
+KFC,BBQ Baked Beans,entree/side,210,0,780,41,1,1
+KFC,Potato Salad,side,210,10,560,26,1,0
+KFC,Cole Slaw,side,150,0,135,21,1,0
+KFC,Biscuit,side/butterable,180,0,530,23,1,0
+KFC,Sweet Kernel Corn,side/butterable,100,0,0,21,1,0
+KFC,Macaroni Salad,side,190,5,430,22,1,0
+KFC,KFC® Cornbread Muffin,side/butterable,210,35,240,28,1,0
+KFC,Sargento® Light String Cheese,side,50,10,160,1,1,0
+KFC,Country Fried Steak without Peppered White Gravy,entree,390,40,960,21,0,0
+KFC,Country Fried Steak with Peppered White Gravy,entree,420,40,1130,25,0,0
+KFC,Jalapeno Peppers,side,20,0,480,1,1,1
+KFC,Honey Sauce Packet,sauce,30,0,0,8,1,0
+KFC,Colonel's Buttery Spread,butter,30,0,30,0,1,0
+KFC,KFC Signature Sauce Dipping Cup,sauce,70,10,135,5,1,0
+KFC,Spicy Chipotle Dipping Sauce Cup,sauce,70,10,220,8,1,0
+KFC,Sweet and Sour Dipping Sauce Cup,sauce,45,0,95,12,1,0
+KFC,Honey Mustard Dipping Sauce Cup,sauce,120,5,110,6,1,0
+KFC,Creamy Ranch Dipping Sauce Cup,sauce,140,10,230,1,1,0
+KFC,HBBQ Dipping Sauce Cup,sauce,40,0,310,9,1,0
+KFC,Apple Turnover (1),dessert,250,0,160,33,1,0
+KFC,Café Valley Bakery® Chocolate Chip Cake (6 slices per cake) 76 1 slice,dessert,130,260,39,1,1,0
+KFC,Lil' Bucket™ Lemon Crème Parfait Cup,dessert,400,5,220,65,1,0
+KFC,Lil' Bucket™ Chocolate Crème Parfait Cup,dessert,280,0,240,37,1,0
+KFC,Lil' Bucket™ Strawberry Shortcake Parfait Cup,dessert,200,20,140,35,1,0
+KFC,Reese's® Peanut Butter Pie Slice,dessert,310,5,200,31,1,0
+KFC,Oreo® Cookies and Crème Pie Slice,dessert,290,5,210,34,1,0
+KFC,Sweet Life® Oatmeal Raisin Cookie,dessert,150,10,90,22,1,0
+KFC,Sweet Life® Chocolate Chip Cookie,dessert,160,10,85,21,1,0
+Denny's,Bacon Avocado Burrito w/ hash browns,meal,1010,275,2210,91,0,0
+Denny's,Banana Pecan Pancake Breakfast,meal,780,55,1610,130,1,0
+Denny's,Country-Fried Steak & Eggs (add choices),meal,660,490,1620,29,0,0
+Denny's,Harvest Oatmeal Breakfast,meal,530,45,600,93,1,1
+Denny's,Moons Over My Hammyﾨ (add choices),meal,760,530,2320,51,0,0
+Denny's,Southwestern Steak Burrito w/ hash browns,meal,1120,285,2565,101,0,0
+Denny's,T-Bone Steak & Eggs (add choices),meal,790,555,2070,4,0,0
+Denny's,Fit Fareﾨ Omelette,meal,390,65,870,25,1,0
+Denny's,Meat Lover's Omelette w/ hash browns (add bread),meal,1060,830,2710,39,0,0
+Denny's,Moons Over My Hammy Omeletteﾪ w/ hash browns (add choices),meal,770,790,2590,31,0,0
+Denny's,Ultimate Omeletteﾨ (add choices),meal,620,740,1170,8,0,0
+Denny's,Veggie-Cheese Omelette (add choices),meal,460,740,680,9,1,0
+Denny's,Western Omelette w/ hash browns (add choices),meal,700,770,2180,32,0,0
+Denny's,Banana Caramel French Toast Skillet (add meat),meal,840,250,1010,164,0,0
+Denny's,Fit Fareﾨ Veggie Skillet,meal,330,0,1450,44,1,0
+Denny's,Prime Rib Skillet,meal,585,535,1460,15,0,0
+Denny's,Santa Fe Skillet,meal,710,485,1490,30,0,0
+Denny's,Ultimate Skillet,meal,740,475,1470,34,0,0
+Denny's,Bacon Cheddar Burger (add choices),meal,880,160,1810,45,0,0
+Denny's,Bacon Slamburgerﾪ (add choices),meal,1010,350,1730,56,0,0
+Denny's,Classic Cheeseburger (add choices),meal,820,130,1450,47,0,0
+Denny's,Double Cheeseburger (add choices),meal,1400,260,2680,49,0,0
+Denny's,Mushroom Swiss Burger (add choices),meal,860,130,1750,51,0,0
+Denny's,Patty Melt (add choices),meal,1040,160,2180,41,0,0
+Denny's,Veggie Burger w/ balsamic vinaigrette & Fit Fareﾨ fresh veggies,meal,540,20,1340,76,1,1
+Denny's,Western Burger (add choices),meal,1010,130,1450,69,0,0
+Denny's,Bacon Lover's BLT (add choices),meal,810,70,1690,66,0,0
+Denny's,Chicken Avocado Sandwich w/ Fit Fareﾨ fresh veggies,meal,520,100,2040,48,0,0
+Denny's,Club Sandwich (add choices),meal,630,50,1530,55,0,0
+Denny's,Hickory Grilled Chicken Sandwich (add choices),meal,900,115,1370,67,0,0
+Denny's,Prime Rib Philly Melt (add choices),meal,670,75,1770,52,0,0
+Denny's,Spicy Buffalo Chicken Melt (add choices),meal,860,70,3760,76,0,0
+Denny's,The Super Birdﾨ (add choices),meal,610,55,2320,54,0,0
+McDonalds,Angus Chipotle BBQ Bacon,meal,800,145,2020,66,0,0
+McDonalds,Angus Bacon & Cheese,meal,790,145,2070,63,0,0
+McDonalds,Angus Deluxe,meal,750,135,1700,61,0,0
+McDonalds,Angus Mushroom & Swiss,meal,770,135,1170,59,0,0
+McDonalds,Big Macﾨ,meal,540,75,1040,45,0,0
+McDonalds,Quarter Pounderﾨ with Cheese,meal,510,90,1190,40,0,0
+McDonalds,Double Quarter Pounderﾨ with Cheese ,meal,740,155,1380,40,0,0
+McDonalds,Hamburger,meal,250,25,520,31,0,0
+McDonalds,Cheeseburger,meal,300,40,750,33,0,0
+McDonalds,Double Cheeseburger,meal,440,80,1150,34,0,0
+McDonalds,McDouble,meal,390,65,920,33,0,0
+McDonalds,Filet-O-Fishﾨ,meal,380,40,640,38,0,0
+McDonalds,Southern Style Crispy Chicken Sandwich,meal,420,45,930,43,0,0
+McDonalds,Big N' Tastyﾨ,meal,460,70,720,37,0,0
+McDonalds,Big N' Tastyﾨ with Cheese,meal,510,85,960,38,0,0
+McDonalds,Premium Crispy Chicken Classic Sandwich ,meal,510,45,990,56,0,0
+McDonalds,Premium Grilled Chicken Classic Sandwich ,meal,350,65,820,42,0,0
+McDonalds,Premium Crispy Chicken Club Sandwich ,meal,620,70,1200,57,0,0
+McDonalds,Premium Grilled Chicken Club ,meal,460,90,1030,43,0,0
+McDonalds,Premium Bacon Ranch Salad (without chicken) ,meal,140,25,300,10,0,0
+McDonalds,Premium Bacon Ranch Salad with Crispy Chicken ,meal,390,70,870,24,0,0
+McDonalds,Premium Bacon Ranch Salad with Grilled Chicken ,meal,230,85,700,10,0,0
+McDonalds,Premium Caesar Salad (without chicken) ,meal,90,10,180,9,1,0
+McDonalds,Premium Caesar Salad with Crispy Chicken ,meal,350,55,740,24,0,0
+McDonalds,Premium Caesar Salad with Grilled Chicken ,meal,190,70,580,10,0,0
+McDonalds,Premium Southwest Salad (without chicken) ,meal,140,10,150,20,1,0
+McDonalds,Premium Southwest Salad with Crispy Chicken ,meal,450,50,820,42,0,0
+McDonalds,Premium Southwest Salad ,meal,290,70,650,28,0,0
+Pizza Hut,"Cheese Only 6"" Personal Pan Pizza",meal,590,55,1290,69,1,0
+Pizza Hut,"Pepperoni  6"" Personal Pan Pizza",meal,610,55,1410,67,0,0
+Pizza Hut,"Supreme 6"" Personal Pan Pizza",meal,720,80,1680,69,0,0
+Pizza Hut,"Pepperoni & Mushroom 6"" Personal Pan Pizza",meal,570,45,1250,68,0,0
+Pizza Hut,"Italian Sausage & Red Onion 6"" Personal Pan Pizza",meal,690,65,1440,71,0,0
+Pizza Hut,"Ham & Pineapple 6"" Personal Pan Pizza",meal,550,45,1260,71,0,0
+Pizza Hut,"Veggie Lover'sﾨ 6"" Personal Pan Pizza",meal,550,35,1190,70,1,0
+Pizza Hut,"Meat Lover'sﾨ 6"" Personal Pan Pizza",meal,830,100,2110,68,0,0
+Pizza Hut,"Pepperoni Lover'sﾨ 6"" Personal Pan Pizza",meal,720,85,1760,69,0,0
+Pizza Hut,"Hawaiian Luau 6"" Personal Pan Pizza",meal,620,55,1440,71,0,0
+Pizza Hut,"Dan's Original 6"" Personal Pan Pizza",meal,720,75,1600,69,0,0
+Pizza Hut,"Triple Meat Italiano 6"" Personal Pan Pizza",meal,730,80,1770,68,0,0
+Pizza Hut,"Spicy Sicilian 6"" Personal Pan Pizza",meal,680,70,1730,69,0,0
+Pizza Hut,"Ultimate Cheese Lover's 6"" Personal Pan Pizza",meal,660,65,1400,68,1,0
+Pizza Hut,"Chicken, Red Onion & Green Pepper 12"" Fit 'n Deliciousﾨ Pizza (1 slice)",meal,180,20,510,23,0,0
+Pizza Hut,"Chicken, Mushroom & Jalapeﾖo 12"" Fit 'n Deliciousﾨ Pizza (1 slice)",meal,170,20,720,22,0,0
+Pizza Hut,"Ham, Red Onion & Mushroom 12"" Fit 'n Deliciousﾨ Pizza (1 slice)",meal,160,15,550,23,0,0
+Pizza Hut,"Ham, Pineapple & Diced Red Tomato 12"" Fit 'n Deliciousﾨ Pizza (1 slice)",meal,160,15,550,24,0,0
+Pizza Hut,"Green Pepper, Red Onion & Diced Red Tomato 12"" Fit 'n Deliciousﾨ Pizza (1 slice)",meal,150,10,400,24,1,0
+Pizza Hut,"Diced Red Tomato, Mushroom & Jalapeﾖo 12"" Fit 'n Deliciousﾨ Pizza (1 slice)",meal,150,10,610,23,1,0
+Subway,"6"" Black Forest Ham on 9-grain Wheat",meal,290,25,830,46,0,0
+Subway,"6"" Oven Roasted Chicken on 9-grain Wheat",meal,320,25,640,47,0,0
+Subway,"6"" Roast Beef on 9-grain Wheat",meal,320,45,700,45,0,0
+Subway,"6"" Subway Clubﾨ on 9-grain Wheat",meal,310,40,880,46,0,0
+Subway,"6"" Sweet Onion Chicken Teriyaki on 9-grain Wheat",meal,380,50,900,59,0,0
+Subway,"6"" Turkey Breast on 9-grain Wheat",meal,280,20,810,46,0,0
+Subway,"6"" Turkey Breast & Black Forest Ham on 9-grain Wheat",meal,280,20,820,46,0,0
+Subway,"6"" Veggie Deliteﾨ on 9-grain Wheat",meal,230,0,310,44,1,0
+Subway,"6"" Big Philly Cheesesteak on 9-grain Wheat",meal,500,85,1310,51,0,0
+Subway,"6"" B.L.T. on 9-grain Wheat",meal,320,20,680,43,0,0
+Subway,"6"" Buffalo Chicken (with regular Ranch dressing) on 9-grain Wheat",meal,420,55,1130,46,0,0
+Subway,"6"" Chicken & Bacon Ranch Melt on 9-grain Wheat",meal,570,95,1080,47,0,0
+Subway,"6"" Cold Cut Combo on 9-grain Wheat",meal,370,50,1140,46,0,0
+Subway,"6"" Italian B.M.T.ﾨ on 9-grain Wheat",meal,410,45,1300,46,0,0
+Subway,"6"" Meatball Marinara on 9-grain Wheat",meal,480,30,950,59,0,0
+Subway,"6"" Spicy Italian on 9-grain Wheat",meal,480,50,1520,46,0,0
+Subway,"6"" Steak & Cheese on 9-grain Wheat",meal,380,50,1060,48,0,0
+Subway,"6"" Subway Meltﾨ on 9-grain Wheat",meal,370,45,1210,47,0,0
+Subway,"6"" Tuna on 9-grain Wheat",meal,470,35,620,44,0,0
+Subway,"6"" Barbecue Rib Patty on 9-grain Wheat",meal,430,50,620,47,0,0
+Subway,"6"" Barbecue Chicken on 9-grain Wheat",meal,310,35,900,52,0,0
+Subway,"6"" Chicken Parmesan on 9-grain Wheat",meal,510,40,1080,62,0,0
+Subway,"6"" Chicken Pizziola Melt on 9-grain Wheat",meal,450,75,1250,50,0,0
+Subway,"6"" Jalapeno Tuna Melt on 9-grain Wheat",meal,470,35,750,44,0,0
+Subway,"6"" Meatball Pepperoni Melt on 9-grain Wheat",meal,610,60,1700,58,0,0
+Subway,"6"" Pastram Melt, Big Hot on 9-grain Wheat",meal,580,65,1700,49,0,0
+Subway,"6"" Subway Seafood Sensation on 9-grain Wheat",meal,410,17,740,50,0,0
+Subway,"6"" Turkey & Bacon Avocado on 9-grain Wheat",meal,400,30,1000,49,0,0
+Subway,"6"" Veggie Patty on 9-grain Wheat",meal,390,10,830,56,1,0

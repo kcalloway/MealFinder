@@ -10,9 +10,11 @@
 #import "MenuItem.h"
 #import "Restaurant.h"
 
-@protocol Meal <NSObject>
+@protocol Meal <NSObject, NutritionData>
 @property (readonly) id<Restaurant> origin;
 @property (readonly) NSArray *menuItems;
+@property (readonly) BOOL     isValidMeal;
+@property (readonly) NSString *uniqueId;
 
 @property (readonly) NSNumber * kcal;
 @property (readonly) NSString * restaurantId;
@@ -22,6 +24,7 @@
 
 @interface Meal : NSObject <Meal> {
     id<Restaurant> origin;
+    NSString       *_uniqueId;
     NSArray        *menuItems;
 }
 

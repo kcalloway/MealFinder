@@ -12,6 +12,7 @@
 #import "Meal.h"
 
 @implementation MealGeneratorTests
+BOOL MealGeneratorTestsImportedCSV = 0;
 
 -(void)processResultMeals:(NSArray*) meals forLocationId:(NSString *)locationId
 {
@@ -22,9 +23,12 @@
 {
     [super setUp];
 
-    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"meals_only_nutrition"];
-    [dataStore clearWorkingData];
-    [dataStore seedDataStore];
+    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"chain_nutrition"];
+    if (!MealGeneratorTestsImportedCSV) {
+        [dataStore clearWorkingData];
+        [dataStore seedDataStore];
+        MealGeneratorTestsImportedCSV = 1;
+    }
     testGenerator = [MealGenerator alloc];
     [testGenerator initWithDataStore:dataStore];
     testGenerator.taskDelegate = self;
@@ -45,32 +49,6 @@
     [super tearDown];
 }
 
-//-(void)test_findAndGenerateMealsNoDiet
-//{
-//    [testGenerator release];
-//    //Set up
-//    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"chain_nutrition"];
-//    [dataStore clearWorkingData];
-//    [dataStore seedDataStore];
-//
-//    testGenerator = [MealGenerator alloc];
-//    [testGenerator initWithDataStore:dataStore];
-//    testGenerator.taskDelegate = self;
-//
-//    //Run Test
-//    restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"KFC"]];
-//    [testGenerator findMealsForRestaurants:restaurants andDiet:[NSArray array]];
-//    
-//    //Check Expectations
-//    STAssertNotNil(resultMeals, @"getMeals should always return an array");
-//    STAssertTrue([resultMeals count] == 23, @"We expected 23 meals, but got %d!", [resultMeals count]);
-//    id<Meal> meal = [resultMeals objectAtIndex:0];
-//    STAssertTrue([meal.kcal intValue] == 310, @"we expected 310 but got %d", [meal.kcal intValue]);
-//    STAssertFalse([meal.isVegetarian boolValue], @"This meal is not Vegetarian!");
-//    STAssertFalse([meal.isVegan boolValue], @"This meal is not Vegan!");
-//    STAssertTrue([meal.restaurantId isEqualToString:@"KFC"],@"The expected restaurantId is KFC, but got %@!",meal.restaurantId);
-//}
-
 -(void)test_findMealsWithUnrecognizedRestaurant
 {
     restaurants = [NSArray arrayWithObjects:[Restaurant createWithId:@"FAKEPLACE"], nil];
@@ -79,20 +57,21 @@
     STAssertTrue([resultMeals count] == 0, @"Since we don't recognize the Restaurant, we expected 0 results, but got %d!", [resultMeals count]);
 }
 
--(void)test_findMealsUnder500kcal
-{
-    restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"KFC"]];
-    NSArray *diet = [NSArray arrayWithObject:[DietaryConstraint createCaloricWithMax:500]];
-    [testGenerator findMealsForRestaurants:restaurants andDiet:diet];
-    
-    STAssertNotNil(resultMeals, @"getMeals should always return an array");
-    STAssertTrue([resultMeals count] == 13, @"We expected 6 meals, but got %d!", [resultMeals count]);
-}
+//-(void)test_findMealsUnder500kcal
+//{
+//    restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"KFC"]];
+//    NSArray *diet = [NSArray arrayWithObject:[DietaryConstraint createCaloricWithMax:500]];
+//    [testGenerator findMealsForRestaurants:restaurants andDiet:diet];
+//    
+//    STAssertNotNil(resultMeals, @"getMeals should always return an array");
+//    STAssertTrue([resultMeals count] == 13, @"We expected 6 meals, but got %d!", [resultMeals count]);
+//}
 
--(void)test_findMeals
+//-(void)test_findMeals
+-(void)test_findAndGenerateMealsNoDiet
 {
     restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"KFC"]];
-    [testGenerator findMealsForRestaurants:restaurants andDiet:[NSArray array]];
+    [testGenerator findMealsForRestaurants:restaurants andDiet:[NSArray array] startingAtIndex:0 endingAtIndex:5];
 
     STAssertNotNil(resultMeals, @"getMeals should always return an array");
     STAssertTrue([resultMeals count] == 23, @"We expected 23 meals, but got %d!", [resultMeals count]);

@@ -9,6 +9,7 @@
 #import "MealGenerator.h"
 #import "MenuItem.h"
 #import "Meal.h"
+#import "Diet.h"
 
 @implementation MealGenerator
 @synthesize taskDelegate;
@@ -18,7 +19,7 @@
     
 }
 
--(void) checkPreconditions:(NSArray *) restaurants andDiet:(NSArray *) diet
+-(void) checkPreconditions:(NSArray *)restaurants andDiet:(NSArray *)diet
 {
     if (!restaurants || !diet) {
         [NSException raise:NSInvalidArgumentException 
@@ -26,7 +27,26 @@
     }
 }
 
--(void) findMealsForRestaurants:(NSArray *) restaurants andDiet:(NSArray *) diet
+-(void) findMealsForRestaurants:(NSArray *)restaurants
+                        andDiet:(id<Diet>)diet
+                startingAtIndex:(int)firstMeal
+                  endingAtIndex:(int)lastMeal
+{
+//    [self checkPreconditions:restaurants andDiet:diet];
+//    for (id<Restaurant> store in restaurants) {        
+//        NSArray *menuItems = [_dataStore getAllMenuItemsForRestaurant:store andDiet:diet];
+////        NSMutableArray *meals = [NSMutableArray array];
+////        for (id<MenuItem> food in menuItems) {
+////            if (food.isMeal) {
+////                [meals addObject:[Meal createWithRestaurant:store andMenuItems:[NSArray arrayWithObject:food]]];
+////            }
+////        }
+////        
+////        [self.taskDelegate processResultMeals:meals forLocationId:store.uniqueId];
+//    }
+}
+
+-(void) findMealsForRestaurants:(NSArray *)restaurants andDiet:(NSArray *)diet
 {
     [self checkPreconditions:restaurants andDiet:diet];
     for (id<Restaurant> store in restaurants) {

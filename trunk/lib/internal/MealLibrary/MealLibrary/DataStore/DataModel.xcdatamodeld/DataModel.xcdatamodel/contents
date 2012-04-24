@@ -3,7 +3,9 @@
     <entity name="MenuItem" representedClassName="MenuItem">
         <attribute name="carbs" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="cholesterol" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isEntree" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isMeal" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isSide" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isVegan" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isVegetarian" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="kcal" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
@@ -12,6 +14,6 @@
         <attribute name="sodium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MenuItem" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="MenuItem" positionX="160" positionY="192" width="128" height="210"/>
     </elements>
 </model>

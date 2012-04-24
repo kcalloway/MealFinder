@@ -17,14 +17,23 @@
     return [NSNumber numberWithBool:_enabled];
 }
 
+#pragma mark DietaryConstraint
+-(BOOL)allowsMeal:(id<Meal>)meal
+{
+    NSNumber *curValue = [meal performSelector:_selector];
+    return (_enabled) ? [curValue boolValue] : YES;
+}
+
 #pragma mark Create/Destroy
-- (id)initWithSelectorName:(NSString *) selName andEnabledState:(BOOL)enabled
+- (id)initWithSelectorName:(NSString *) selName andSelector:(SEL)sel andEnabledState:(BOOL)enabled
 {
     self = [super init];
     if (self) {
+        _selector    = sel;
+        _enabled     = enabled;
+
         selectorName = selName;
         [selectorName retain];
-        _enabled = enabled;
     }
     
     return self;
@@ -38,14 +47,14 @@
 
 +(id<QualitativeDietaryConstraint>) createVegan
 {
-    QualitativeDietaryConstraint *constraint = [[QualitativeDietaryConstraint alloc] initWithSelectorName:@"isVegan" andEnabledState:YES];
+    QualitativeDietaryConstraint *constraint = [[QualitativeDietaryConstraint alloc] initWithSelectorName:@"isVegan" andSelector:@selector(isVegan) andEnabledState:YES];
     [constraint autorelease];
     return constraint; 
 }
 
 +(id<QualitativeDietaryConstraint>) createVegetarian
 {
-    QualitativeDietaryConstraint *constraint = [[QualitativeDietaryConstraint alloc] initWithSelectorName:@"isVegetarian" andEnabledState:YES];
+    QualitativeDietaryConstraint *constraint = [[QualitativeDietaryConstraint alloc] initWithSelectorName:@"isVegetarian" andSelector:@selector(isVegetarian) andEnabledState:YES];
     [constraint autorelease];
     return constraint;  
 }

@@ -17,13 +17,21 @@
 @synthesize selectorName;
 @synthesize maxValue;
 
+#pragma mark DietaryConstraint
+-(BOOL)allowsMeal:(id<Meal>)meal
+{
+    NSNumber *curValue = [meal performSelector:_selector];
+    return [curValue intValue] <= maxValue && [curValue intValue] >= minValue;
+}
+
 #pragma mark Create/Destroy
-- (id)initWithMin:(int)min andMax:(int)max andSelectorName:(NSString *) selName
+- (id)initWithMin:(int)min andMax:(int)max andSelector:(SEL)sel andSelectorName:(NSString *) selName
 {
     self = [super init];
     if (self) {
         maxValue     = max;
         minValue     = min;
+        _selector    = sel;
         selectorName = selName;
         [selectorName retain];
     }
@@ -70,28 +78,28 @@
 
 +(id<QuantitativeDietaryConstraint>) createCaloricWithMax:(int)maxCalories
 {
-    DietaryConstraint *caloric = [[DietaryConstraint alloc] initWithMin:0 andMax:maxCalories andSelectorName:@"kcal"];
+    DietaryConstraint *caloric = [[DietaryConstraint alloc] initWithMin:0 andMax:maxCalories andSelector:@selector(kcal) andSelectorName:@"kcal"];
     [caloric autorelease];
     return caloric;
 }
 
 +(id<QuantitativeDietaryConstraint>) createCarbohydrateWithMax:(int)maxCarbs
 {
-    DietaryConstraint *carbs = [[DietaryConstraint alloc] initWithMin:0 andMax:maxCarbs andSelectorName:@"carbs"];
+    DietaryConstraint *carbs = [[DietaryConstraint alloc] initWithMin:0 andMax:maxCarbs andSelector:@selector(carbs) andSelectorName:@"carbs"];
     [carbs autorelease];
     return carbs;
 }
 
 +(id<QuantitativeDietaryConstraint>) createSodiumWithMax:(int)maxSodium
 {
-    DietaryConstraint *constraint = [[DietaryConstraint alloc] initWithMin:0 andMax:maxSodium andSelectorName:@"sodium"];
+    DietaryConstraint *constraint = [[DietaryConstraint alloc] initWithMin:0 andMax:maxSodium andSelector:@selector(sodium) andSelectorName:@"sodium"];
     [constraint autorelease];
     return constraint;
 }
 
 +(id<QuantitativeDietaryConstraint>) createCholesterolWithMax:(int)maxChol
 {
-    DietaryConstraint *constraint = [[DietaryConstraint alloc] initWithMin:0 andMax:maxChol andSelectorName:@"cholesterol"];
+    DietaryConstraint *constraint = [[DietaryConstraint alloc] initWithMin:0 andMax:maxChol andSelector:@selector(cholesterol) andSelectorName:@"cholesterol"];
     [constraint autorelease];
     return constraint; 
 }

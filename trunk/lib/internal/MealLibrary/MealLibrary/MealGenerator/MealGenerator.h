@@ -17,6 +17,10 @@
 
 @protocol MealGenerator <NSObject>
 -(void) findMealsForRestaurants:(NSArray *) restaurants andDiet:(NSArray *) diet;
+-(void) findMealsForRestaurants:(NSArray *)restaurants
+                        andDiet:(NSArray *)diet
+                startingAtIndex:(int)firstMeal
+                  endingAtIndex:(int)lastMeal;
 -(void)cancelAllActiveTasks;
 @property (assign) id<MealGeneratorDelegate> taskDelegate;
 @end

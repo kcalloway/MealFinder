@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Meal.h"
 
 @protocol DietaryConstraint <NSObject>
 @property (retain,readonly) NSString *selectorName;
-
+-(BOOL)allowsMeal:(id<Meal>)meal;
 @end
 
 @protocol QualitativeDietaryConstraint <NSObject, DietaryConstraint> 
@@ -25,6 +26,7 @@
 @interface DietaryConstraint : NSObject <QuantitativeDietaryConstraint> {
     int       maxValue;
     int       minValue;
+    SEL       _selector;
     NSString *selectorName;
 }
 
@@ -35,8 +37,6 @@
 +(id<QuantitativeDietaryConstraint>) createCarbohydrateWithMax:(int)maxCarbs;
 +(id<QuantitativeDietaryConstraint>) createSodiumWithMax:(int)maxSodium;
 +(id<QuantitativeDietaryConstraint>) createCholesterolWithMax:(int)maxChol;
-
-//+(id<QuantitativeDietaryConstraint>) createPointsWithMax:(int)max;
 
 +(id<QualitativeDietaryConstraint>) createVegan;
 +(id<QualitativeDietaryConstraint>) createVegetarian;

@@ -11,6 +11,7 @@
 #import "Meal.h"
 
 @implementation DietaryConstraintTests
+BOOL importedCSV = 0;
 
 -(void)processResultMeals:(NSArray*) meals forLocationId:(NSString *)locationId
 {
@@ -21,13 +22,16 @@
 {
     [super setUp];
     
+
     id<DataStore> dataStore = [DataStore createForTestWithCSV:@"meals_only_nutrition"];
     testGenerator = [MealGenerator alloc];
     [testGenerator initWithDataStore:dataStore];
     testGenerator.taskDelegate = self;
-    [dataStore clearWorkingData];
-    [dataStore seedDataStore];
-
+    if (!importedCSV) {
+        [dataStore clearWorkingData];
+        [dataStore seedDataStore];
+        importedCSV = 1;
+    }
     [testGenerator retain];
     
     resultMeals = [NSMutableArray array];
@@ -47,6 +51,24 @@
 }
 
 #pragma mark Tests
+-(void)test_DietaryConstraintAllowsMealShouldPass
+{
+    restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"Denny's"]];
+    
+    NSMutableDictionary *dietaryConstraints = [DietaryConstraint namesToConstraints];
+    id<QuantitativeDietaryConstraint> quantConstraint = [dietaryConstraints objectForKey:@"Sodium"];
+    quantConstraint.maxValue = 10000;
+    
+    // Run Test
+    [testGenerator findMealsForRestaurants:restaurants andDiet:[dietaryConstraints allValues]];
+    
+    // Check Expectations
+    id<Meal> meal = [resultMeals objectAtIndex:0];
+    for (id<DietaryConstraint> constraint in [dietaryConstraints allValues]) {
+        STAssertTrue([constraint allowsMeal:meal], @"The Dietary constraint  for %@ should allow the meal, but does not!", [constraint selectorName]);        
+    }
+}
+
 -(void)test_findMealsCompoundDietConfigurationControllerInput
 {
     restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"Denny's"]];
@@ -244,6 +266,8 @@
     STAssertNotNil(resultMeals, @"getMeals should always return an array");
     STAssertTrue([resultMeals count] == 2, @"We expected 6 meals, but got %d!", [resultMeals count]);
     STAssertTrue([food.name isEqualToString:expectedName], @"We expected the food to be %@, but got %@", expectedName, food.name);
+    id<DietaryConstraint> veganConstraint = [diet objectAtIndex:0];
+    STAssertTrue([veganConstraint allowsMeal:meal], @"The Dietary constraint should allow the meal, but does not!");
 }
 
 @end

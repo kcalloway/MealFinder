@@ -10,8 +10,9 @@
 #import "DietaryConstraint.h"
 
 @interface QualitativeDietaryConstraint : NSObject<QualitativeDietaryConstraint> {
+    SEL      _selector;
     NSString *selectorName;
-    BOOL _enabled;
+    BOOL     _enabled;
 }
 @property (retain,readonly) NSString *selectorName;
 @property BOOL enabled;
