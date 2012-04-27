@@ -127,8 +127,6 @@ BOOL importedCSV = 0;
     NSDictionary   *allConstraints = [DietaryConstraint namesToConstraints];
     id<QualitativeDietaryConstraint> vegetarian = [allConstraints objectForKey:@"Vegetarian"];
     vegetarian.enabled = YES;
-//    NSMutableArray *diet = [NSMutableArray arrayWithObject:vegetarian];
-//    [diet addObjectsFromArray:[allConstraints allValues]];
 
     NSString *expectedName = @"Harvest Oatmeal Breakfast";
     

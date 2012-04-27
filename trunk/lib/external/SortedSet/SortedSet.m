@@ -23,6 +23,8 @@
 
 #import "SortedSet.h"
 
+NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent);
+
 NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 {
 	NSString *objectString;
@@ -46,20 +48,25 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 }
 
 @implementation SortedSet
-@synthesize comparatorBlock;
 
 - (BOOL)containsObject:(id)anObject
 {
     return [_set containsObject:anObject];
 }
 
+- (void)addObject:(id)anObject withComparator:(NSComparator)compareBlock
+{
+    [_set  addObject:anObject];
+	[_array addObject:anObject];
+    if (compareBlock) {
+        [_array sortUsingComparator:compareBlock];
+    }    
+}
+
 - (void)addObject:(id)anObject
 {
     [_set  addObject:anObject];
 	[_array addObject:anObject];
-    if (comparatorBlock) {
-        [_array sortUsingComparator:comparatorBlock];
-    }
 }
 
 - (void)removeObject:(id)anObject
@@ -75,18 +82,11 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 
 - (id)initWithCapacity:(NSUInteger)capacity
 {
-	self = [self initWithCapacity:capacity andComparator:nil];
-	return self;
-}
-
-- (id)initWithCapacity:(NSUInteger)capacity andComparator:(NSComparator)compareBlock
-{
 	self = [super init];
-	if (self != nil)
+    if (self != nil)
 	{
 		_set = [[NSMutableSet alloc] initWithCapacity:capacity];
 		_array = [[NSMutableArray alloc] initWithCapacity:capacity];
-        comparatorBlock = compareBlock;
 	}
 	return self;
 }
@@ -143,13 +143,5 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 	[description appendFormat:@"%@}\n", indentString];
 	return description;
 }
-
-+ (id) setWithComparatorBlock:(NSComparator)sortBlock
-{
-    SortedSet *sorted = [[SortedSet alloc] initWithCapacity:0 andComparator:sortBlock];
-    [sorted autorelease];
-    return sorted;
-}
-
 
 @end

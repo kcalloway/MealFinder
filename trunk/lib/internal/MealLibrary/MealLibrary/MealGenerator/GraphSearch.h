@@ -14,6 +14,8 @@
 -(NSNumber *)costToNode:(id<GraphNode>)otherNode;
 -(NSNumber *)heuristicEstimateToNode:(id<GraphNode>)otherNode;
 -(NSArray *)neighborNodes;
+-(BOOL)getVector:(int *)vector forLength:(int)vectorLen;
+@property (readonly) id nodeData;
 @property (readonly) NSString *uniqueId;
 @end
 

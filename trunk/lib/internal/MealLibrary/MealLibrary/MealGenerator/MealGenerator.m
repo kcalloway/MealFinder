@@ -9,7 +9,8 @@
 #import "MealGenerator.h"
 #import "MenuItem.h"
 #import "Meal.h"
-#import "Diet.h"
+#import "MealNode.h"
+#import "GraphSearch.h"
 
 @implementation MealGenerator
 @synthesize taskDelegate;
@@ -32,18 +33,20 @@
                 startingAtIndex:(int)firstMeal
                   endingAtIndex:(int)lastMeal
 {
-//    [self checkPreconditions:restaurants andDiet:diet];
-//    for (id<Restaurant> store in restaurants) {        
-//        NSArray *menuItems = [_dataStore getAllMenuItemsForRestaurant:store andDiet:diet];
-////        NSMutableArray *meals = [NSMutableArray array];
-////        for (id<MenuItem> food in menuItems) {
-////            if (food.isMeal) {
-////                [meals addObject:[Meal createWithRestaurant:store andMenuItems:[NSArray arrayWithObject:food]]];
-////            }
-////        }
-////        
-////        [self.taskDelegate processResultMeals:meals forLocationId:store.uniqueId];
-//    }
+    [self checkPreconditions:restaurants andDiet:diet.dietaryConstraints];
+    for (id<Restaurant> store in restaurants) {        
+        NSArray *menuItems = [_dataStore getAllMenuItemsForRestaurant:store andDiet:diet.dietaryConstraints];
+        id<GraphNode> startNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+        id<GraphSearch> searcher = [GraphSearch createAStar];
+        NSArray *mealPath = [searcher pathForStart:startNode andGoal:[MealNode goalNodeForDiet:diet]];
+        NSMutableArray *meals = [NSMutableArray array];
+        if ([mealPath count] > 2) {
+            id<GraphNode> curNode = [mealPath objectAtIndex:[mealPath count] -2];
+            [meals addObject:curNode.nodeData];
+        }
+
+        [self.taskDelegate processResultMeals:meals forLocationId:store.uniqueId];
+    }
 }
 
 -(void) findMealsForRestaurants:(NSArray *)restaurants andDiet:(NSArray *)diet

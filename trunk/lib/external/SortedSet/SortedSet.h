@@ -28,17 +28,13 @@
 {
     NSMutableSet    *_set;
 	NSMutableArray  *_array;
-    NSComparator comparatorBlock;
 }
-@property NSComparator comparatorBlock;
 
 - (BOOL)containsObject:(id)anObject;
 - (void)addObject:(id)anObject;
+- (void)addObject:(id)anObject withComparator:(NSComparator)compareBlock;
 - (void)removeObject:(id)anObject;
 
 - (id)keyAtIndex:(NSUInteger)anIndex;
 - (NSEnumerator *)reverseKeyEnumerator;
-
-+ (id) setWithComparatorBlock:(NSComparator)sortBlock;
-
 @end

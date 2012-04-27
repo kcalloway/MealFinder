@@ -30,9 +30,108 @@ BOOL _importedCSV = 0;
 }
 
 #pragma mark Tests
+-(void)test_costToGoal
+{
+    // Set up the test
+    id<Meal> meal;
+    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createCaloricWithMax:285]]];
+    menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
+    
+    for (id<MenuItem> food in menuItems) {
+        meal = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:food]];
+        if (food.isMeal) {
+            break;
+        }
+    }
+    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+    id<GraphNode> goalNode = [MealNode goalNodeForDiet:diet];
+    
+    
+    NSArray *neighbors = [testMealNode neighborNodes];
+    int expectedCost = 1000;
+    
+    // Run the test
+    NSNumber *cost = [testMealNode costToNode:goalNode];
+    
+    // Check expectations
+    STAssertTrue([cost intValue] == expectedCost, @"The node's cost should be %d, but was %d!", expectedCost, [cost intValue]);
+    STAssertTrue([neighbors count] == 22, @"We expected 22 neighbors, but got %d", [neighbors count]);
+}
+
+-(void)test_costFromStart
+{
+    // Set up the test
+    id<Meal> meal;
+    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createCaloricWithMax:285]]];
+    menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
+    
+    for (id<MenuItem> food in menuItems) {
+        meal = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:food]];
+        if (food.isMeal) {
+            break;
+        }
+    }
+    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+    
+    NSArray *neighbors = [testMealNode neighborNodes];
+    int expectedCost = 421;
+    
+    // Run the test
+    NSNumber *cost = [testMealNode costToNode:[neighbors objectAtIndex:0]];
+    
+    // Check expectations
+    STAssertTrue([cost intValue] == expectedCost, @"The node's cost should be %d, but was %d!", expectedCost, [cost intValue]);
+    STAssertTrue([neighbors count] == 22, @"We expected 22 neighbors, but got %d", [neighbors count]);
+}
+
+-(void)test_startNodeNeighbors
+{
+    // Set up the test
+    id<Meal> meal;
+    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createCaloricWithMax:285]]];
+    menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
+    
+    for (id<MenuItem> food in menuItems) {
+        meal = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:food]];
+        if (food.isMeal) {
+            break;
+        }
+    }
+    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+
+    NSArray *neighbors = [testMealNode neighborNodes];
+    int expectedCost = 421;
+    
+    // Run the test
+    NSNumber *cost = [testMealNode costToNode:[neighbors objectAtIndex:0]];
+    
+    // Check expectations
+    STAssertTrue([cost intValue] == expectedCost, @"The node's cost should be %d, but was %d!", expectedCost, [cost intValue]);
+    STAssertTrue([neighbors count] == 22, @"We expected 22 neighbors, but got %d", [neighbors count]);
+}
+
 -(void)test_costToNode
 {
+    // Set up the test
+    id<Meal> meal;
+    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createCaloricWithMax:285]]];
+    menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
     
+    for (id<MenuItem> food in menuItems) {
+        meal = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:food]];
+        if (food.isMeal) {
+            break;
+        }
+    }
+    testMealNode = [MealNode createWithMeal:meal andDiet:diet andMenuItems:menuItems];
+    NSArray *neighbors = [testMealNode neighborNodes];
+    int expectedCost = 52;
+
+    // Run the test
+    NSNumber *cost = [testMealNode costToNode:[neighbors objectAtIndex:0]];
+    
+    // Check expectations
+    STAssertTrue([cost intValue] == expectedCost, @"The node's cost should be %d, but was %d!", expectedCost, [cost intValue]);
 }
 
 -(void)test_isEqualToNodeGoal
@@ -102,6 +201,28 @@ BOOL _importedCSV = 0;
     STAssertTrue([neighbors count] == 1, @"We expected 1 neighbors, but got %d", [neighbors count]);
 }
 
+-(void)test_neighborNodesBoundedByDiet
+{
+    // Set up the test
+    id<Meal> meal;
+    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createCaloricWithMax:300]]];
+    menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
+    
+    for (id<MenuItem> food in menuItems) {
+        meal = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:food]];
+        if (food.isMeal) {
+            break;
+        }
+    }
+    testMealNode = [MealNode createWithMeal:meal andDiet:diet andMenuItems:menuItems];
+    
+    // Run the test
+    NSArray *neighbors = [testMealNode neighborNodes];
+
+    // Check expectations
+    STAssertTrue([neighbors count] == 9, @"We expected 9 neighbors, but got %d", [neighbors count]);
+}
+
 -(void)test_neighborNodesFromEntree
 {
     // Set up the test
@@ -141,11 +262,6 @@ BOOL _importedCSV = 0;
     
     // Run the test
     NSArray *neighbors = [testMealNode neighborNodes];
-
-//    NSLog(@"%@\n",testMealNode.uniqueId);
-//    for (id<GraphNode> node in neighbors) {
-//        NSLog(@"neighbornode = %@\n",node.uniqueId);
-//    }
 
     // Check expectations
     STAssertTrue([neighbors count] == 48, @"We expected 48 neighbors, but got %d", [neighbors count]);

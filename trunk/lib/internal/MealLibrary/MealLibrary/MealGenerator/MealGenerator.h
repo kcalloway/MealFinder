@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DataStore.h"
 #import "BatchTask.h"
+#import "Diet.h"
 
 #pragma mark Protocol
 @protocol MealGeneratorDelegate <NSObject>
@@ -18,7 +19,7 @@
 @protocol MealGenerator <NSObject>
 -(void) findMealsForRestaurants:(NSArray *) restaurants andDiet:(NSArray *) diet;
 -(void) findMealsForRestaurants:(NSArray *)restaurants
-                        andDiet:(NSArray *)diet
+                        andDiet:(id<Diet>)diet
                 startingAtIndex:(int)firstMeal
                   endingAtIndex:(int)lastMeal;
 -(void)cancelAllActiveTasks;
