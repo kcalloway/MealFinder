@@ -68,10 +68,21 @@ BOOL MealGeneratorTestsImportedCSV = 0;
     STAssertTrue([resultMeals count] == 17, @"We expected 17 meals, but got %d!", [resultMeals count]);
 }
 
-//-(void)test_findMeals
-
-
 //-(void)test_findAndGenerateMealsNoDiet
+-(void)test_findAndGenerateMealsUnder6Carbs
+{
+    restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"KFC"]];
+    id<Diet> diet = [Diet createWithConstraints:[NSArray arrayWithObjects:[DietaryConstraint createCarbohydrateWithMax:6], [DietaryConstraint createCaloricWithMax:800], nil]];
+    [testGenerator findMealsForRestaurants:restaurants andDiet:diet startingAtIndex:0 endingAtIndex:10];
+    
+    STAssertNotNil(resultMeals, @"getMeals should always return an array");
+    STAssertTrue([resultMeals count] == 10, @"We expected 10 meals, but got %d!", [resultMeals count]);
+    id<Meal> meal = [resultMeals objectAtIndex:0];
+    NSLog(@"meal.uniqueid = %@\n", meal.uniqueId);
+    STAssertTrue([meal.carbs intValue] < 6, @"we expected 20 but got %d", [meal.carbs intValue]);
+    STAssertTrue([meal.restaurantId isEqualToString:@"KFC"],@"The expected restaurantId is KFC, but got %@!",meal.restaurantId);
+}
+
 -(void)test_findAndGenerateVegetarianMealsUnder500kcal
 {
     restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"KFC"]];
@@ -82,7 +93,7 @@ BOOL MealGeneratorTestsImportedCSV = 0;
     STAssertTrue([resultMeals count] == 1, @"We expected 1 meals, but got %d!", [resultMeals count]);
     id<Meal> meal = [resultMeals objectAtIndex:0];
      NSLog(@"meal.uniqueid = %@\n", meal.uniqueId);
-    STAssertTrue([meal.kcal intValue] < 500, @"we expected 290 but got %d", [meal.kcal intValue]);
+    STAssertTrue([meal.kcal intValue] <= 500, @"we expected 500 but got %d", [meal.kcal intValue]);
     STAssertTrue([meal.restaurantId isEqualToString:@"KFC"],@"The expected restaurantId is KFC, but got %@!",meal.restaurantId);
 }
 

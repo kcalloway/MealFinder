@@ -43,7 +43,9 @@ BOOL _importedCSV = 0;
             break;
         }
     }
-    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+//    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet andRestaurant:nil];
+
     id<GraphNode> goalNode = [MealNode goalNodeForDiet:diet];
     
     
@@ -71,7 +73,8 @@ BOOL _importedCSV = 0;
             break;
         }
     }
-    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+//    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet andRestaurant:nil];
     
     NSArray *neighbors = [testMealNode neighborNodes];
     int expectedCost = 421;
@@ -97,7 +100,9 @@ BOOL _importedCSV = 0;
             break;
         }
     }
-    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+//    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
+    testMealNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet andRestaurant:nil];
+
 
     NSArray *neighbors = [testMealNode neighborNodes];
     int expectedCost = 421;
@@ -242,7 +247,7 @@ BOOL _importedCSV = 0;
     NSArray *neighbors = [testMealNode neighborNodes];
     
     // Check expectations
-    STAssertTrue([neighbors count] == 15, @"We expected 15 neighbors, but got %d", [neighbors count]);
+    STAssertTrue([neighbors count] == 13, @"We expected 13 neighbors, but got %d", [neighbors count]);
 }
 
 -(void)test_neighborNodesFromMeal

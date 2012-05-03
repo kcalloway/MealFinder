@@ -34,16 +34,33 @@
                   endingAtIndex:(int)lastMeal
 {
     [self checkPreconditions:restaurants andDiet:diet.dietaryConstraints];
-    for (id<Restaurant> store in restaurants) {        
-        NSArray *menuItems = [_dataStore getAllMenuItemsForRestaurant:store andDiet:diet.dietaryConstraints];
-        id<GraphNode> startNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet];
-        id<GraphSearch> searcher = [GraphSearch createAStar];
-        NSArray *mealPath = [searcher pathForStart:startNode andGoal:[MealNode goalNodeForDiet:diet]];
+    for (id<Restaurant> store in restaurants) {  
         NSMutableArray *meals = [NSMutableArray array];
-        if ([mealPath count] > 2) {
-            id<GraphNode> curNode = [mealPath objectAtIndex:[mealPath count] -2];
-            [meals addObject:curNode.nodeData];
+        NSArray *menuItems = [_dataStore getAllMenuItemsForRestaurant:store andDiet:diet.dietaryConstraints];
+        id<GraphNode> startNode = [MealNode startNodeForMenuItems:menuItems andDiet:diet andRestaurant:store];
+        id<GraphSearch> searcher = [GraphSearch createAStar];
+
+        for (int i = 0; i < lastMeal; i++) {
+//            NSArray *mealPath = [searcher pathForStart:startNode andGoal:[MealNode goalNodeForDiet:diet]];
+            NSArray *mealPath;
+
+            if (i > 0) {
+                mealPath = [searcher pathForStart:nil andGoal:[MealNode goalNodeForDiet:diet]];
+            }
+            else {
+                mealPath = [searcher pathForStart:startNode andGoal:[MealNode goalNodeForDiet:diet]];
+            }
+
+            if ([mealPath count] > 2) {
+                id<GraphNode> curNode = [mealPath objectAtIndex:[mealPath count] - 2];
+                [meals addObject:curNode.nodeData];
+                NSLog(@"meal.kcal = %d\n", [((id<Meal>)curNode.nodeData).kcal intValue]);
+            }
+            else {
+                break;
+            }
         }
+
 
         [self.taskDelegate processResultMeals:meals forLocationId:store.uniqueId];
     }

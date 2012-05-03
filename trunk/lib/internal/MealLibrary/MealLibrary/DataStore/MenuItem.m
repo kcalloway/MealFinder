@@ -30,7 +30,7 @@
 
 - (NSComparisonResult)compare:(id<MenuItem>)otherObject 
 {
-    return [self.uniqueId localizedCompare:otherObject.uniqueId];
+    return [self.uniqueId localizedCaseInsensitiveCompare:otherObject.uniqueId];
 }
 
 -(void)setValuesForArr:(NSArray *)stringArr

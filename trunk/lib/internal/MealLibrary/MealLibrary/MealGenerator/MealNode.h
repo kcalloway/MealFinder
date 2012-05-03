@@ -18,14 +18,16 @@
     NSArray  *_entreeMatches;
     id<Diet> _diet;
     id<QuantitativeDietaryConstraint> caloricConstraint;
+
+    id<Restaurant> restaurant;
     BOOL isGoal;
     BOOL isStart;
 }
+@property (retain) id<Restaurant> restaurant;
 @property BOOL isGoal;
 @property BOOL isStart;
 
 +(id<GraphNode>)createWithMeal:(id<Meal>)meal andDiet:(id<Diet>)curDiet andMenuItems:(NSArray *)menuItems;
 +(id<GraphNode>)goalNodeForDiet:(id<Diet>)diet;
-+(id<GraphNode>)startNodeForMenuItems:(NSArray *)menuItems andDiet:(id<Diet>)diet;
-
++(id<GraphNode>)startNodeForMenuItems:(NSArray *)menuItems andDiet:(id<Diet>)diet andRestaurant:(id<Restaurant>) restaurant;
 @end

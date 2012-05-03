@@ -60,7 +60,7 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 	[_array addObject:anObject];
     if (compareBlock) {
         [_array sortUsingComparator:compareBlock];
-    }    
+    }
 }
 
 - (void)addObject:(id)anObject

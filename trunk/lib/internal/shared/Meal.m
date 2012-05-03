@@ -130,7 +130,7 @@
     NSMutableArray *sortedItems = [NSMutableArray arrayWithArray:menuItems];
     [sortedItems sortUsingSelector:@selector(compare:)];
     NSString *uniqueId = @"";
-    for (id<MenuItem> food in menuItems) {
+    for (id<MenuItem> food in sortedItems) {
         uniqueId =  [uniqueId stringByAppendingString:food.uniqueId];
     }
     return uniqueId;

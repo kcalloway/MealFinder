@@ -15,35 +15,85 @@
     NSMutableArray *path = [NSMutableArray array];
     if ([_prevNode objectForKey:[curNode uniqueId]]) {
         [path addObjectsFromArray:[self reconstructPathFromNode:[_prevNode objectForKey:[curNode uniqueId]]]];
-//        [path addObject:curNode];
     }
-//    else {
-//        [path addObject:curNode];
-//    }
+
     [path addObject:curNode];    
     return path;
 }
 
--(NSArray *)pathForStart:(id<GraphNode>)startNode andGoal:(id<GraphNode>)goalNode
+-(NSArray *)bestFirstPathForStart:(id<GraphNode>)startNode andGoal:(id<GraphNode>)goalNode
 {
-    [_open addObject:startNode];
-    [_gScore setObject:[NSNumber numberWithInt:0] forKey:[startNode uniqueId]];
-    [_hScore setObject:[startNode heuristicEstimateToNode:goalNode] forKey:[startNode uniqueId]];
-    int startFScore =  [[_gScore objectForKey:[startNode uniqueId]] intValue] + [[_hScore objectForKey:[startNode uniqueId]] intValue];
-    [_fScore setObject:[NSNumber numberWithInt:startFScore] forKey:[startNode uniqueId]];
+    if (startNode) {
+        [_open addObject:startNode];
+        [_gScore setObject:[NSNumber numberWithInt:0] forKey:[startNode uniqueId]];
+        [_hScore setObject:[startNode heuristicEstimateToNode:goalNode] forKey:[startNode uniqueId]];
+        int startFScore =  [[_gScore objectForKey:[startNode uniqueId]] intValue] + [[_hScore objectForKey:[startNode uniqueId]] intValue];
+        [_fScore setObject:[NSNumber numberWithInt:startFScore] forKey:[startNode uniqueId]];
+    }
     
     id<GraphNode> curNode = nil;
     while ([_open count]) {        
         curNode = [_open keyAtIndex:0];
+        [_open   removeObject:curNode];
+        [_closed addObject:curNode];
+
+        if ([curNode isEqualToNode:goalNode]) {
+            return [self reconstructPathFromNode:curNode];
+        }
+
+        for (id<GraphNode> neighborNode in [curNode neighborNodes]) {
+//            if ([neighborNode isEqualToNode:goalNode]) {
+//                return [self reconstructPathFromNode:curNode];
+//            }
+
+            if ([_closed containsObject:neighborNode] || [_prevNode objectForKey:[neighborNode uniqueId]]) {
+                continue;            
+            }
+            
+            if (![_open containsObject:neighborNode]) {
+                [_hScore setObject:[neighborNode heuristicEstimateToNode:goalNode] forKey:[neighborNode uniqueId]];
+                NSComparator compareStuff = ^(id<GraphNode> obj1, id<GraphNode> obj2) {
+                    if ([[_hScore objectForKey:[obj1 uniqueId]] intValue] == [[_hScore objectForKey:[obj2 uniqueId]] intValue]) {
+                        return NSOrderedSame;
+                    }
+                    else if ([[_hScore objectForKey:[obj1 uniqueId]] intValue] < [[_hScore objectForKey:[obj2 uniqueId]] intValue]) {
+                        return NSOrderedAscending;
+                    }
+
+                    return NSOrderedDescending;
+                };
+
+                [_open addObject:neighborNode withComparator:compareStuff];
+                [_prevNode setObject:curNode forKey:[neighborNode uniqueId]];
+            }
+        }
+    }
+    
+    return nil;
+}
+
+-(NSArray *)aStarpathForStart:(id<GraphNode>)startNode andGoal:(id<GraphNode>)goalNode
+{
+    if (startNode) {
+        [_open addObject:startNode];
+        [_gScore setObject:[NSNumber numberWithInt:0] forKey:[startNode uniqueId]];
+        [_hScore setObject:[startNode heuristicEstimateToNode:goalNode] forKey:[startNode uniqueId]];
+        int startFScore =  [[_gScore objectForKey:[startNode uniqueId]] intValue] + [[_hScore objectForKey:[startNode uniqueId]] intValue];
+        [_fScore setObject:[NSNumber numberWithInt:startFScore] forKey:[startNode uniqueId]];
+    }
+
+    id<GraphNode> curNode = nil;
+    while ([_open count]) {        
+        curNode = [_open keyAtIndex:0];
+        [_open   removeObject:curNode];
+        [_closed addObject:curNode];
         NSLog(@"%@ %d\n", curNode.uniqueId,  [[_fScore objectForKey:[curNode uniqueId]] intValue]);
         if ([curNode isEqualToNode:goalNode]) {
             return [self reconstructPathFromNode:curNode];
         }
         
-        [_open   removeObject:curNode];
-        [_closed addObject:curNode];
         for (id<GraphNode> neighborNode in [curNode neighborNodes]) {
-            if ([_closed containsObject:neighborNode]) {
+            if ([_closed containsObject:neighborNode] || [_prevNode objectForKey:[neighborNode uniqueId]]) {
                 continue;            
             }
             
@@ -51,17 +101,18 @@
             BOOL tentativeIsBetter;
             
             if (![_open containsObject:neighborNode]) {
+                [_hScore setObject:[neighborNode heuristicEstimateToNode:goalNode] forKey:[neighborNode uniqueId]];
                 NSComparator compareStuff = ^(id<GraphNode> obj1, id<GraphNode> obj2) {
-                    if ([_fScore objectForKey:[obj1 uniqueId]] == [_fScore objectForKey:[obj2 uniqueId]]) {
+                    if ([[_fScore objectForKey:[obj1 uniqueId]] intValue] == [[_fScore objectForKey:[obj2 uniqueId]] intValue]) {
                         return NSOrderedSame;
                     }
-                    else if ([_fScore objectForKey:[obj1 uniqueId]] > [_fScore objectForKey:[obj2 uniqueId]]) {
+                    else if ([[_fScore objectForKey:[obj1 uniqueId]] intValue] < [[_fScore objectForKey:[obj2 uniqueId]] intValue]) {
                         return NSOrderedAscending;
                     }
                     return NSOrderedDescending;
                 };
                 [_open addObject:neighborNode withComparator:compareStuff];
-                [_hScore setObject:[neighborNode heuristicEstimateToNode:goalNode] forKey:[neighborNode uniqueId]];
+
                 tentativeIsBetter = YES;
             }
             else if (tentativeGScore < [[_gScore objectForKey:[neighborNode uniqueId]] intValue]) {
@@ -83,55 +134,10 @@
     return nil;
 }
 
-//-(NSArray *)pathForStart:(id<GraphNode>)startNode andGoal:(id<GraphNode>)goalNode
-//{
-//    [_open addObject:startNode];
-//    [_gScore setObject:[NSNumber numberWithInt:0] forKey:startNode];
-//    [_hScore setObject:[startNode heuristicEstimateToNode:goalNode] forKey:startNode];
-//    int startFScore =  [[_gScore objectForKey:startNode] intValue] + [[_hScore objectForKey:startNode] intValue];
-//    [_fScore setObject:[NSNumber numberWithInt:startFScore] forKey:startNode];
-//    
-//    id<GraphNode> curNode = nil;
-//    while ([_open count]) {        
-//        curNode = [_open keyAtIndex:0];
-//        
-//        if ([curNode isEqualToNode:goalNode]) {
-//            return [self reconstructPathFromNode:curNode];
-//        }
-//        
-//        [_open   removeObject:curNode];
-//        [_closed addObject:curNode];
-//        for (id<GraphNode> neighborNode in [curNode neighborNodes]) {
-//            if ([_closed containsObject:neighborNode]) {
-//                continue;            
-//            }
-//
-//            int tentativeGScore = [[_gScore objectForKey:curNode] intValue] + [[curNode costToNode:neighborNode] intValue];
-//            BOOL tentativeIsBetter;
-//            
-//            if (![_open containsObject:neighborNode]) {
-//                [_open addObject:neighborNode];
-//                [_hScore setObject:[neighborNode heuristicEstimateToNode:goalNode] forKey:neighborNode];
-//                tentativeIsBetter = YES;
-//            }
-//            else if (tentativeGScore < [[_gScore objectForKey:neighborNode] intValue]) {
-//                tentativeIsBetter = YES;
-//            }
-//            else {
-//                tentativeIsBetter = NO;
-//            }
-//            
-//            if (tentativeIsBetter) {
-//                [_prevNode setObject:curNode forKey:neighborNode];
-//                [_gScore setObject:[NSNumber numberWithInt:tentativeGScore] forKey:neighborNode];
-//                int newFScore = [[_gScore objectForKey:neighborNode] intValue] + [[_hScore objectForKey:neighborNode] intValue];
-//                [_fScore setObject:[NSNumber numberWithInt:newFScore] forKey:neighborNode];
-//            }
-//        }
-//    }
-//    
-//    return nil;
-//}
+-(NSArray *)pathForStart:(id<GraphNode>)startNode andGoal:(id<GraphNode>)goalNode
+{
+    return [self bestFirstPathForStart:startNode andGoal:goalNode];
+}
 
 #pragma mark Create/Destroy
 -(id)initWithOpen:(SortedSet *)open andClosed:(NSMutableSet *)closed andPrev:(NSMutableDictionary *)prevNodes andGScore:(NSMutableDictionary *)gScore andHScore:(NSMutableDictionary *)hScore andFScore:(NSMutableDictionary *)fScore  

@@ -7,26 +7,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "MealLibrary/MealGenerator/GraphSearch.m"
-         timestampString = "357167873.78628"
+         filePath = "MealLibraryTests/MealGenerator/MealGeneratorTests.m"
+         timestampString = "357695628.610486"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40"
-         landmarkName = "-pathForStart:andGoal:"
+         startingLineNumber = "74"
+         endingLineNumber = "74"
+         landmarkName = "-test_findAndGenerateMealsUnder6Carbs"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "MealLibraryTests/MealGenerator/MealGeneratorTests.m"
-         timestampString = "357184139.267801"
+         filePath = "MealLibrary/MealGenerator/MealGenerator.m"
+         timestampString = "357701448.717935"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "85"
-         endingLineNumber = "85"
-         landmarkName = "-test_findAndGenerateVegetarianMealsUnder500kcal"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
+         landmarkName = "-findMealsForRestaurants:andDiet:startingAtIndex:endingAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

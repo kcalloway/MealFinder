@@ -13,6 +13,7 @@
 @synthesize isGoal;
 @synthesize isStart;
 @synthesize nodeData = _meal;
+@synthesize restaurant;
 
 -(BOOL)getVector:(int *)vector forLength:(int)vectorLen;
 {
@@ -95,8 +96,13 @@
     for (id<MenuItem> menuItem in neighborFood) {
         NSMutableArray *curItems =[NSMutableArray arrayWithArray:_meal.menuItems];
         [curItems addObject:menuItem];
+        if (_meal.origin == nil) {
+            curMeal = [Meal createWithRestaurant:restaurant andMenuItems:curItems];
+        }
+        else {
+            curMeal = [Meal createWithRestaurant:_meal.origin andMenuItems:curItems];
+        }
 
-        curMeal = [Meal createWithRestaurant:_meal.origin andMenuItems:curItems];
         if ([_diet allowsMeal:curMeal]) {
             if (isStart) {
                 [nextNodes addObject:[MealNode createWithMeal:curMeal andDiet:_diet andMenuItems:_menuItems]];                
@@ -174,7 +180,7 @@
     [super dealloc];
 }
 
-+(id<GraphNode>)startNodeForMenuItems:(NSArray *)menuItems andDiet:(id<Diet>)diet
++(id<GraphNode>)startNodeForMenuItems:(NSArray *)menuItems andDiet:(id<Diet>)diet andRestaurant:(id<Restaurant>) restaurant
 {
     NSMutableArray *startFood = [NSMutableArray array];
     NSMutableArray *validFood = [NSMutableArray array];
@@ -189,6 +195,7 @@
 
     MealNode *node = [MealNode createWithMeal:nil andDiet:diet andMenuItems:validFood andEntreeMatches:startFood];
     node.isStart = YES;
+    node.restaurant = restaurant;
     return node;
 }
 

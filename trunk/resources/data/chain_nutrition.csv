@@ -71,10 +71,10 @@
 "KFC","Sweet Kernel Corn","side/butterable",100,0,0,21,1,0
 "KFC","Macaroni Salad","side",190,5,430,22,1,0
 "KFC","KFC® Cornbread Muffin","side/butterable",210,35,240,28,1,0
-"KFC","Sargento® Light String Cheese","side",50,10,160,1,1,0
+"KFC","Sargento® Light String Cheese","condiment",50,10,160,1,1,0
 "KFC","Country Fried Steak without Peppered White Gravy","entree",390,40,960,21,0,0
 "KFC","Country Fried Steak with Peppered White Gravy","entree",420,40,1130,25,0,0
-"KFC","Jalapeno Peppers","side",20,0,480,1,1,1
+"KFC","Jalapeno Peppers","condiment",20,0,480,1,1,1
 "KFC","Honey Sauce Packet","sauce",30,0,0,8,1,0
 "KFC","Colonel's Buttery Spread","butter",30,0,30,0,1,0
 "KFC","KFC Signature Sauce Dipping Cup","sauce",70,10,135,5,1,0
