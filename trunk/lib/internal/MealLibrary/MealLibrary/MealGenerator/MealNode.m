@@ -15,6 +15,11 @@
 @synthesize nodeData = _meal;
 @synthesize restaurant;
 
+- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
+{
+    return [[super description] stringByAppendingString:self.uniqueId];
+}
+
 -(BOOL)getVector:(int *)vector forLength:(int)vectorLen;
 {
     GoalMealProjection *projection = [GoalMealProjection createWithDiet:_diet andCaloricConstraint:caloricConstraint];

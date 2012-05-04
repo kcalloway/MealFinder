@@ -108,6 +108,16 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 	return [_set count];
 }
 
+- (NSEnumerator *)objectEnumerator
+{
+	return [_array objectEnumerator];
+}
+
+- (NSEnumerator *)reverseObjectEnumerator
+{
+	return [_array reverseObjectEnumerator];
+}
+
 - (NSEnumerator *)keyEnumerator
 {
 	return [_array objectEnumerator];

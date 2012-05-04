@@ -35,17 +35,17 @@
     while ([_open count]) {        
         curNode = [_open keyAtIndex:0];
         [_open   removeObject:curNode];
-        [_closed addObject:curNode];
 
         if ([curNode isEqualToNode:goalNode]) {
-            return [self reconstructPathFromNode:curNode];
+            NSArray *path = [self reconstructPathFromNode:curNode];
+            // We remove the GoalNode from expansion exclusion so that 
+            // the algorithm can be re-run immediately (and terminate)
+            [_prevNode removeObjectForKey:[goalNode uniqueId]];
+            return path;
         }
-
+        [_closed addObject:curNode];
+        
         for (id<GraphNode> neighborNode in [curNode neighborNodes]) {
-//            if ([neighborNode isEqualToNode:goalNode]) {
-//                return [self reconstructPathFromNode:curNode];
-//            }
-
             if ([_closed containsObject:neighborNode] || [_prevNode objectForKey:[neighborNode uniqueId]]) {
                 continue;            
             }
@@ -59,10 +59,10 @@
                     else if ([[_hScore objectForKey:[obj1 uniqueId]] intValue] < [[_hScore objectForKey:[obj2 uniqueId]] intValue]) {
                         return NSOrderedAscending;
                     }
-
+                    
                     return NSOrderedDescending;
                 };
-
+                
                 [_open addObject:neighborNode withComparator:compareStuff];
                 [_prevNode setObject:curNode forKey:[neighborNode uniqueId]];
             }
@@ -72,7 +72,7 @@
     return nil;
 }
 
--(NSArray *)aStarpathForStart:(id<GraphNode>)startNode andGoal:(id<GraphNode>)goalNode
+-(NSArray *)aStarPathForStart:(id<GraphNode>)startNode andGoal:(id<GraphNode>)goalNode
 {
     if (startNode) {
         [_open addObject:startNode];
@@ -86,12 +86,16 @@
     while ([_open count]) {        
         curNode = [_open keyAtIndex:0];
         [_open   removeObject:curNode];
-        [_closed addObject:curNode];
-        NSLog(@"%@ %d\n", curNode.uniqueId,  [[_fScore objectForKey:[curNode uniqueId]] intValue]);
         if ([curNode isEqualToNode:goalNode]) {
-            return [self reconstructPathFromNode:curNode];
+            NSArray *path = [self reconstructPathFromNode:curNode];
+            
+            // We remove the GoalNode from expansion exclusion so that 
+            // the algorithm can be re-run immediately (and terminate)
+            [_prevNode removeObjectForKey:[goalNode uniqueId]];
+            return path;
         }
-        
+        [_closed addObject:curNode];
+
         for (id<GraphNode> neighborNode in [curNode neighborNodes]) {
             if ([_closed containsObject:neighborNode] || [_prevNode objectForKey:[neighborNode uniqueId]]) {
                 continue;            
@@ -136,7 +140,7 @@
 
 -(NSArray *)pathForStart:(id<GraphNode>)startNode andGoal:(id<GraphNode>)goalNode
 {
-    return [self bestFirstPathForStart:startNode andGoal:goalNode];
+    return [self aStarPathForStart:startNode andGoal:goalNode];
 }
 
 #pragma mark Create/Destroy
