@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1221CB4C1553574000DB3A5D /* GoalMealProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1221CB4A1553574000DB3A5D /* GoalMealProjection.h */; };
+		1221CB4D1553574000DB3A5D /* GoalMealProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1221CB4B1553574000DB3A5D /* GoalMealProjection.m */; };
+		1221CB4E1553574000DB3A5D /* GoalMealProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1221CB4B1553574000DB3A5D /* GoalMealProjection.m */; };
 		123061DB1527A30A00CBAC72 /* AnnotationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 123061D81527A30A00CBAC72 /* AnnotationInfo.h */; };
 		123061DC1527A30A00CBAC72 /* StoreAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 123061D91527A30A00CBAC72 /* StoreAnnotation.h */; };
 		123061DD1527A30A00CBAC72 /* StoreAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 123061DA1527A30A00CBAC72 /* StoreAnnotation.m */; };
@@ -105,6 +108,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1221CB4A1553574000DB3A5D /* GoalMealProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalMealProjection.h; sourceTree = "<group>"; };
+		1221CB4B1553574000DB3A5D /* GoalMealProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalMealProjection.m; sourceTree = "<group>"; };
 		123061D81527A30A00CBAC72 /* AnnotationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationInfo.h; path = ../../GUI/MealFinder/MealFinder/implementation/AnnotationInfo.h; sourceTree = "<group>"; };
 		123061D91527A30A00CBAC72 /* StoreAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreAnnotation.h; path = ../../GUI/MealFinder/MealFinder/implementation/StoreAnnotation.h; sourceTree = "<group>"; };
 		123061DA1527A30A00CBAC72 /* StoreAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreAnnotation.m; path = ../../GUI/MealFinder/MealFinder/implementation/StoreAnnotation.m; sourceTree = "<group>"; };
@@ -367,6 +372,8 @@
 		1272F3101521AA5A00B79652 /* MealGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				1221CB4A1553574000DB3A5D /* GoalMealProjection.h */,
+				1221CB4B1553574000DB3A5D /* GoalMealProjection.m */,
 				1272F3111521AA5A00B79652 /* MealGenerator.h */,
 				1272F3121521AA5A00B79652 /* MealGenerator.m */,
 				12D3B22F15475B6B00BE7760 /* GraphSearch.h */,
@@ -429,6 +436,7 @@
 				12D3B23615475B6B00BE7760 /* MealNode.h in Headers */,
 				12D3B23C15475CCD00BE7760 /* Diet.h in Headers */,
 				12D3B24215475D3F00BE7760 /* SortedSet.h in Headers */,
+				1221CB4C1553574000DB3A5D /* GoalMealProjection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +563,7 @@
 				12D3B23715475B6B00BE7760 /* MealNode.m in Sources */,
 				12D3B23D15475CCD00BE7760 /* Diet.m in Sources */,
 				12D3B24315475D3F00BE7760 /* SortedSet.m in Sources */,
+				1221CB4D1553574000DB3A5D /* GoalMealProjection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +595,7 @@
 				12D3B23815475B6B00BE7760 /* MealNode.m in Sources */,
 				12D3B23E15475CCD00BE7760 /* Diet.m in Sources */,
 				12D3B24415475D3F00BE7760 /* SortedSet.m in Sources */,
+				1221CB4E1553574000DB3A5D /* GoalMealProjection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
