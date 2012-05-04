@@ -83,6 +83,8 @@
 		12ABD0E51532265300D05493 /* ConfigurationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ABD0D91532265300D05493 /* ConfigurationController.m */; };
 		12B01F76152ADE0700ACCA8A /* MealCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B01F75152ADE0700ACCA8A /* MealCellInfo.m */; };
 		12B01F77152ADE0700ACCA8A /* MealCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B01F75152ADE0700ACCA8A /* MealCellInfo.m */; };
+		12B032F615548CD5005666DE /* ProjectionDimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B032F515548CD5005666DE /* ProjectionDimension.m */; };
+		12B032F715548CD5005666DE /* ProjectionDimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B032F515548CD5005666DE /* ProjectionDimension.m */; };
 		12CBEA101530FB1A00AD3254 /* config_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CBEA0F1530FB1900AD3254 /* config_background.png */; };
 		12D3B24B15475DC500BE7760 /* Diet.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B24A15475DC500BE7760 /* Diet.m */; };
 		12D3B24C15475DC500BE7760 /* Diet.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B24A15475DC500BE7760 /* Diet.m */; };
@@ -188,6 +190,8 @@
 		12ABD0D91532265300D05493 /* ConfigurationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurationController.m; path = implementation/ConfigurationController.m; sourceTree = "<group>"; };
 		12B01F74152ADE0600ACCA8A /* MealCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MealCellInfo.h; path = implementation/MealCellInfo.h; sourceTree = "<group>"; };
 		12B01F75152ADE0700ACCA8A /* MealCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MealCellInfo.m; path = implementation/MealCellInfo.m; sourceTree = "<group>"; };
+		12B032F415548CD5005666DE /* ProjectionDimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionDimension.h; sourceTree = "<group>"; };
+		12B032F515548CD5005666DE /* ProjectionDimension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectionDimension.m; sourceTree = "<group>"; };
 		12CBEA0F1530FB1900AD3254 /* config_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_background.png; path = ../../../../../resources/img/Art/config_background.png; sourceTree = "<group>"; };
 		12D3B24915475DC500BE7760 /* Diet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Diet.h; sourceTree = "<group>"; };
 		12D3B24A15475DC500BE7760 /* Diet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Diet.m; sourceTree = "<group>"; };
@@ -396,6 +400,8 @@
 		1272F35D1521C58500B79652 /* MealGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				12B032F415548CD5005666DE /* ProjectionDimension.h */,
+				12B032F515548CD5005666DE /* ProjectionDimension.m */,
 				12E9C7DD154B316100432475 /* GoalMealProjection.h */,
 				12E9C7DE154B316100432475 /* GoalMealProjection.m */,
 				12D3B24E15475DDC00BE7760 /* GraphSearch.h */,
@@ -619,6 +625,7 @@
 				12D3B25415475DDC00BE7760 /* MealNode.m in Sources */,
 				12D3B25915475E1800BE7760 /* SortedSet.m in Sources */,
 				12E9C7DF154B316100432475 /* GoalMealProjection.m in Sources */,
+				12B032F615548CD5005666DE /* ProjectionDimension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +663,7 @@
 				12D3B25515475DDC00BE7760 /* MealNode.m in Sources */,
 				12D3B25A15475E1800BE7760 /* SortedSet.m in Sources */,
 				12E9C7E0154B316100432475 /* GoalMealProjection.m in Sources */,
+				12B032F715548CD5005666DE /* ProjectionDimension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

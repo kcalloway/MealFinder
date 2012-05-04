@@ -7,7 +7,6 @@
 //
 
 #import "GoalMealProjection.h"
-#import "Diet.h"
 
 @implementation GoalMealProjection 
 

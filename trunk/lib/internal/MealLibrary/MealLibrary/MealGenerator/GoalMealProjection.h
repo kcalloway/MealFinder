@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ProjectionDimension.h"
 #import "DietaryConstraint.h"
+#import "Diet.h"
 
 // For use if the user wants to create the vector statically
 #define GOAL_MEAL_PROJECTION_VECTORLENGTH     1

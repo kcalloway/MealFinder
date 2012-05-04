@@ -77,12 +77,15 @@
 		12994E0915410459000011F8 /* StaticDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 12994E0715410459000011F8 /* StaticDataStore.h */; };
 		12994E0A15410459000011F8 /* StaticDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 12994E0815410459000011F8 /* StaticDataStore.m */; };
 		12994E0B15410459000011F8 /* StaticDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 12994E0815410459000011F8 /* StaticDataStore.m */; };
-		12994E0E154104C6000011F8 /* meals_only_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 12994E0D154104C6000011F8 /* meals_only_nutrition.csv */; };
 		129B565C1538087500CF2F0D /* chain_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 129B565A1538087500CF2F0D /* chain_nutrition.csv */; };
 		129B565D1538087500CF2F0D /* MealLibrary.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 129B565B1538087500CF2F0D /* MealLibrary.sqlite */; };
 		12A690631532B14900A60767 /* QualitativeDietaryConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 12A690611532B14900A60767 /* QualitativeDietaryConstraint.h */; };
 		12A690641532B14900A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690621532B14900A60767 /* QualitativeDietaryConstraint.m */; };
 		12A690651532B14900A60767 /* QualitativeDietaryConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A690621532B14900A60767 /* QualitativeDietaryConstraint.m */; };
+		12B032E515548AF6005666DE /* ProjectionDimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 12B032E315548AF6005666DE /* ProjectionDimension.h */; };
+		12B032E615548AF6005666DE /* ProjectionDimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B032E415548AF6005666DE /* ProjectionDimension.m */; };
+		12B032E715548AF6005666DE /* ProjectionDimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B032E415548AF6005666DE /* ProjectionDimension.m */; };
+		12B032EC15548C0E005666DE /* test_meals_only_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 12B032EB15548C0E005666DE /* test_meals_only_nutrition.csv */; };
 		12D3B23315475B6B00BE7760 /* GraphSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = 12D3B22F15475B6B00BE7760 /* GraphSearch.h */; };
 		12D3B23415475B6B00BE7760 /* GraphSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B23015475B6B00BE7760 /* GraphSearch.m */; };
 		12D3B23515475B6B00BE7760 /* GraphSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B23015475B6B00BE7760 /* GraphSearch.m */; };
@@ -163,11 +166,13 @@
 		1272F3B415224E1C00B79652 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		12994E0715410459000011F8 /* StaticDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataStore.h; sourceTree = "<group>"; };
 		12994E0815410459000011F8 /* StaticDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataStore.m; sourceTree = "<group>"; };
-		12994E0D154104C6000011F8 /* meals_only_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = meals_only_nutrition.csv; path = ../../MealLibrary/MealLibraryTests/MealGenerator/meals_only_nutrition.csv; sourceTree = "<group>"; };
 		129B565A1538087500CF2F0D /* chain_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chain_nutrition.csv; sourceTree = "<group>"; };
 		129B565B1538087500CF2F0D /* MealLibrary.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MealLibrary.sqlite; sourceTree = "<group>"; };
 		12A690611532B14900A60767 /* QualitativeDietaryConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QualitativeDietaryConstraint.h; sourceTree = "<group>"; };
 		12A690621532B14900A60767 /* QualitativeDietaryConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QualitativeDietaryConstraint.m; sourceTree = "<group>"; };
+		12B032E315548AF6005666DE /* ProjectionDimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionDimension.h; sourceTree = "<group>"; };
+		12B032E415548AF6005666DE /* ProjectionDimension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectionDimension.m; sourceTree = "<group>"; };
+		12B032EB15548C0E005666DE /* test_meals_only_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_meals_only_nutrition.csv; path = test_csv/test_meals_only_nutrition.csv; sourceTree = "<group>"; };
 		12D3B22F15475B6B00BE7760 /* GraphSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphSearch.h; sourceTree = "<group>"; };
 		12D3B23015475B6B00BE7760 /* GraphSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphSearch.m; sourceTree = "<group>"; };
 		12D3B23115475B6B00BE7760 /* MealNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealNode.h; sourceTree = "<group>"; };
@@ -273,9 +278,9 @@
 		1272F2A81521A16700B79652 /* MealRestaurantLayerTests */ = {
 			isa = PBXGroup;
 			children = (
+				12B032EB15548C0E005666DE /* test_meals_only_nutrition.csv */,
 				1272F2AE1521A16700B79652 /* MealRestaurantLayerTests.h */,
 				1272F2AF1521A16700B79652 /* MealRestaurantLayerTests.m */,
-				12994E0D154104C6000011F8 /* meals_only_nutrition.csv */,
 				1272F2A91521A16700B79652 /* Supporting Files */,
 				1272F3AF1522407F00B79652 /* RestaurantDisambiguatorTests.h */,
 				1272F3B01522407F00B79652 /* RestaurantDisambiguatorTests.m */,
@@ -372,6 +377,8 @@
 		1272F3101521AA5A00B79652 /* MealGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				12B032E315548AF6005666DE /* ProjectionDimension.h */,
+				12B032E415548AF6005666DE /* ProjectionDimension.m */,
 				1221CB4A1553574000DB3A5D /* GoalMealProjection.h */,
 				1221CB4B1553574000DB3A5D /* GoalMealProjection.m */,
 				1272F3111521AA5A00B79652 /* MealGenerator.h */,
@@ -437,6 +444,7 @@
 				12D3B23C15475CCD00BE7760 /* Diet.h in Headers */,
 				12D3B24215475D3F00BE7760 /* SortedSet.h in Headers */,
 				1221CB4C1553574000DB3A5D /* GoalMealProjection.h in Headers */,
+				12B032E515548AF6005666DE /* ProjectionDimension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +521,7 @@
 				1272F2AD1521A16700B79652 /* InfoPlist.strings in Resources */,
 				129B565C1538087500CF2F0D /* chain_nutrition.csv in Resources */,
 				129B565D1538087500CF2F0D /* MealLibrary.sqlite in Resources */,
-				12994E0E154104C6000011F8 /* meals_only_nutrition.csv in Resources */,
+				12B032EC15548C0E005666DE /* test_meals_only_nutrition.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +572,7 @@
 				12D3B23D15475CCD00BE7760 /* Diet.m in Sources */,
 				12D3B24315475D3F00BE7760 /* SortedSet.m in Sources */,
 				1221CB4D1553574000DB3A5D /* GoalMealProjection.m in Sources */,
+				12B032E615548AF6005666DE /* ProjectionDimension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +605,7 @@
 				12D3B23E15475CCD00BE7760 /* Diet.m in Sources */,
 				12D3B24415475D3F00BE7760 /* SortedSet.m in Sources */,
 				1221CB4E1553574000DB3A5D /* GoalMealProjection.m in Sources */,
+				12B032E715548AF6005666DE /* ProjectionDimension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

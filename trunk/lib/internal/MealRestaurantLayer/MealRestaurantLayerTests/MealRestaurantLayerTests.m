@@ -24,8 +24,10 @@
     testRestLayer = [MealRestaurantLayer alloc];
 
     // Create the Dependencies
-    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"meals_only_nutrition"];
-    
+    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"test_meals_only_nutrition"];
+    [dataStore clearWorkingData];
+    [dataStore seedDataStore];
+
     MealGenerator *mealGenerator = [MealGenerator alloc];
     [mealGenerator initWithDataStore:dataStore];
     
@@ -78,7 +80,7 @@
     meals = [testRestLayer getMealCellInfoForUniqueId:@"Denny's"];
 
     // Check expecations
-    STAssertTrue([meals count] == 0, @"We expected 19 meals but got %d",[meals count]);    
+    STAssertTrue([meals count] == 0, @"We expected 0 meals but got %d",[meals count]);    
 }
 
 - (void)test_findAnnotationsForDiet
@@ -94,7 +96,7 @@
     NSArray *meals = [testRestLayer getMealCellInfoForUniqueId:@"Denny's"];
 
     // Check expecations
-    STAssertTrue([meals count] == 3, @"We expected 19 meals but got %d",[meals count]);    
+    STAssertTrue([meals count] == 3, @"We expected 3 meals but got %d",[meals count]);    
 }
 
 @end
