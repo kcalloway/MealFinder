@@ -23,7 +23,7 @@ BOOL importedCSV = 0;
     [super setUp];
     
 
-    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"meals_only_nutrition"];
+    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"test_meals_only_nutrition"];
     testGenerator = [MealGenerator alloc];
     [testGenerator initWithDataStore:dataStore];
     testGenerator.taskDelegate = self;

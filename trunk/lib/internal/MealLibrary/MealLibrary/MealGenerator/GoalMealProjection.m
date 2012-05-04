@@ -39,6 +39,14 @@
 }
 
 #pragma mark Create/Destroy
+-(void) checkCreatePreconditions
+{
+    if (!_boundingConstraint)
+	{
+        [NSException raise:NSDestinationInvalidException 
+                    format:@"A _boundingConstraint MUST be defined for a GoalMealProjection, but we got nil!"];
+    }
+}
 -(id)initWithDiet:(id<Diet>)diet andCaloricConstraint:(id<QuantitativeDietaryConstraint>)constraint
 {
     self = [super init];
@@ -64,6 +72,7 @@
 +(id<GoalMealProjection>)createWithDiet:(id<Diet>)diet andCaloricConstraint:(id<QuantitativeDietaryConstraint>)constraint
 {
     GoalMealProjection *projection = [[GoalMealProjection alloc] initWithDiet:diet andCaloricConstraint:constraint];
+    [projection checkCreatePreconditions];
     [projection autorelease];
     return projection;
 }

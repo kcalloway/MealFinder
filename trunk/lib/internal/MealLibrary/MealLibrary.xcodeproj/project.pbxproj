@@ -14,6 +14,8 @@
 		120012CE1516A970006433E4 /* chain_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 120012CD1516A970006433E4 /* chain_nutrition.csv */; };
 		120012D01516AC02006433E4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120012CF1516AC02006433E4 /* CoreData.framework */; };
 		120012DB1516B184006433E4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120012DA1516B184006433E4 /* CoreData.framework */; };
+		1221CB5B15535F2400DB3A5D /* test_kfc_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1221CB5915535F2400DB3A5D /* test_kfc_nutrition.csv */; };
+		1221CB5C15535F2400DB3A5D /* test_meals_only_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1221CB5A15535F2400DB3A5D /* test_meals_only_nutrition.csv */; };
 		1236BCC4151FC90800B9DF06 /* BatchTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 1236BCC2151FC90800B9DF06 /* BatchTask.h */; };
 		1236BCC5151FC90800B9DF06 /* BatchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1236BCC3151FC90800B9DF06 /* BatchTask.m */; };
 		1236BCC6151FC90800B9DF06 /* BatchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1236BCC3151FC90800B9DF06 /* BatchTask.m */; };
@@ -47,7 +49,6 @@
 		1272F3341521B92B00B79652 /* Meal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1272F3321521B92B00B79652 /* Meal.h */; };
 		1272F3351521B92B00B79652 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3331521B92B00B79652 /* Meal.m */; };
 		1272F3361521B92B00B79652 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1272F3331521B92B00B79652 /* Meal.m */; };
-		12838DCB153E823700D267B6 /* meals_only_nutrition.csv in Resources */ = {isa = PBXBuildFile; fileRef = 12838DCA153E823700D267B6 /* meals_only_nutrition.csv */; };
 		12994E231541F7D6000011F8 /* GraphSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = 12994E211541F7D5000011F8 /* GraphSearch.h */; };
 		12994E241541F7D6000011F8 /* GraphSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 12994E221541F7D6000011F8 /* GraphSearch.m */; };
 		12994E251541F7D6000011F8 /* GraphSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 12994E221541F7D6000011F8 /* GraphSearch.m */; };
@@ -91,6 +92,8 @@
 		120012CD1516A970006433E4 /* chain_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chain_nutrition.csv; sourceTree = "<group>"; };
 		120012CF1516AC02006433E4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		120012DA1516B184006433E4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1221CB5915535F2400DB3A5D /* test_kfc_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_kfc_nutrition.csv; sourceTree = "<group>"; };
+		1221CB5A15535F2400DB3A5D /* test_meals_only_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_meals_only_nutrition.csv; sourceTree = "<group>"; };
 		1236BCC2151FC90800B9DF06 /* BatchTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchTask.h; sourceTree = "<group>"; };
 		1236BCC3151FC90800B9DF06 /* BatchTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchTask.m; sourceTree = "<group>"; };
 		123CF8EA154624C5006F4EDC /* Diet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Diet.h; sourceTree = "<group>"; };
@@ -116,7 +119,6 @@
 		1272F1BD15210A7600B79652 /* DietaryConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DietaryConstraint.m; sourceTree = "<group>"; };
 		1272F3321521B92B00B79652 /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
 		1272F3331521B92B00B79652 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
-		12838DCA153E823700D267B6 /* meals_only_nutrition.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = meals_only_nutrition.csv; path = MealLibraryTests/MealGenerator/meals_only_nutrition.csv; sourceTree = SOURCE_ROOT; };
 		12994E211541F7D5000011F8 /* GraphSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphSearch.h; path = MealLibrary/MealGenerator/GraphSearch.h; sourceTree = SOURCE_ROOT; };
 		12994E221541F7D6000011F8 /* GraphSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphSearch.m; path = MealLibrary/MealGenerator/GraphSearch.m; sourceTree = SOURCE_ROOT; };
 		12997C7E151542D8003FA55B /* libMealLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMealLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +208,16 @@
 			path = ../../../resources/data;
 			sourceTree = "<group>";
 		};
+		1221CB5815535F2400DB3A5D /* test_csv */ = {
+			isa = PBXGroup;
+			children = (
+				1221CB5915535F2400DB3A5D /* test_kfc_nutrition.csv */,
+				1221CB5A15535F2400DB3A5D /* test_meals_only_nutrition.csv */,
+			);
+			name = test_csv;
+			path = MealGenerator/test_csv;
+			sourceTree = "<group>";
+		};
 		124612E01547562800905E18 /* SortedSet */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +245,6 @@
 		12486F2D1517F7AF00451214 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				12838DCA153E823700D267B6 /* meals_only_nutrition.csv */,
 				12486F2E1517F7AF00451214 /* DataStoreTests.h */,
 				12486F2F1517F7AF00451214 /* DataStoreTests.m */,
 			);
@@ -321,6 +332,7 @@
 			children = (
 				12997C9F151542D9003FA55B /* MealLibraryTests.h */,
 				12997CA1151542D9003FA55B /* MealLibraryTests.m */,
+				1221CB5815535F2400DB3A5D /* test_csv */,
 				12486F2D1517F7AF00451214 /* DataStore */,
 				120012AE15169AEA006433E4 /* MealGenerator */,
 				12997C9A151542D9003FA55B /* Supporting Files */,
@@ -436,7 +448,8 @@
 				12997CA0151542D9003FA55B /* MealLibraryTests.h in Resources */,
 				120012CE1516A970006433E4 /* chain_nutrition.csv in Resources */,
 				12486F43151807A700451214 /* MealLibrary.sqlite in Resources */,
-				12838DCB153E823700D267B6 /* meals_only_nutrition.csv in Resources */,
+				1221CB5B15535F2400DB3A5D /* test_kfc_nutrition.csv in Resources */,
+				1221CB5C15535F2400DB3A5D /* test_meals_only_nutrition.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@ BOOL _importedCSV = 0;
 - (void)setUp
 {
     [super setUp];
-    dataStore = [DataStore createForTestWithCSV:@"chain_nutrition"];
+    dataStore = [DataStore createForTestWithCSV:@"test_kfc_nutrition"];
     if (!_importedCSV) {
         [dataStore clearWorkingData];
         [dataStore seedDataStore];

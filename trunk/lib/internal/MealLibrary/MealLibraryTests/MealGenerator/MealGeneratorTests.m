@@ -24,7 +24,7 @@ BOOL MealGeneratorTestsImportedCSV = 0;
 {
     [super setUp];
 
-    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"chain_nutrition"];
+    id<DataStore> dataStore = [DataStore createForTestWithCSV:@"test_kfc_nutrition"];
     if (!MealGeneratorTestsImportedCSV) {
         [dataStore clearWorkingData];
         [dataStore seedDataStore];
