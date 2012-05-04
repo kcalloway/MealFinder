@@ -7,20 +7,21 @@
 //
 
 #import "GoalMealProjection.h"
+#import "Diet.h"
 
 @implementation GoalMealProjection 
 
-// Currently, this tries to maximize only for calories
+// Currently, this tries to optimize only for calories
 -(BOOL)vector:(int *)vector forMeal:(id<Meal>)meal andLength:(int)vectorLen
 {
     BOOL canReadVector = vectorLen < [self vectorLength];
 
-    // Get number as a percentage of the maxValue
-    float percent = ((float)[meal.kcal intValue]/(float)_boundingConstraint.maxValue);
+    if (vectorLen >= GOAL_MEAL_PROJECTION_VECTORLENGTH) {
+        for (int i =0; i < GOAL_MEAL_PROJECTION_VECTORLENGTH; i++) {
+            vector[i] = [(id<ProjectionDimension>)[_axes objectAtIndex:i] magnitudeForMeal:meal];
+        }
+    }
 
-    // Convert percent into 1000 point space
-    vector[0] = percent * 1000;
-    
     return canReadVector;
 }
 
@@ -28,35 +29,36 @@
 {
     BOOL canSetVector = vectorLen <= [self vectorLength];
     if (canSetVector) {
-        vector[0] = 1000;
+        for (int i =0; i < GOAL_MEAL_PROJECTION_VECTORLENGTH; i++) {
+            vector[i] = [(id<ProjectionDimension>)[_axes objectAtIndex:i] goalMagnitude];
+        }
     }
     return canSetVector;
 }
 
 -(int)vectorLength
 {
-    return 1;
+    return GOAL_MEAL_PROJECTION_VECTORLENGTH;
 }
 
 #pragma mark Create/Destroy
 -(void) checkCreatePreconditions
 {
-    if (!_boundingConstraint)
+    if (!_boundingDimension)
 	{
         [NSException raise:NSDestinationInvalidException 
                     format:@"A _boundingConstraint MUST be defined for a GoalMealProjection, but we got nil!"];
     }
 }
--(id)initWithDiet:(id<Diet>)diet andCaloricConstraint:(id<QuantitativeDietaryConstraint>)constraint
+-(id)initWithDiet:(NSArray *)defaultDimensions andBoundingAxis:(id<ProjectionDimension>)dimension
 {
     self = [super init];
     
     if (self) {
-        _diet              = diet;
-        _boundingConstraint = constraint;
-
-        [_diet              retain];
-        [_boundingConstraint retain];
+        _boundingDimension = dimension;
+        _axes              = defaultDimensions;
+        [_boundingDimension retain];
+        [_axes              retain];
     }
 
     return self;
@@ -64,14 +66,19 @@
 
 -(void)dealloc
 {
-    [_diet              release];
-    [_boundingConstraint release];
+    [_boundingDimension release];
+    [_axes              release];
     [super dealloc];
 }
 
 +(id<GoalMealProjection>)createWithDiet:(id<Diet>)diet andCaloricConstraint:(id<QuantitativeDietaryConstraint>)constraint
 {
-    GoalMealProjection *projection = [[GoalMealProjection alloc] initWithDiet:diet andCaloricConstraint:constraint];
+    id<ProjectionDimension> dimension = [ProjectionDimension createCaloricWithConstraint:constraint];
+    if (constraint == nil) {
+        dimension = nil;   
+    }
+    NSArray *defaultDimensions  = [ProjectionDimension createDefaultDimensionsWithCaloricDimension:dimension];
+    GoalMealProjection *projection = [[GoalMealProjection alloc] initWithDiet:defaultDimensions andBoundingAxis:dimension];
     [projection checkCreatePreconditions];
     [projection autorelease];
     return projection;

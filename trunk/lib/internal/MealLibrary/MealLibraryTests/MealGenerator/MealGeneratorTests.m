@@ -13,7 +13,7 @@
 #import "Meal.h"
 
 @implementation MealGeneratorTests
-BOOL MealGeneratorTestsImportedCSV = 0;
+static BOOL importedCSV = 0;
 
 -(void)processResultMeals:(NSArray*) meals forLocationId:(NSString *)locationId
 {
@@ -25,10 +25,10 @@ BOOL MealGeneratorTestsImportedCSV = 0;
     [super setUp];
 
     id<DataStore> dataStore = [DataStore createForTestWithCSV:@"test_kfc_nutrition"];
-    if (!MealGeneratorTestsImportedCSV) {
+    if (!importedCSV) {
         [dataStore clearWorkingData];
         [dataStore seedDataStore];
-        MealGeneratorTestsImportedCSV = 1;
+        importedCSV = 1;
     }
     testGenerator = [MealGenerator alloc];
     [testGenerator initWithDataStore:dataStore];
@@ -68,7 +68,6 @@ BOOL MealGeneratorTestsImportedCSV = 0;
     STAssertTrue([resultMeals count] == 17, @"We expected 17 meals, but got %d!", [resultMeals count]);
 }
 
-//-(void)test_findAndGenerateMealsNoDiet
 -(void)test_findAndGenerateMealsUnder6Carbs
 {
     restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"KFC"]];
@@ -81,6 +80,14 @@ BOOL MealGeneratorTestsImportedCSV = 0;
 
     STAssertTrue([meal.carbs intValue] < 6, @"we expected 20 but got %d", [meal.carbs intValue]);
     STAssertTrue([meal.restaurantId isEqualToString:@"KFC"],@"The expected restaurantId is KFC, but got %@!",meal.restaurantId);
+}
+
+-(void)test_findAndGenerateMealsNoDiet
+{
+    restaurants = [NSArray arrayWithObject:[Restaurant createWithId:@"KFC"]];
+    id<Diet> diet = [Diet createWithConstraints:[NSArray array]];
+    
+    STAssertThrows([testGenerator findMealsForRestaurants:restaurants andDiet:diet startingAtIndex:0 endingAtIndex:10], @"findMealsForRestaurants no longer throws exception when not handed a bounding dietary constraint (caloric restriction)");
 }
 
 -(void)test_findAndGenerateVegetarianMealsUnder500kcal

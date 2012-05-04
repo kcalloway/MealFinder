@@ -11,7 +11,7 @@
 #import "Meal.h"
 
 @implementation DietaryConstraintTests
-BOOL importedCSV = 0;
+static BOOL importedCSV = 0;
 
 -(void)processResultMeals:(NSArray*) meals forLocationId:(NSString *)locationId
 {

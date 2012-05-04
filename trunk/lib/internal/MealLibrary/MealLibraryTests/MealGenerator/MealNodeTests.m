@@ -11,16 +11,16 @@
 #import "Meal.h"
 
 @implementation MealNodeTests
-BOOL _importedCSV = 0;
+static BOOL importedCSV = 0;
 
 - (void)setUp
 {
     [super setUp];
     dataStore = [DataStore createForTestWithCSV:@"test_kfc_nutrition"];
-    if (!_importedCSV) {
+    if (!importedCSV) {
         [dataStore clearWorkingData];
         [dataStore seedDataStore];
-        _importedCSV = 1;
+        importedCSV = 1;
     }
 }
 
@@ -141,7 +141,7 @@ BOOL _importedCSV = 0;
 
 -(void)test_isEqualToNodeGoal
 {
-    diet         = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createVegetarian]]];
+    diet         = [Diet createWithConstraints:[NSMutableArray arrayWithObjects:[DietaryConstraint createVegetarian], [DietaryConstraint createCaloricWithMax:1000], nil]];
     testMealNode = [MealNode goalNodeForDiet:diet];
     
     // Check expectations
@@ -152,7 +152,7 @@ BOOL _importedCSV = 0;
 {
     // Set up the test
     id<Meal> meal;
-    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createVegetarian]]];
+    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObjects:[DietaryConstraint createVegetarian], [DietaryConstraint createCaloricWithMax:1000], nil]];
     menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
     
     for (id<MenuItem> food in menuItems) {
@@ -174,7 +174,7 @@ BOOL _importedCSV = 0;
 {
     // Set up the test
     id<Meal> meal;
-    diet      = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createVegetarian]]];
+    diet      = [Diet createWithConstraints:[NSMutableArray arrayWithObjects:[DietaryConstraint createVegetarian], [DietaryConstraint createCaloricWithMax:1000], nil]];
     menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
     meal      = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:[menuItems objectAtIndex:0]]];
     
@@ -232,7 +232,7 @@ BOOL _importedCSV = 0;
 {
     // Set up the test
     id<Meal> meal;
-    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createVegetarian]]];
+    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObjects:[DietaryConstraint createVegetarian], [DietaryConstraint createCaloricWithMax:1000], nil]];
     menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
     
     for (id<MenuItem> food in menuItems) {
@@ -276,7 +276,7 @@ BOOL _importedCSV = 0;
 {
     // Set up the test
     id<Meal> meal;
-    diet      = [Diet createWithConstraints:[NSMutableArray arrayWithObject:[DietaryConstraint createVegetarian]]];
+    diet      = [Diet createWithConstraints:[NSMutableArray arrayWithObjects:[DietaryConstraint createVegetarian], [DietaryConstraint createCaloricWithMax:1000], nil]];
     menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
     meal      = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:[menuItems objectAtIndex:0]]];
 

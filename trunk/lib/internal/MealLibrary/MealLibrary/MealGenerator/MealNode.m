@@ -7,7 +7,7 @@
 //
 
 #import "MealNode.h"
-#import "GoalMealProjection.h"
+
 @implementation MealNode
 @dynamic uniqueId;
 @synthesize isGoal;
@@ -22,11 +22,10 @@
 
 -(BOOL)getVector:(int *)vector forLength:(int)vectorLen;
 {
-    GoalMealProjection *projection = [GoalMealProjection createWithDiet:_diet andCaloricConstraint:caloricConstraint];
     if (isGoal) {
-        return [projection goalVector:vector forLength:vectorLen];
+        return [_projection goalVector:vector forLength:vectorLen];
     }
-    return [projection vector:vector forMeal:_meal andLength:vectorLen];
+    return [_projection vector:vector forMeal:_meal andLength:vectorLen];
 }
 
 #pragma mark GraphNode
@@ -45,10 +44,9 @@
 
 -(NSNumber *)costToNode:(id<GraphNode>)otherNode
 {
-    GoalMealProjection *projection = [GoalMealProjection createWithDiet:_diet andCaloricConstraint:caloricConstraint];
-    int len = [projection vectorLength];
-    int myVector[1];
-    int otherVector[1];
+    int len = [_projection vectorLength];
+    int myVector[GOAL_MEAL_PROJECTION_VECTORLENGTH];
+    int otherVector[GOAL_MEAL_PROJECTION_VECTORLENGTH];
     int magnitude = 0;
 
     [self getVector:myVector forLength:len];
@@ -133,9 +131,7 @@
             boundingConstraint = constraint;
         }
     }
-    if (boundingConstraint == nil) {
-        boundingConstraint = [DietaryConstraint createCaloricWithMax:800];
-    }
+
     return boundingConstraint;
 }
 
@@ -155,21 +151,23 @@
 }
 
 #pragma mark Create/Destroy
--(id)initWithMeal:(id<Meal>)meal andDiet:(id<Diet>)diet andMenuItems:(NSArray *)menuItems andEntreeMatches:(NSArray *)entreeMatches andBoundingConstraint:(id<QuantitativeDietaryConstraint>)constraint
+-(id)initWithMeal:(id<Meal>)meal andDiet:(id<Diet>)diet andMenuItems:(NSArray *)menuItems andEntreeMatches:(NSArray *)entreeMatches andBoundingConstraint:(id<QuantitativeDietaryConstraint>)constraint andMealProjection:(id<GoalMealProjection>)projection
 {
     self = [super init];
     if (self) {
-        _meal          = meal;
-        _diet          = diet;
-        _menuItems     = menuItems;
-        _entreeMatches = entreeMatches;
-        caloricConstraint  = constraint;
+        _meal             = meal;
+        _diet             = diet;
+        _menuItems        = menuItems;
+        _entreeMatches    = entreeMatches;
+        caloricConstraint = constraint;
+        _projection       = projection;
 
         [_meal             retain];
         [_diet             retain];
         [_menuItems        retain];
         [_entreeMatches    retain];
         [caloricConstraint retain];
+        [_projection       retain];
     }
     return self;
 }
@@ -181,6 +179,7 @@
     [_menuItems        release];
     [_entreeMatches    release];
     [caloricConstraint release];
+    [_projection       release];
 
     [super dealloc];
 }
@@ -207,7 +206,9 @@
 +(id<GraphNode>)createWithMeal:(id<Meal>)meal andDiet:(id<Diet>)curDiet andMenuItems:(NSArray *)menuItems andEntreeMatches:(NSArray *)entreeMatches
 {
     id<QuantitativeDietaryConstraint> boundingConstraint = [MealNode boundingConstraintForDiet:curDiet];
-    MealNode * mealNode = [[MealNode alloc] initWithMeal:meal andDiet:curDiet andMenuItems:menuItems andEntreeMatches:entreeMatches andBoundingConstraint:boundingConstraint];
+    
+    GoalMealProjection *projection = [GoalMealProjection createWithDiet:curDiet andCaloricConstraint:boundingConstraint];
+    MealNode * mealNode = [[MealNode alloc] initWithMeal:meal andDiet:curDiet andMenuItems:menuItems andEntreeMatches:entreeMatches andBoundingConstraint:boundingConstraint andMealProjection:projection];
     [mealNode autorelease];
     return mealNode;
 }

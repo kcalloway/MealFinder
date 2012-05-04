@@ -41,7 +41,6 @@
         id<GraphSearch> searcher = [GraphSearch createAStar];
 
         for (int i = 0; i < lastMeal; i++) {
-//            NSArray *mealPath = [searcher pathForStart:startNode andGoal:[MealNode goalNodeForDiet:diet]];
             NSArray *mealPath;
 
             if (i > 0) {
@@ -54,7 +53,6 @@
             if ([mealPath count] > 2) {
                 id<GraphNode> curNode = [mealPath objectAtIndex:[mealPath count] - 2];
                 [meals addObject:curNode.nodeData];
-                NSLog(@"meal.kcal = %d\n", [((id<Meal>)curNode.nodeData).kcal intValue]);
             }
             else {
                 break;

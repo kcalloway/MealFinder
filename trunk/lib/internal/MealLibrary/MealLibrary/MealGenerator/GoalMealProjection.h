@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProjectionDimension.h"
 #import "DietaryConstraint.h"
-#import "Diet.h"
 
+// For use if the user wants to create the vector statically
+#define GOAL_MEAL_PROJECTION_VECTORLENGTH     1
 @protocol GoalMealProjection <NSObject>
 -(BOOL)vector:(int *)vector forMeal:(id<Meal>)meal andLength:(int)vectorLen;
 -(BOOL)goalVector:(int *)vector forLength:(int)vectorLen;
@@ -26,9 +28,8 @@
  * closest to the the goal point in this space
  **/
 @interface GoalMealProjection : NSObject <GoalMealProjection> {
-    id<Diet> _diet;
-    id<QuantitativeDietaryConstraint> _boundingConstraint;
-
+    NSArray                 *_axes;
+    id<ProjectionDimension> _boundingDimension;
 }
 
 +(id<GoalMealProjection>)createWithDiet:(id<Diet>)diet andCaloricConstraint:(id<QuantitativeDietaryConstraint>)constraint;

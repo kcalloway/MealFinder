@@ -11,6 +11,7 @@
 #import "Meal.h"
 #import "Diet.h"
 #import "DietaryConstraint.h"
+#import "GoalMealProjection.h"
 
 @interface MealNode : NSObject <GraphNode> {
     id<Meal> _meal;
@@ -18,6 +19,7 @@
     NSArray  *_entreeMatches;
     id<Diet> _diet;
     id<QuantitativeDietaryConstraint> caloricConstraint;
+    id<GoalMealProjection> _projection;
 
     id<Restaurant> restaurant;
     BOOL isGoal;
