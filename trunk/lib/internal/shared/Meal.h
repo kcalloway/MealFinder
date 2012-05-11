@@ -20,6 +20,7 @@
 @property (readonly) NSString * restaurantId;
 @property (readonly) NSNumber * isVegetarian;
 @property (readonly) NSNumber * isVegan;
+@property (readonly) NSNumber * potentialCondiments;
 @end
 
 @interface Meal : NSObject <Meal> {

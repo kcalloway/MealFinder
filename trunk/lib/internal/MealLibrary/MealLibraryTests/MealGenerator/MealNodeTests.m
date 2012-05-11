@@ -57,7 +57,7 @@ static BOOL importedCSV = 0;
     
     // Check expectations
     STAssertTrue([cost intValue] == expectedCost, @"The node's cost should be %d, but was %d!", expectedCost, [cost intValue]);
-    STAssertTrue([neighbors count] == 22, @"We expected 22 neighbors, but got %d", [neighbors count]);
+    STAssertTrue([neighbors count] == 23, @"We expected 23 neighbors, but got %d", [neighbors count]);
 }
 
 -(void)test_costFromStart
@@ -84,7 +84,7 @@ static BOOL importedCSV = 0;
     
     // Check expectations
     STAssertTrue([cost intValue] == expectedCost, @"The node's cost should be %d, but was %d!", expectedCost, [cost intValue]);
-    STAssertTrue([neighbors count] == 22, @"We expected 22 neighbors, but got %d", [neighbors count]);
+    STAssertTrue([neighbors count] == 23, @"We expected 23 neighbors, but got %d", [neighbors count]);
 }
 
 -(void)test_startNodeNeighbors
@@ -112,7 +112,7 @@ static BOOL importedCSV = 0;
     
     // Check expectations
     STAssertTrue([cost intValue] == expectedCost, @"The node's cost should be %d, but was %d!", expectedCost, [cost intValue]);
-    STAssertTrue([neighbors count] == 22, @"We expected 22 neighbors, but got %d", [neighbors count]);
+    STAssertTrue([neighbors count] == 23, @"We expected 23 neighbors, but got %d", [neighbors count]);
 }
 
 -(void)test_costToNode
@@ -215,29 +215,28 @@ static BOOL importedCSV = 0;
     
     for (id<MenuItem> food in menuItems) {
         meal = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:food]];
-        if (food.isMeal) {
+        if ([food.uniqueId isEqualToString:@"KFC:Crispy Strips (2)"]) {
             break;
         }
     }
     testMealNode = [MealNode createWithMeal:meal andDiet:diet andMenuItems:menuItems];
-    
     // Run the test
     NSArray *neighbors = [testMealNode neighborNodes];
 
     // Check expectations
-    STAssertTrue([neighbors count] == 9, @"We expected 9 neighbors, but got %d", [neighbors count]);
+    STAssertTrue([neighbors count] == 4, @"We expected 4 neighbors, but got %d", [neighbors count]);
 }
 
 -(void)test_neighborNodesFromEntree
 {
     // Set up the test
     id<Meal> meal;
-    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObjects:[DietaryConstraint createVegetarian], [DietaryConstraint createCaloricWithMax:1000], nil]];
+    diet = [Diet createWithConstraints:[NSMutableArray arrayWithObjects:[DietaryConstraint createCaloricWithMax:1000], nil]];
     menuItems = [dataStore getAllMenuItemsForRestaurant:[Restaurant createWithId:@"KFC"] andDiet:[diet dietaryConstraints]];
     
     for (id<MenuItem> food in menuItems) {
         meal = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:food]];
-        if (food.isMeal) {
+        if (food.isEntree) {
             break;
         }
     }
@@ -247,7 +246,7 @@ static BOOL importedCSV = 0;
     NSArray *neighbors = [testMealNode neighborNodes];
     
     // Check expectations
-    STAssertTrue([neighbors count] == 13, @"We expected 13 neighbors, but got %d", [neighbors count]);
+    STAssertTrue([neighbors count] == 46, @"We expected 46 neighbors, but got %d", [neighbors count]);
 }
 
 -(void)test_neighborNodesFromMeal
@@ -259,7 +258,7 @@ static BOOL importedCSV = 0;
 
     for (id<MenuItem> food in menuItems) {
         meal = [Meal createWithRestaurant:nil andMenuItems:[NSArray arrayWithObject:food]];
-        if (food.isMeal) {
+        if ([food.uniqueId isEqualToString:@"KFC:Crispy Strips (3)"]) {
             break;
         }
     }
@@ -269,7 +268,7 @@ static BOOL importedCSV = 0;
     NSArray *neighbors = [testMealNode neighborNodes];
 
     // Check expectations
-    STAssertTrue([neighbors count] == 48, @"We expected 48 neighbors, but got %d", [neighbors count]);
+    STAssertTrue([neighbors count] == 39, @"We expected 39 neighbors, but got %d", [neighbors count]);
 }
 
 -(void)test_getUniqueId

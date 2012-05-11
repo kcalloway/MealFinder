@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * cholesterol;
 @property (nonatomic, retain) NSNumber * sodium;
 @property (nonatomic, retain) NSNumber * carbs;
+
 @end
 
 @protocol MenuItem <NSObject, NutritionData>
@@ -25,11 +26,19 @@
 @property (nonatomic, retain) NSNumber * isMeal;
 @property (nonatomic, retain) NSNumber * isEntree;
 @property (nonatomic, retain) NSNumber * isSide;
-
+@property (nonatomic, retain) NSNumber * isDessert;
+@property (nonatomic, retain) NSNumber * isBreakfast;
 @property (readonly) NSString * uniqueId;
+
+// BEWARE:This is a 16-byte bitMask.  Any menu with more than 16 condiments
+//        will require changing this
+@property (nonatomic, retain) NSNumber * potentialCondiments;
+@property (nonatomic, retain) NSNumber * condimentCategories;
 @end
 
 @interface MenuItem : NSManagedObject <MenuItem, DataStoreSeed> {
 @private
+    uint16_t potentialCondimentsMask;
+    uint16_t condimentCategoriesMask;
 }
 @end

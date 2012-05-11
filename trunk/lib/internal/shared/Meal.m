@@ -12,17 +12,29 @@
 @synthesize origin;
 @synthesize menuItems;
 
-@dynamic kcal;
 @dynamic restaurantId;
 @dynamic isVegetarian;
 @dynamic isVegan;
 
+@dynamic kcal;
 @dynamic cholesterol;
 @dynamic sodium;
 @dynamic carbs;
 
 @dynamic isValidMeal;
 @dynamic uniqueId;
+
+@dynamic potentialCondiments;
+
+-(NSNumber *)potentialCondiments
+{
+    int potentialCondiments = 0;
+    for (id<MenuItem> menuItem in menuItems) {
+        potentialCondiments |= [menuItem.potentialCondiments intValue];
+        potentialCondiments &= ~[menuItem.condimentCategories intValue];
+    }
+    return [NSNumber numberWithInt:potentialCondiments];
+}
 
 -(NSString *)uniqueId
 {

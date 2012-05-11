@@ -82,7 +82,7 @@
     NSArray *neighborFood;
     BOOL bothSideAndEntree = NO;
 
-    if ([_meal.menuItems count]) {
+    if ([_meal.menuItems count] == 1) {
         id<MenuItem> menuItem = [[_meal menuItems] objectAtIndex:0];
         bothSideAndEntree = (menuItem.isSide && menuItem.isEntree);
     }
@@ -97,6 +97,17 @@
     NSMutableArray *nextNodes = [NSMutableArray array];
     id<Meal>      curMeal = nil;
     for (id<MenuItem> menuItem in neighborFood) {
+        // If this menuItem is a condiment
+        if ([menuItem.condimentCategories intValue]) {
+            int condimentCategories = [menuItem.condimentCategories intValue];
+            // Make certain that the condiment matches the current Meal
+            int potentialCondiments = [_meal.potentialCondiments intValue];
+            if ((condimentCategories & potentialCondiments) == 0) {
+                continue;
+            }
+        }
+
+        // Combine this menuItem and the previous ones into a meal
         NSMutableArray *curItems =[NSMutableArray arrayWithArray:_meal.menuItems];
         [curItems addObject:menuItem];
         if (_meal.origin == nil) {
@@ -105,7 +116,8 @@
         else {
             curMeal = [Meal createWithRestaurant:_meal.origin andMenuItems:curItems];
         }
-
+        
+        // If our diet supports this meal, then it is a valid child node
         if ([_diet allowsMeal:curMeal]) {
             if (isStart) {
                 [nextNodes addObject:[MealNode createWithMeal:curMeal andDiet:_diet andMenuItems:_menuItems]];                
@@ -139,10 +151,7 @@
 {
     NSMutableArray *matches = [NSMutableArray array];
     for (id<MenuItem> foodItem in menuItems) {
-        if (foodItem.isSide) {
-            [matches addObject:foodItem];
-        }
-        else if (foodItem.isMeal) {
+        if (foodItem.isSide || foodItem.isMeal) {
             [matches addObject:foodItem];
         }
     }
@@ -192,7 +201,7 @@
         if (food.isEntree || food.isMeal) {
             [startFood addObject:food];
         }
-        if (food.isEntree || food.isMeal || food.isSide) {
+        if (food.isEntree || food.isMeal || food.isSide || food.isDessert || food.condimentCategories) {
             [validFood addObject:food];
         }
     }

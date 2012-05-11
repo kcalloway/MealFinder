@@ -65,7 +65,7 @@ static BOOL importedCSV = 0;
     [testGenerator findMealsForRestaurants:restaurants andDiet:diet];
     
     STAssertNotNil(resultMeals, @"getMeals should always return an array");
-    STAssertTrue([resultMeals count] == 17, @"We expected 17 meals, but got %d!", [resultMeals count]);
+    STAssertTrue([resultMeals count] == 20, @"We expected 20 meals, but got %d!", [resultMeals count]);
 }
 
 -(void)test_findAndGenerateMealsUnder6Carbs
@@ -78,7 +78,7 @@ static BOOL importedCSV = 0;
     STAssertTrue([resultMeals count] == 10, @"We expected 10 meals, but got %d!", [resultMeals count]);
     id<Meal> meal = [resultMeals objectAtIndex:0];
 
-    STAssertTrue([meal.carbs intValue] < 6, @"we expected 20 but got %d", [meal.carbs intValue]);
+    STAssertTrue([meal.carbs intValue] <= 6, @"we expected 6 but got %d", [meal.carbs intValue]);
     STAssertTrue([meal.restaurantId isEqualToString:@"KFC"],@"The expected restaurantId is KFC, but got %@!",meal.restaurantId);
 }
 

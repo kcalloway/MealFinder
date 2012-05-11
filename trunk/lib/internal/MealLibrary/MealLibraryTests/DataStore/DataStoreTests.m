@@ -55,6 +55,8 @@
 }
 
 - (void)test_seedsDataStore {
+    [testDataStore clearWorkingData];
+
     [testDataStore seedDataStore];
 
     // Set expectations

@@ -59,7 +59,6 @@
             }
         }
 
-
         [self.taskDelegate processResultMeals:meals forLocationId:store.uniqueId];
     }
 }
