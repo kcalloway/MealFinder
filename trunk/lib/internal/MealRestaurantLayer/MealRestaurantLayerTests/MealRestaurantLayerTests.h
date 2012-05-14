@@ -11,6 +11,10 @@
 
 @interface MealRestaurantLayerTests : SenTestCase{
     MealRestaurantLayer *testRestLayer;
+    NSArray  *locationIds;
+    NSSet    *addedMeals;
+    NSSet    *removedMeals;
+    NSString *curLocationId;
 }
     
 @end

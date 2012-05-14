@@ -49,6 +49,10 @@
 +(NSString *)userInfoDataKey;
 +(NSString *)userInfoAnnotationKey;
 
++(NSString *)MealAddedNotification;
++(NSString *)MealRemovedNotification;
+
+
 #pragma mark Create/Destroy
 +(id<MealRestaurantLayer>)create;
 

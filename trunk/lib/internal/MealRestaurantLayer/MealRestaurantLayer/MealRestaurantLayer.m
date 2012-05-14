@@ -16,7 +16,7 @@
 
 -(NSArray *)getMealCellInfoForUniqueId:(NSString *)uniqueId;
 {
-    return [_meals objectForKey:uniqueId];
+    return [[_meals objectForKey:uniqueId] allObjects];
 }
 
 -(void)processResultData:(NSArray *)downloadedRestaurants
@@ -56,7 +56,7 @@
     return annotations;
 }
 
--(NSMutableDictionary *)cacheMealsForNewMeals:(NSArray *)meals andLocationId:(NSString *)locationId
+-(NSMutableDictionary *)cacheMealsForNewMeals:(NSMutableSet *)meals andLocationId:(NSString *)locationId
 {
     NSMutableSet *added, *changed, *removed;
     added   = [NSMutableSet set];
@@ -65,23 +65,34 @@
     
     NSMutableSet *previousLocations = [NSMutableSet setWithArray:[_meals allKeys]];
     
-    NSMutableArray *locationMeals = [_meals objectForKey:locationId];
+    NSMutableSet *locationMeals = [_meals objectForKey:locationId];    
+    NSMutableSet *removedMeals = [NSMutableSet setWithSet:locationMeals];
+    [removedMeals minusSet:meals];
+    NSMutableSet *addedMeals = [NSMutableSet setWithSet:meals];
+    [addedMeals minusSet:locationMeals];
     
+    if ([removedMeals count]) {
+        [self postMealsRemoved:removedMeals forLocationId:locationId];
+    }
+    if ([addedMeals count]) {
+        [self postMealsAdded:addedMeals forLocationId:locationId];
+    }
+
     if (locationMeals) {
         [changed addObject:locationId];
     }
     
     if ([meals count]) {
         if (!locationMeals) {
-            locationMeals = [NSMutableArray array];
+            locationMeals = [NSMutableSet set];
             [added addObject:locationId];
         }
         [_meals setObject:meals forKey:locationId];
     }
 
     if ([added count] > 0) {
-        NSArray *uniqueRestaurantAnnotations = [self storeAnnotationsForMeals:meals];
-
+        NSArray *uniqueRestaurantAnnotations = [self storeAnnotationsForMeals:[meals allObjects]];
+        
         [self postLocationAdded:added andAnnotations:uniqueRestaurantAnnotations];
     }
     if ([changed count] > 0) {
@@ -97,13 +108,36 @@
 
 -(void)processResultMeals:(NSArray*) mealsArr forLocationId:(NSString *)locationId
 {
-    NSLog(@"processResultMeals.data = %@", mealsArr);
+    NSMutableSet *mealsSet = [NSMutableSet setWithArray:mealsArr];
+    [self cacheMealsForNewMeals:mealsSet andLocationId:locationId];
+}
 
-    [self cacheMealsForNewMeals:mealsArr andLocationId:locationId];
-//    NSArray *uniqueRestaurantAnnotations = [self storeAnnotationsForMeals:mealsArr];
-//    if ([uniqueRestaurantAnnotations count] ){
-//        [displayDelegate addNewRestaurantMeals:uniqueRestaurantAnnotations];
-//    }
++(NSString *)MealAddedNotification
+{
+    return @"MealAddedNotification";
+}
+
+-(void)postMealsAdded:(NSSet *)addedMeals forLocationId:(NSString *)locationId
+{
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:addedMeals forKey:locationId];
+    NSNotification *myNotification = [NSNotification notificationWithName:[MealRestaurantLayer MealAddedNotification]
+                                                                   object:self 
+                                                                 userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotification:myNotification];
+}
+
++(NSString *)MealRemovedNotification
+{
+    return @"MealRemovedNotification";
+}
+
+-(void)postMealsRemoved:(NSSet *)removedMeals forLocationId:(NSString *)locationId
+{
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:removedMeals forKey:locationId];
+    NSNotification *myNotification = [NSNotification notificationWithName:[MealRestaurantLayer MealRemovedNotification]
+                                                                   object:self 
+                                                                 userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotification:myNotification];
 }
 
 +(NSString *)LocationChangedNotification
@@ -132,7 +166,7 @@
 
 -(void)postLocationAdded:(NSSet *)restaurantIds andAnnotations:(NSArray *)annotations
 {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:restaurantIds forKey:@"LocationIds"];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:restaurantIds forKey:[MealRestaurantLayer userInfoDataKey]];
     [userInfo setObject:annotations forKey:[MealRestaurantLayer userInfoAnnotationKey]];
     NSNotification *myNotification = [NSNotification notificationWithName:[MealRestaurantLayer LocationAddedNotification]
                                                                    object:self 

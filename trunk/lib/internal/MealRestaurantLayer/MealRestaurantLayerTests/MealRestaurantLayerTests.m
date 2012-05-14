@@ -47,7 +47,16 @@
                        andDietaryConstaints:dietaryConstraints
                  andRestaurantDisambiguator:disambiguator];
     mealGenerator.taskDelegate       = testRestLayer;
+
     // Set-up code here.
+    [myNotCenter addObserver:self 
+                    selector:@selector(mealAdded:)
+                        name:[MealRestaurantLayer MealAddedNotification] 
+                      object:nil];
+    [myNotCenter addObserver:self 
+                    selector:@selector(mealRemoved:)
+                        name:[MealRestaurantLayer MealRemovedNotification] 
+                      object:nil];
 }
 
 - (void)tearDown
@@ -61,16 +70,67 @@
 
 -(void)locationAdded:(NSNotification *)caughtNotification
 {
-//    NSArray *annotations = [[caughtNotification userInfo] objectForKey:[MealRestaurantLayer userInfoAnnotationKey]];
+    locationIds = [[caughtNotification userInfo] objectForKey:[MealRestaurantLayer userInfoDataKey]];
+    [locationIds retain];
+}
+
+-(void)mealAdded:(NSNotification *)caughtNotification
+{
+    addedMeals = [[caughtNotification userInfo] objectForKey:curLocationId];
+    [addedMeals retain];
+}
+
+-(void)mealRemoved:(NSNotification *)caughtNotification
+{
+    removedMeals = [[caughtNotification userInfo] objectForKey:curLocationId];
+    [removedMeals retain];
 }
 
 #pragma mark tests
+
+- (void)test_mealsRemoved
+{
+    // Set up the Test
+    id<QuantitativeDietaryConstraint> quantConstraint = [DietaryConstraint createCaloricWithMax:800];
+    curLocationId = @"Denny's";
+    int expectedAdded   = 19;
+    int expectedRemoved = 19;
+    
+    // Run the Test
+    [testRestLayer findMealsForDiet:[NSArray arrayWithObject:quantConstraint]];
+    NSArray *meals = [testRestLayer getMealCellInfoForUniqueId:@"Denny's"];
+    
+    quantConstraint.maxValue = 2;
+    [testRestLayer findMealsForDiet:[NSArray arrayWithObject:quantConstraint]];
+    meals = [testRestLayer getMealCellInfoForUniqueId:@"Denny's"];
+    
+    // Check expecations
+    STAssertTrue([addedMeals count]   == expectedAdded, @"We should have added %d meals but added %d", expectedAdded, [addedMeals count]);    
+    STAssertTrue([removedMeals count] == expectedRemoved, @"We should have removed %d meals but got %d",expectedRemoved, [removedMeals count]);    
+}
+
+- (void)test_mealsAdded
+{
+    // Set up the Test
+    id<QuantitativeDietaryConstraint> quantConstraint = [DietaryConstraint createCaloricWithMax:800];
+    curLocationId = @"Denny's";
+    int expectedAdded   = 19;
+    int expectedRemoved = 0;
+
+    // Run the Test
+    [testRestLayer findMealsForDiet:[NSArray arrayWithObject:quantConstraint]];
+
+    // Check expecations
+    STAssertTrue([addedMeals count]   == expectedAdded, @"We should have added %d meals but added %d", expectedAdded, [addedMeals count]);    
+    STAssertTrue([removedMeals count] == expectedRemoved, @"We should have removed %d meals but got %d",expectedRemoved, [removedMeals count]);    
+}
 
 - (void)test_findAnnotationsForDietLocationsRemoved
 {
     // Set up the Test
     id<QuantitativeDietaryConstraint> quantConstraint = [DietaryConstraint createCaloricWithMax:800];
-    
+    curLocationId = @"Denny's";
+
     // Run the Test
     [testRestLayer findMealsForDiet:[NSArray arrayWithObject:quantConstraint]];
     NSArray *meals = [testRestLayer getMealCellInfoForUniqueId:@"Denny's"];
@@ -91,12 +151,14 @@
     quantConstraint.maxValue = 800;
 
     // Run the Test
-//    [testRestLayer findMealsForDiet:[NSArray arrayWithObject:quantConstraint]];
+    curLocationId = @"Denny's";
     [testRestLayer findMealsForDiet:[dietaryConstraints allValues]];
     NSArray *meals = [testRestLayer getMealCellInfoForUniqueId:@"Denny's"];
 
     // Check expecations
     STAssertTrue([meals count] == 3, @"We expected 3 meals but got %d",[meals count]);    
+    STAssertTrue([locationIds count] == 1, @"We expected 1 meals but got %d",[locationIds count]);    
+
 }
 
 @end
