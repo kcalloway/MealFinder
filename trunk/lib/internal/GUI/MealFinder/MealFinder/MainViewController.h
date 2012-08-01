@@ -9,16 +9,23 @@
 #import "FlipsideViewController.h"
 #import "MapViewManager.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, DetailReceiverDelegate> {
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, DetailReceiverDelegate, MapButtonDelegate> {
     MapViewManager *mapDelegate;
     id<MealRestaurantLayer>  mealDelegate;
+    BOOL applicationJustBecameActive;
 
 }
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 @property (retain) id<MealRestaurantLayer>  mealDelegate;
+@property (retain) IBOutlet UIBarButtonItem *findMyLocationButton;
+@property (retain) IBOutlet UIBarButtonItem *refreshMealsButton;
+
+- (void)applicationDidBecomeActive:(UIApplication *)application;
 
 -(void)presentDetailController:(UIViewController *)detailCont;
 - (IBAction)showInfo:(id)sender;
-+(UIViewController *)createForIPhoneWithMealDelegate:(id<MealRestaurantLayer>)mDelegate;
+- (IBAction)findMyLocation:(id)sender;
+- (IBAction)refreshMeals:(id)sender;
++(MainViewController *)createForIPhoneWithMealDelegate:(id<MealRestaurantLayer>)mDelegate;
 +(MainViewController *)createForIPadWithMealDelegate:(id<MealRestaurantLayer>)mDelegate;
 @end

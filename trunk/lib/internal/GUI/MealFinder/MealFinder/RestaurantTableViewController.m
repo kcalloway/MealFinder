@@ -32,8 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_cellInfos release];
     _cellInfos = [_restaurantLayer getMealCellInfoForUniqueId:_uniqueId];
-
+    [_cellInfos retain];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

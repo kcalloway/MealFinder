@@ -15,26 +15,42 @@
 -(void)presentDetailController:(UIViewController *)detailCont;
 @end
 
+@protocol MapButtonDelegate <NSObject>
+-(void)setCanUpdateLocation:(BOOL)canUpdate;
+-(void)setCanUpdateAnnotations:(BOOL)canUpdate;
+-(void)shouldUpdateMapView:(BOOL)shouldUpdate;
+@end
+
 @interface MapViewManager : NSObject <CLLocationManagerDelegate, MKMapViewDelegate, MealDisplayDelegate> {
     MKMapView      *_mapView;
     NSMutableDictionary *_annotations;
 
     CLLocation     *_curAnnotationCenter;
+    float _prevSpanArea;
     
     CLLocationManager       *locationManager;
     id<MealRestaurantLayer>  mealDelegate;
     
-    id<DetailReceiverDelegate> receiverDelegate;
+    id<DetailReceiverDelegate, MapButtonDelegate> receiverDelegate;
     BOOL shouldUpdateToCurLocation;
 }
 @property (readonly) UIView *view;
 @property (assign) id<DetailReceiverDelegate> receiverDelegate;
 @property BOOL shouldUpdateToCurLocation;
 
--(void)configureMap;
 -(MKMapView *) loadMapOnView:(UIView *)view;
--(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
--(MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation;
+-(void)locationManager:(CLLocationManager *)manager 
+   didUpdateToLocation:(CLLocation *)newLocation
+          fromLocation:(CLLocation *)oldLocation;
+-(MKAnnotationView *)mapView:(MKMapView *)theMapView
+           viewForAnnotation:(id <MKAnnotation>)annotation;
+-(BOOL)prevLocationIsSignificantlyFarFromLoc:(CLLocation *)prevLocation;
+-(CLLocation *)myLocation;
+-(CLLocation *)centerLocation;
+-(void)applicationDidBecomeActive:(UIApplication *)application;
+
+-(void)setLocation:(CLLocation *)location;
+-(void)refreshAnnotations;
 
 +(MapViewManager *)createForView:(UIView *)inputView 
                  andRecieverCont:(id<DetailReceiverDelegate>)receiverCont

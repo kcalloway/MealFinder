@@ -15,9 +15,16 @@
 @end
 
 @implementation MainViewController
+@synthesize findMyLocationButton;
+@synthesize refreshMealsButton;
 @synthesize mealDelegate;
 @synthesize flipsidePopoverController = _flipsidePopoverController;
 
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [mapDelegate applicationDidBecomeActive:application];
+    applicationJustBecameActive = YES;
+}
 
 #pragma mark ViewController Stuff  
 -(void)presentDetailController:(UIViewController *)detailCont
@@ -25,14 +32,35 @@
     [self.navigationController pushViewController:detailCont animated:YES];
 }
 
+-(void)setCanUpdateLocation:(BOOL)canUpdate
+{
+    findMyLocationButton.enabled = canUpdate;
+}
+
+-(void)setCanUpdateAnnotations:(BOOL)canUpdate
+{
+    refreshMealsButton.enabled   = canUpdate;
+}
+
+-(void)shouldUpdateMapView:(BOOL)shouldUpdate
+{
+    if (applicationJustBecameActive) {
+        [self findMyLocation:nil];
+        [self refreshMeals:nil];
+        applicationJustBecameActive = NO;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    mapDelegate = [MapViewManager createForView:self.view andRecieverCont:self andMealDelegate:mealDelegate];
+    mapDelegate = [MapViewManager createForView:self.view 
+                                andRecieverCont:self
+                                andMealDelegate:mealDelegate];
     [mapDelegate retain];
     
     [self.view insertSubview:mapDelegate.view atIndex:0];
-    [self.navigationController  setNavigationBarHidden:YES animated:NO];
+    [self.navigationController  setNavigationBarHidden:YES animated:NO];  
 }
 
 - (void)viewDidUnload
@@ -43,14 +71,21 @@
 }
 - (void)viewDidAppear:(BOOL)animated {  
     [super viewDidAppear:animated];
-    mapDelegate.shouldUpdateToCurLocation = YES;
-//    [mapDelegate configureMap];
 }
 
 - (void)viewWillAppear:(BOOL)animated {  
     [super viewWillAppear:animated];
-    [mapDelegate configureMap];
     [self.navigationController  setNavigationBarHidden:YES animated:YES];
+}
+
+- (IBAction)findMyLocation:(id)sender
+{
+    [mapDelegate setLocation:[mapDelegate myLocation]];
+}
+
+- (IBAction)refreshMeals:(id)sender
+{
+    [mapDelegate refreshAnnotations];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

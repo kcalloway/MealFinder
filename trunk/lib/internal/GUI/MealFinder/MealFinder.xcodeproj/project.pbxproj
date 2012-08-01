@@ -96,6 +96,10 @@
 		12D3B25A15475E1800BE7760 /* SortedSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D3B25815475E1800BE7760 /* SortedSet.m */; };
 		12E9C7DF154B316100432475 /* GoalMealProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E9C7DE154B316100432475 /* GoalMealProjection.m */; };
 		12E9C7E0154B316100432475 /* GoalMealProjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E9C7DE154B316100432475 /* GoalMealProjection.m */; };
+		DD8C15DB15C5E74A00B36C74 /* myLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8C15DA15C5E74A00B36C74 /* myLocation@2x.png */; };
+		DDDB43AA15BE393F00F32A6F /* myLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDB43A915BE393F00F32A6F /* myLocation.png */; };
+		DDDB43AD15BE39F500F32A6F /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDB43AC15BE39F500F32A6F /* refresh.png */; };
+		DDDB43AF15C07DB000F32A6F /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDB43AE15C07DB000F32A6F /* refresh@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +207,10 @@
 		12D3B25815475E1800BE7760 /* SortedSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortedSet.m; sourceTree = "<group>"; };
 		12E9C7DD154B316100432475 /* GoalMealProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalMealProjection.h; sourceTree = "<group>"; };
 		12E9C7DE154B316100432475 /* GoalMealProjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalMealProjection.m; sourceTree = "<group>"; };
+		DD8C15DA15C5E74A00B36C74 /* myLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myLocation@2x.png"; sourceTree = "<group>"; };
+		DDDB43A915BE393F00F32A6F /* myLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myLocation.png; sourceTree = "<group>"; };
+		DDDB43AC15BE39F500F32A6F /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		DDDB43AE15C07DB000F32A6F /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +347,7 @@
 		1272F34B1521C4BD00B79652 /* gui */ = {
 			isa = PBXGroup;
 			children = (
+				DDDB43A815BE393F00F32A6F /* img */,
 				12CBEA0F1530FB1900AD3254 /* config_background.png */,
 				1272F27F1521809D00B79652 /* implementation */,
 				1272F23E1521402D00B79652 /* MainViewController.h */,
@@ -477,6 +486,17 @@
 			path = ../../../../external/SortedSet;
 			sourceTree = "<group>";
 		};
+		DDDB43A815BE393F00F32A6F /* img */ = {
+			isa = PBXGroup;
+			children = (
+				DDDB43AE15C07DB000F32A6F /* refresh@2x.png */,
+				DDDB43AC15BE39F500F32A6F /* refresh.png */,
+				DDDB43A915BE393F00F32A6F /* myLocation.png */,
+				DD8C15DA15C5E74A00B36C74 /* myLocation@2x.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -555,6 +575,10 @@
 				1272F39B1521C70F00B79652 /* MealLibrary.sqlite in Resources */,
 				12CBEA101530FB1A00AD3254 /* config_background.png in Resources */,
 				12ABD0E21532265300D05493 /* AdvancedConfigView.xib in Resources */,
+				DDDB43AA15BE393F00F32A6F /* myLocation.png in Resources */,
+				DDDB43AD15BE39F500F32A6F /* refresh.png in Resources */,
+				DDDB43AF15C07DB000F32A6F /* refresh@2x.png in Resources */,
+				DD8C15DB15C5E74A00B36C74 /* myLocation@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

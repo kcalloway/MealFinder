@@ -11,7 +11,10 @@
 #import "StoreAnnotation.h"
 #import "RestaurantTableViewController.h"
 
-#define METERS_PER_MILE 1600
+#define METERS_PER_MILE     1600
+#define MILES_DEFAULT       2
+#define SIG_ZOOM_MULT       3
+#define MAX_LOCATION_AGE    5.0f
 
 @implementation MapViewManager
 @synthesize receiverDelegate;
@@ -45,16 +48,6 @@
 -(void)clearAnnotations
 {
     [_mapView removeAnnotations:_mapView.annotations];
-    
-//    //Get the current user location annotation.
-//    id userAnnotation=mapView.userLocation;
-//    
-//    //Remove all added annotations
-//    [mapView removeAnnotations:mapView.annotations]; 
-//    
-//    // Add the current user location annotation again.
-//    if(userAnnotation!=nil)
-//        [mapView addAnnotation:userAnnotation];
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
@@ -95,9 +88,13 @@
 
 -(void)locationAdded:(NSNotification *)caughtNotification
 {
+//    CLLocation *centerLocation = [[CLLocation alloc] 
+//                                  initWithLatitude:[_mapView centerCoordinate].latitude 
+//                                  longitude:[_mapView centerCoordinate].longitude];
+//    [centerLocation autorelease];
     NSArray *annotations = [[caughtNotification userInfo] objectForKey:[MealRestaurantLayer userInfoAnnotationKey]];
-    NSLog(@"added = %@\n", annotations);
 
+    NSLog(@"annotations = %@\n",annotations);
     [self addAnnotationsForArray:annotations];
 }
 
@@ -123,60 +120,141 @@
 }
 
 #pragma mark CLLocationManagerDelegate
--(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    if (shouldUpdateToCurLocation)
-    {
-        [self setUserRegion];
-        shouldUpdateToCurLocation = NO;
+-(void)locationManager:(CLLocationManager *)manager
+   didUpdateToLocation:(CLLocation *)newLocation
+          fromLocation:(CLLocation *)oldLocation
+{    
+    NSTimeInterval locationAge = -[newLocation.timestamp timeIntervalSinceNow];
+    
+    if (oldLocation && locationAge < MAX_LOCATION_AGE) {        
+        // we have a measurement that meets our requirements, so we can stop updating the location
+        // 
+        // IMPORTANT!!! Minimize power usage by stopping the location manager as soon as possible.
+        //
+        [locationManager stopUpdatingLocation];
+        
+        // we can also cancel our previous performSelector:withObject:afterDelay: - it's no longer necessary
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(stopUpdatingLocation:) object:nil];
+
+        [receiverDelegate shouldUpdateMapView:YES];
     }
 }
 
-#pragma mark MKMapViewDelegateMapStuff
--(BOOL)shouldUpdateAnnotationsForLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+- (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    CLLocationDistance locDistance = [newLocation distanceFromLocation:oldLocation];
+    [locationManager startUpdatingLocation];
+}
 
-    if (locDistance > 2500) {
+#pragma mark MKMapViewDelegateMapStuff
+-(BOOL)zoomOutIsSignificantForSpan:(MKCoordinateSpan)span
+{
+    float spanArea = span.longitudeDelta * span.latitudeDelta;
+    if (spanArea > _prevSpanArea*SIG_ZOOM_MULT) {
         return YES;
     }
     return NO;
 }
 
--(void)updateAnnotationCenter:(CLLocation *)newLocation
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    if (!_curAnnotationCenter) {
-        _curAnnotationCenter = [locationManager location];
-        [_curAnnotationCenter retain];
-    }
+    BOOL hasSignificantDist = [self 
+                               prevLocationIsSignificantlyFarFromLoc:[self centerLocation]];
 
-    if (_curAnnotationCenter && [self shouldUpdateAnnotationsForLocation:newLocation fromLocation:_curAnnotationCenter]) {
-        [_curAnnotationCenter release];
-        _curAnnotationCenter = newLocation;   
-//        [self makeFakeAnnotations];
-//        MKCoordinateRegion region = _mapView.region;
+    BOOL hasSignificantZoom = [self 
+                               zoomOutIsSignificantForSpan:mapView.region.span];
 
-        [mealDelegate findMealsForLocation:newLocation.coordinate andMeters:2000];
-        [_curAnnotationCenter retain];
-
-    }
+    [receiverDelegate setCanUpdateLocation:hasSignificantDist];
+    [receiverDelegate setCanUpdateAnnotations:(hasSignificantDist || hasSignificantZoom)];
 }
 
--(void)setUserRegion
+-(float)milesFromMeters:(int)numMeters
 {
-    CLLocation *location = [locationManager location];
-    [self updateAnnotationCenter:location];
-    int metersDistance = 2*METERS_PER_MILE;
+    return ((float)numMeters)/((float)METERS_PER_MILE);
+}
 
+-(BOOL)shouldUpdateAnnotationsForLocation:(CLLocation *)newLocation 
+                             fromLocation:(CLLocation *)oldLocation
+{
+    CLLocationDistance locDistance = [newLocation 
+                                      distanceFromLocation:oldLocation];
+
+    if ([self milesFromMeters:locDistance] > MILES_DEFAULT) {        
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL)prevLocationIsSignificantlyFarFromLoc:(CLLocation *)newLocation
+{
+    CLLocationDistance locDistance = [newLocation distanceFromLocation:_curAnnotationCenter];
+
+    if ([self milesFromMeters:locDistance] > MILES_DEFAULT) {
+        return YES;
+    }
+
+    return NO;
+}
+
+-(BOOL)shouldUpdateLocations
+{
+    CLLocation *centerLocation = [[CLLocation alloc] 
+                                  initWithLatitude:[_mapView centerCoordinate].latitude 
+                                  longitude:[_mapView centerCoordinate].longitude];
+    [centerLocation autorelease];
+    return [self prevLocationIsSignificantlyFarFromLoc:centerLocation];
+}
+
+-(void)updateAnnotationCenter:(CLLocation *)newLocation
+{
+    [_curAnnotationCenter release];
+    _curAnnotationCenter = newLocation; 
+     [_curAnnotationCenter retain];
+}
+
+-(void)setUserRegionForLocation:(CLLocation *)newLocation
+{
+    int metersDistance = MILES_DEFAULT*METERS_PER_MILE;
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([location coordinate], metersDistance, metersDistance);
-
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([newLocation coordinate], metersDistance, metersDistance);
+    
     MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:region];                
-
+    
     [_mapView setRegion:adjustedRegion animated:TRUE];
-//    [self makeFakeAnnotations];
+}
 
-    [mealDelegate findMealsForLocation:_curAnnotationCenter.coordinate andMeters:metersDistance];
+-(void)refreshAnnotations
+{
+    int metersDistance = MILES_DEFAULT*METERS_PER_MILE;
+
+    NSLog(@"%f %f %d\n", _mapView.centerCoordinate.latitude, _mapView.centerCoordinate.longitude, metersDistance);
+    [mealDelegate findMealsForLocation:_mapView.centerCoordinate
+                             andMeters:metersDistance];
+    
+    MKCoordinateSpan span = _mapView.region.span;
+    _prevSpanArea = span.longitudeDelta * span.latitudeDelta;
+}
+
+-(CLLocation *)myLocation
+{
+    return [locationManager location];    
+}
+
+-(CLLocation *)centerLocation
+{
+    CLLocation *loc = [[CLLocation alloc] 
+                       initWithLatitude:_mapView.centerCoordinate.latitude
+                       longitude:_mapView.centerCoordinate.longitude];
+    return loc;
+}
+
+-(void)setLocation:(CLLocation *)location
+{
+    [self updateAnnotationCenter:location];
+    [self setUserRegionForLocation:location];    
+}
+
+-(void)setMeterRange:(int)meterRange
+{  
 }
 
 -(void)configureMap
@@ -190,8 +268,6 @@
 
 	_mapView.delegate = self;
     
-//    [self setUserRegion];
-
     // Show the user's location
     _mapView.showsUserLocation = YES;
 }
@@ -201,11 +277,9 @@
     MKMapView *resultMap = [[MKMapView alloc] initWithFrame:view.bounds];
     [resultMap autorelease];
     
-//    CLLocationManager *lManager = [[CLLocationManager alloc] init];
     locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
-    shouldUpdateToCurLocation = YES;
     
     return resultMap;
 }
@@ -285,6 +359,7 @@ andMealDelegate:(id<MealRestaurantLayer>)delegate
     manager.receiverDelegate     = receiverCont;
     mealDelegate.displayDelegate = manager;
     [manager registerForNotifications];
+    [manager configureMap];
     [manager autorelease];
     return manager;
 }
